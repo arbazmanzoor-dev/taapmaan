@@ -1,0 +1,251 @@
+{
+ "target": "peak-stress-hour WBGT (deg C)",
+ "data": "ERA5 reanalysis via Open-Meteo archive, 2013-01-01..2026-09-10",
+ "data_through": "2026-09-10",
+ "split": {
+  "train": "2013-01-01..2024-01-01 (exclusive)",
+  "calibrate": "2024-01-01..2025-01-01 (exclusive)",
+  "test": "2025-01-01..2026-09-10"
+ },
+ "algorithm": "HistGradientBoostingRegressor (scikit-learn)",
+ "features": [
+  "wbgt_lag0",
+  "wbgt_lag1",
+  "wbgt_lag2",
+  "wbgt_lag3",
+  "wbgt_lag6",
+  "wbgt_lag9",
+  "tmax_lag0",
+  "tmax_lag1",
+  "tmax_lag2",
+  "tmax_lag3",
+  "tmin_lag0",
+  "rh_lag0",
+  "solar_lag0",
+  "wind_lag0",
+  "run_days",
+  "wbgt_trend3",
+  "wbgt_anom",
+  "clim_wbgt_target",
+  "doy_sin",
+  "doy_cos",
+  "city"
+ ],
+ "horizons": {
+  "d1": {
+   "n_train": 20035,
+   "n_test": 3090,
+   "model": {
+    "mae": 0.882,
+    "rmse": 1.157,
+    "bias": -0.058
+   },
+   "baseline_persistence": {
+    "mae": 0.97,
+    "rmse": 1.286,
+    "bias": -0.014
+   },
+   "baseline_climatology": {
+    "mae": 1.259,
+    "rmse": 1.603,
+    "bias": -0.274
+   },
+   "skill_vs_persistence": 0.0907,
+   "skill_vs_climatology": 0.2994,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 0.68,
+    "p80": 1.43,
+    "p90": 1.9,
+    "p95": 2.33,
+    "share_within_mae": 0.607
+   },
+   "hottest_10pct_days": {
+    "n": 438,
+    "model_mae": 1.15,
+    "model_bias": -1.062,
+    "persistence_mae": 1.02,
+    "climatology_mae": 1.698,
+    "beats_persistence": false
+   },
+   "days_at_or_above_31c": {
+    "n": 945,
+    "model_recall": 0.801,
+    "model_precision": 0.802,
+    "persistence_recall": 0.796,
+    "persistence_precision": 0.797
+   },
+   "confidence": {
+    "n_calibrate": 1830,
+    "n_test": 3090,
+    "r2": 0.9238,
+    "interval_80_c": 1.42,
+    "interval_80_coverage": 0.7968,
+    "interval_90_c": 1.93,
+    "interval_90_coverage": 0.9042,
+    "interval_90_coverage_hottest_10pct": 0.8333,
+    "danger_days": {
+     "threshold_c": 31.0,
+     "share_of_test_days": 0.3058,
+     "roc_auc": 0.9508,
+     "accuracy": 0.8786,
+     "balanced_accuracy": 0.8569,
+     "precision": 0.8019,
+     "recall": 0.8011,
+     "brier": 0.0821,
+     "brier_skill_vs_base_rate": 0.6217
+    },
+    "band_accuracy": 0.8236
+   }
+  },
+  "d3": {
+   "n_train": 20025,
+   "n_test": 3090,
+   "model": {
+    "mae": 1.18,
+    "rmse": 1.518,
+    "bias": -0.174
+   },
+   "baseline_persistence": {
+    "mae": 1.395,
+    "rmse": 1.824,
+    "bias": -0.04
+   },
+   "baseline_climatology": {
+    "mae": 1.259,
+    "rmse": 1.603,
+    "bias": -0.274
+   },
+   "skill_vs_persistence": 0.1541,
+   "skill_vs_climatology": 0.0627,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 0.94,
+    "p80": 1.93,
+    "p90": 2.5,
+    "p95": 3.04,
+    "share_within_mae": 0.595
+   },
+   "hottest_10pct_days": {
+    "n": 438,
+    "model_mae": 1.574,
+    "model_bias": -1.554,
+    "persistence_mae": 1.439,
+    "climatology_mae": 1.698,
+    "beats_persistence": false
+   },
+   "days_at_or_above_31c": {
+    "n": 945,
+    "model_recall": 0.701,
+    "model_precision": 0.789,
+    "persistence_recall": 0.709,
+    "persistence_precision": 0.714
+   },
+   "confidence": {
+    "n_calibrate": 1830,
+    "n_test": 3090,
+    "r2": 0.8687,
+    "interval_80_c": 1.93,
+    "interval_80_coverage": 0.8006,
+    "interval_90_c": 2.55,
+    "interval_90_coverage": 0.9019,
+    "interval_90_coverage_hottest_10pct": 0.8265,
+    "danger_days": {
+     "threshold_c": 31.0,
+     "share_of_test_days": 0.3058,
+     "roc_auc": 0.9272,
+     "accuracy": 0.8511,
+     "balanced_accuracy": 0.809,
+     "precision": 0.789,
+     "recall": 0.7005,
+     "brier": 0.1005,
+     "brier_skill_vs_base_rate": 0.5367
+    },
+    "band_accuracy": 0.7709
+   }
+  },
+  "d5": {
+   "n_train": 20015,
+   "n_test": 3090,
+   "model": {
+    "mae": 1.25,
+    "rmse": 1.592,
+    "bias": -0.217
+   },
+   "baseline_persistence": {
+    "mae": 1.595,
+    "rmse": 2.06,
+    "bias": -0.063
+   },
+   "baseline_climatology": {
+    "mae": 1.259,
+    "rmse": 1.603,
+    "bias": -0.274
+   },
+   "skill_vs_persistence": 0.2163,
+   "skill_vs_climatology": 0.0071,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 1.01,
+    "p80": 2.03,
+    "p90": 2.66,
+    "p95": 3.14,
+    "share_within_mae": 0.59
+   },
+   "hottest_10pct_days": {
+    "n": 438,
+    "model_mae": 1.645,
+    "model_bias": -1.628,
+    "persistence_mae": 1.664,
+    "climatology_mae": 1.698,
+    "beats_persistence": true
+   },
+   "days_at_or_above_31c": {
+    "n": 945,
+    "model_recall": 0.68,
+    "model_precision": 0.777,
+    "persistence_recall": 0.684,
+    "persistence_precision": 0.69
+   },
+   "confidence": {
+    "n_calibrate": 1830,
+    "n_test": 3090,
+    "r2": 0.8556,
+    "interval_80_c": 2.09,
+    "interval_80_coverage": 0.8107,
+    "interval_90_c": 2.78,
+    "interval_90_coverage": 0.9142,
+    "interval_90_coverage_hottest_10pct": 0.8562,
+    "danger_days": {
+     "threshold_c": 31.0,
+     "share_of_test_days": 0.3058,
+     "roc_auc": 0.9205,
+     "accuracy": 0.8424,
+     "balanced_accuracy": 0.7971,
+     "precision": 0.7766,
+     "recall": 0.6804,
+     "brier": 0.1052,
+     "brier_skill_vs_base_rate": 0.5149
+    },
+    "band_accuracy": 0.755
+   }
+  }
+ },
+ "confidence_explained": {
+  "r2": "share of the day-to-day variation in peak WBGT that the forecast explains (1 = perfect)",
+  "interval_90_c": "every forecast carries a +/- range, sized on the calibration year so that 90% of days should land inside it; interval_90_coverage is how often they actually did on the test days",
+  "danger_days.roc_auc": "chance that a random dangerous day (WBGT >= 31 degC) gets a higher forecast than a random safer day",
+  "danger_days.brier_skill_vs_base_rate": "how much better the per-day danger probability is than always quoting the historical rate (0 = no better, 1 = perfect)",
+  "band_accuracy": "share of test days put in the right band: safe (<28), caution (28-31), danger (>=31)"
+ },
+ "caveats": [
+  "Trained on ERA5 reanalysis, not station observations. It learns ERA5's world.",
+  "On each city's hottest 10% of days the model reads 1.6 \u00b0C low at D+3 and is less accurate than persistence (1.57 vs 1.44 \u00b0C). It must not be used to call heatwave days; the physics forecast does that.",
+  "The 90% range is one width for every day, sized on 2024. On each city's hottest 10% of test days it held on 83% of days at D+3 (vs 90% overall), so on the hottest days it is too narrow.",
+  "IT FORECASTS FROM HISTORY ONLY. It sees past days, never an NWP forecast, so it cannot know a weather system is inbound. Where it disagrees with the physics path (which uses a real Open-Meteo forecast), trust the physics path. This model is a statistical benchmark for what history alone can achieve -- not a replacement for NWP.",
+  "The genuinely valuable ML here would be bias-correcting the NWP forecast against station observations. That needs observation data we do not have.",
+  "Predicts peak-stress WBGT for the CITY. Ward downscaling is still the deterministic UHI model, not learned.",
+  "It does NOT predict mortality. No daily death counts were available, so the mortality layer stays parametric.",
+  "Reanalysis has no forecast error, so real operational skill at D+3 will be worse than these numbers."
+ ]
+}

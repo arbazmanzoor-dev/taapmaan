@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taapmaan · Broadcast Heat Alert Modal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#C2410C',
+              dark: '#9A3412',
+              light: '#FFEDD5',
+              subtle: '#FFF7ED',
+            },
+            risk: {
+              green: '#16A34A',
+              greenWash: '#DCFCE7',
+              yellow: '#CA8A04',
+              yellowWash: '#FEF9C3',
+              orange: '#EA580C',
+              orangeWash: '#FFEDD5',
+              red: '#DC2626',
+              redWash: '#FEE2E2',
+              magenta: '#C026D3',
+              magentaWash: '#FAE8FF',
+            },
+            paper: '#FAF8F5',
+            panel: '#FFFFFF',
+            hairline: '#E6E2DA',
+            ink: '#1C1917',
+            inkMuted: '#78716C',
+            inkLight: '#A8A29E',
+          },
+          fontFamily: {
+            heading: ['Bricolage Grotesque', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1C1917;
+      overflow-x: hidden;
+    }
+    .font-heading { font-family: 'Bricolage Grotesque', sans-serif; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
+    .modal-backdrop {
+      background: rgba(28, 25, 23, 0.65);
+      backdrop-filter: blur(5px);
+    }
+    /* Custom scrollbar for control room density */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F5F3EF; }
+    ::-webkit-scrollbar-thumb { background: #D6D2CA; border-radius: 3px; }
+  </style>
+</head>
+<body class="min-h-screen relative antialiased selection:bg-brand-light selection:text-brand-dark">
+
+  <!-- ==================== BACKGROUND DASHBOARD (DIMMED CONSOLE) ==================== -->
+  <div class="filter blur-[2px] brightness-[0.7] pointer-events-none select-none max-w-[1560px] mx-auto p-4 sm:p-6 space-y-5" aria-hidden="true">
+    <!-- Top Bar -->
+    <header class="bg-white border border-hairline rounded-xl px-5 py-3.5 flex items-center justify-between shadow-sm">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-[#9A3412] flex items-center justify-center text-white shadow-sm font-heading font-bold text-lg">
+          https://lh3.googleusercontent.com/aida/AEtjO1UG0xuS3heQyg7PjV6Mthmh4HUlELoycxW9hrFETxzbX5LiWAPxIpErRBNMPNlpTbDNBtD6At_3Hcm9WwokP1OW9483jsN1X2kxS65Y86o4OftWnjrb_GR3b7AKaAnebXyw8vqOR_SrsutKGywaPHQ-PF88XN49eyJW9zreVy0qoAImHZkP-DIswd6YvCld0NTHXAfe4vfzgffv82Vlj3-k2ZpO9BXLnENty8dJCB6RzIFtnkidwhh_mLU
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-heading font-bold text-xl tracking-tight text-ink">Taapmaan</span>
+            <span class="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded bg-brand-light text-brand-dark font-semibold uppercase">Cell-HAP</span>
+          </div>
+          <p class="text-xs text-inkMuted">तापमान · AMC Heat Action Plan Cell · Control Room</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 bg-[#F4F1EA] p-1 rounded-lg border border-hairline">
+        <button class="px-4 py-1.5 rounded-md bg-white text-ink font-semibold text-xs shadow-sm">Monitor</button>
+        <button class="px-4 py-1.5 rounded-md text-inkMuted text-xs font-medium">Command Centre</button>
+        <button class="px-4 py-1.5 rounded-md text-inkMuted text-xs font-medium">Ward Analytics</button>
+        <button class="px-4 py-1.5 rounded-md text-inkMuted text-xs font-medium">Hospital Triage</button>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          LIVE · updated 14:30 IST
+        </span>
+        <button class="bg-[#C2410C] text-white px-4 py-2 rounded-lg text-xs font-bold font-heading flex items-center gap-1.5 shadow-sm">
+          <span>📡</span> Broadcast alert
+        </button>
+      </div>
+    </header>
+
+    <!-- Background Hero & Wards Snapshot (Dimmed) -->
+    <div class="grid grid-cols-12 gap-5">
+      <div class="col-span-8 bg-white border border-hairline rounded-xl p-6 shadow-sm space-y-4">
+        <div class="flex justify-between items-start border-b border-hairline pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-risk-red text-white uppercase">STAGE 3 ACTIVATED</span>
+              <span class="text-xs text-inkMuted font-mono">BULLETIN NO. 44/HAP-AMD</span>
+            </div>
+            <h1 class="text-2xl font-bold font-heading text-ink mt-1">Ahmedabad Metropolitan Region Heat Emergency</h1>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-mono text-inkMuted uppercase">Wet-Bulb Critical</span>
+            <div class="text-2xl font-bold font-mono text-risk-red">31.2°C <span class="text-xs bg-red-100 text-red-700 px-1 py-0.5 rounded">DANGER</span></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 pt-2">
+          <div class="p-3 bg-[#FAF8F5] rounded-lg border border-hairline">
+            <div class="text-xs text-inkMuted">Ambient Dry-Bulb</div>
+            <div class="text-xl font-mono font-bold text-ink mt-1">44.2°C</div>
+          </div>
+          <div class="p-3 bg-[#FAF8F5] rounded-lg border border-hairline">
+            <div class="text-xs text-inkMuted">Wards Over Threshold</div>
+            <div class="text-xl font-mono font-bold text-risk-red mt-1">37 / 37</div>
+          </div>
+          <div class="p-3 bg-[#FAF8F5] rounded-lg border border-hairline">
+            <div class="text-xs text-inkMuted">Population Exposed</div>
+            <div class="text-xl font-mono font-bold text-ink mt-1">84.5 Lakh</div>
+          </div>
+          <div class="p-3 bg-[#FAF8F5] rounded-lg border border-hairline">
+            <div class="text-xs text-inkMuted">Active Cool Hubs</div>
+            <div class="text-xl font-mono font-bold text-emerald-700 mt-1">118 Open</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-4 bg-white border border-hairline rounded-xl p-6 shadow-sm">
+        <h3 class="font-heading font-bold text-ink mb-3 text-sm">37 Ward Vulnerability Hexgrid</h3>
+        <div class="h-40 bg-[#FAF8F5] rounded-lg border border-dashed border-hairline flex items-center justify-center text-xs text-inkMuted">
+          Hexagonal Ward Matrix (Ahmedabad East & South)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL OVERLAY ==================== -->
+  <div class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+    
+    <!-- Modal Container: 1040px wide for control room display clarity -->
+    <div class="bg-white border border-hairline rounded-2xl shadow-2xl w-full max-w-[1040px] my-auto overflow-hidden flex flex-col max-h-[94vh]">
+      
+      <!-- 1. MODAL HEADER -->
+      <div class="px-6 py-4 border-b border-hairline bg-[#FAF8F5] flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-risk-red/10 border border-risk-red/30 flex items-center justify-center text-risk-red font-bold text-base">
+            📡
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5">
+              <h2 class="font-heading font-extrabold text-xl text-ink tracking-tight">Broadcast Heat Alert</h2>
+              <!-- Dynamic Chip: Live vs Scenario honesty clause -->
+              <span id="severityChip" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-mono font-bold tracking-wider uppercase bg-risk-red text-white shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                RED · SEVERE
+              </span>
+              <span class="hidden" id="scenarioChip">
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-600 text-white">
+                  SCENARIO · RED · SEVERE
+                </span>
+              </span>
+            </div>
+            <p class="text-xs text-inkMuted mt-0.5">
+              AMC Emergency Response Framework · Incident Commander Authorization (Rule 14-B)
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Toggle to test Scenario Mode Honesty -->
+          <button id="toggleDataSourceBtn" class="text-[11px] font-mono font-medium px-2 py-1 rounded bg-[#EAE6DE] hover:bg-[#E0DBD0] text-inkMuted hover:text-ink transition border border-hairline" title="Switch data honesty indicator">
+            DataSource: <span class="font-bold text-emerald-800" id="currentSourceLabel">LIVE (IMD SVPI)</span>
+          </button>
+          
+          <button class="w-8 h-8 rounded-lg flex items-center justify-center text-inkMuted hover:text-ink hover:bg-[#EAE6DE] transition text-lg font-bold" aria-label="Close dialog">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. MODAL BODY (Two-Column Interactive Grid) -->
+      <div class="grid grid-cols-12 gap-0 overflow-y-auto divide-y md:divide-y-0 md:divide-x divide-hairline">
+        
+        <!-- LEFT COLUMN: Dispatch Configuration (Steps 1, 2, 3 + Honesty Notice) -->
+        <div class="col-span-12 md:col-span-7 p-6 space-y-5 bg-white">
+          
+          <!-- STEP 1: AUDIENCE PILL TOGGLES -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="font-heading font-bold text-xs uppercase tracking-wider text-ink flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-ink text-white inline-flex items-center justify-center text-[10px] font-mono font-bold">1</span>
+                Target Audience Cohorts
+              </label>
+              <span class="text-[11px] font-mono text-inkMuted">Multi-select enabled</span>
+            </div>
+            <div class="flex flex-wrap gap-2" id="audienceGroup">
+              <!-- Pill 1 -->
+              <button type="button" class="audience-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1.5 bg-[#FAF8F5] text-ink border-hairline hover:border-inkMuted" data-target="all">
+                <span class="w-2 h-2 rounded-full bg-inkLight indicator"></span>
+                All residents
+              </button>
+              <!-- Pill 2 (Selected by default) -->
+              <button type="button" class="audience-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1.5 bg-brand-light text-brand-dark border-brand-dark shadow-xs" data-target="workers">
+                <span class="w-2 h-2 rounded-full bg-brand-dark indicator"></span>
+                Outdoor workers
+              </button>
+              <!-- Pill 3 (Selected by default) -->
+              <button type="button" class="audience-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1.5 bg-brand-light text-brand-dark border-brand-dark shadow-xs" data-target="seniors">
+                <span class="w-2 h-2 rounded-full bg-brand-dark indicator"></span>
+                Age 60+ &amp; chronic
+              </button>
+              <!-- Pill 4 (Selected by default) -->
+              <button type="button" class="audience-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1.5 bg-brand-light text-brand-dark border-brand-dark shadow-xs" data-target="schools">
+                <span class="w-2 h-2 rounded-full bg-brand-dark indicator"></span>
+                Schools &amp; anganwadi
+              </button>
+              <!-- Pill 5 -->
+              <button type="button" class="audience-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1.5 bg-[#FAF8F5] text-ink border-hairline hover:border-inkMuted" data-target="field">
+                <span class="w-2 h-2 rounded-full bg-inkLight indicator"></span>
+                Field staff (ASHA/108)
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: CHANNEL SELECTION -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="font-heading font-bold text-xs uppercase tracking-wider text-ink flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-ink text-white inline-flex items-center justify-center text-[10px] font-mono font-bold">2</span>
+                Transmission Channels
+              </label>
+              <span class="text-[11px] font-mono text-inkMuted">Primary &amp; Failover</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <!-- WhatsApp -->
+              <label class="relative flex flex-col p-3 rounded-xl border border-hairline bg-[#FAF8F5] hover:bg-white cursor-pointer transition has-[:checked]:border-brand-dark has-[:checked]:bg-brand-subtle has-[:checked]:shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-base">💬</span>
+                  <input type="checkbox" name="channel" value="whatsapp" checked class="accent-brand-dark w-4 h-4 rounded">
+                </div>
+                <span class="font-bold text-xs text-ink mt-2">WhatsApp</span>
+                <span class="text-[10px] font-mono text-inkMuted mt-0.5">Community trees</span>
+              </label>
+
+              <!-- SMS -->
+              <label class="relative flex flex-col p-3 rounded-xl border border-hairline bg-[#FAF8F5] hover:bg-white cursor-pointer transition has-[:checked]:border-brand-dark has-[:checked]:bg-brand-subtle has-[:checked]:shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-base">✉️</span>
+                  <input type="checkbox" name="channel" value="sms" checked class="accent-brand-dark w-4 h-4 rounded">
+                </div>
+                <span class="font-bold text-xs text-ink mt-2">SMS Gateway</span>
+                <span class="text-[10px] font-mono text-inkMuted mt-0.5">Unicode bulk</span>
+              </label>
+
+              <!-- IVR Voice -->
+              <label class="relative flex flex-col p-3 rounded-xl border border-hairline bg-[#FAF8F5] hover:bg-white cursor-pointer transition has-[:checked]:border-brand-dark has-[:checked]:bg-brand-subtle has-[:checked]:shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-base">📞</span>
+                  <input type="checkbox" name="channel" value="ivr" class="accent-brand-dark w-4 h-4 rounded">
+                </div>
+                <span class="font-bold text-xs text-ink mt-2">IVR Voice</span>
+                <span class="text-[10px] font-mono text-inkMuted mt-0.5">Automated call</span>
+              </label>
+
+              <!-- Cell Broadcast -->
+              <label class="relative flex flex-col p-3 rounded-xl border border-hairline bg-[#FAF8F5] hover:bg-white cursor-pointer transition has-[:checked]:border-risk-red has-[:checked]:bg-risk-redWash has-[:checked]:shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-base">🚨</span>
+                  <input type="checkbox" name="channel" value="cell_broadcast" checked class="accent-risk-red w-4 h-4 rounded">
+                </div>
+                <div class="flex items-center gap-1 mt-2">
+                  <span class="font-bold text-xs text-ink">Cell Broadcast</span>
+                </div>
+                <span class="text-[10px] font-mono text-risk-red font-semibold mt-0.5">Tower push (Geo)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 3: LANGUAGE SELECTOR -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="font-heading font-bold text-xs uppercase tracking-wider text-ink flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-ink text-white inline-flex items-center justify-center text-[10px] font-mono font-bold">3</span>
+                Message Language
+              </label>
+              <span class="text-[11px] font-mono text-inkMuted">Affects encoding &amp; SMS parts</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 bg-[#F5F2EC] p-1 rounded-xl border border-hairline">
+              <button type="button" id="btnLangGu" class="lang-btn py-2 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-2 bg-white text-ink shadow-xs">
+                <span>ગુજરાતી</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-100 text-amber-900">Primary</span>
+              </button>
+              <button type="button" id="btnLangEn" class="lang-btn py-2 px-3 rounded-lg text-xs font-semibold text-inkMuted hover:text-ink transition flex items-center justify-center gap-2">
+                <span>English</span>
+                <span class="text-[10px] font-mono px-1 py-0.2 rounded bg-stone-200 text-stone-700">Ref</span>
+              </button>
+              <button type="button" id="btnLangHi" class="lang-btn py-2 px-3 rounded-lg text-xs font-semibold text-inkMuted hover:text-ink transition flex items-center justify-center gap-2">
+                <span>हिन्दी</span>
+                <span class="text-[10px] font-mono px-1 py-0.2 rounded bg-stone-200 text-stone-700">Sub</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- REACH SUMMARY & DEMOGRAPHIC WARNING -->
+          <div class="bg-[#FAF8F5] border border-hairline rounded-xl p-3.5 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-heading font-bold uppercase tracking-wider text-ink">Projected Reach Coverage</span>
+              <span class="font-mono text-xs font-bold text-brand-dark">7,60,500 recipients</span>
+            </div>
+            
+            <div class="flex items-center gap-2 text-xs text-inkMuted font-mono">
+              <span class="inline-block w-2 h-2 rounded-full bg-brand-dark"></span>
+              <span>37 wards covered</span>
+              <span class="text-inkLight">·</span>
+              <span>AMC Census 2011 + AWS Density calibration</span>
+            </div>
+
+            <!-- Flag other-language subscribers notice -->
+            <div class="flex items-start gap-2 pt-1 border-t border-hairline/80 text-[11px] text-stone-600">
+              <span class="text-amber-600 font-bold shrink-0">⚠️ Flag:</span>
+              <p>
+                <strong class="font-semibold text-ink">1,14,200 recipients (~15%)</strong> in industrial pockets (Vatva, Naroda GIDC) have non-Gujarati profile preferences. Multi-lingual auto-fallback will route secondary SMS in <strong class="text-ink">हिन्दी</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- PERSISTENT AMBER NOTICE (MANDATORY DRY-RUN HONESTY) -->
+          <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-300 flex items-start gap-3 shadow-xs">
+            <div class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+              !
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-heading font-bold text-amber-950 text-xs uppercase tracking-wide">
+                  Dry run — nothing is sent to the public.
+                </h4>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-200 text-amber-900 font-semibold">TEST SANDBOX</span>
+              </div>
+              <p class="text-xs text-amber-900/90 mt-1 leading-relaxed">
+                This broadcast executes within the AMC Stage 3 telemetry rehearsal sandbox. Dispatches are logged to the municipal event stream, gateway APIs return simulated ACK tokens, and ward siren relays remain armed in audit mode.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Message Preview Bubble, Encoding Cost & Monospace Delivery Audit -->
+        <div class="col-span-12 md:col-span-5 p-6 space-y-4 bg-[#FAF8F5] flex flex-col justify-between">
+          
+          <div>
+            <!-- Section Header -->
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-heading font-bold text-xs uppercase tracking-wider text-ink">Handset Device Preview</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white border border-hairline text-inkMuted" id="previewLangBadge">
+                Gujarati (Unicode UTF-8)
+              </span>
+            </div>
+
+            <!-- PHONE MESSAGE BUBBLE -->
+            <div class="bg-stone-100 p-3.5 rounded-2xl border border-hairline shadow-inner max-w-sm mx-auto">
+              <!-- Handset Header Mockup -->
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-stone-200 text-[10px] font-mono text-inkMuted">
+                <span class="flex items-center gap-1 font-semibold text-stone-700">
+                  <span class="w-1.5 h-1.5 rounded-full bg-risk-red"></span>
+                  AMC-ALERT (Govt. of Gujarat)
+                </span>
+                <span>NOW · 14:31</span>
+              </div>
+
+              <!-- The Bubble Container -->
+              <div class="bg-white rounded-2xl rounded-tl-sm p-4 border border-stone-200 shadow-sm relative space-y-2.5">
+                
+                <!-- Bubble content in Gujarati (Default) -->
+                <div id="msgGujarati" class="space-y-2 text-xs leading-relaxed text-stone-900">
+                  <div class="flex items-center gap-1.5 text-risk-red font-bold font-mono text-[11px] tracking-wide border-b border-red-100 pb-1.5">
+                    <span>🚨</span>
+                    <span>*AMC હીટ એલર્ટ — અતિ ગંભીર (RED)*</span>
+                  </div>
+                  <div class="font-mono text-[11px] text-stone-600 bg-stone-50 p-1.5 rounded border border-stone-100">
+                    ૧૪ સપ્ટેમ્બર · મણિનગર, નારણપુરા, બાપુનગર, વટવા<br>
+                    <span class="font-bold text-risk-red">અનુભવાતું તાપમાન ૫૬°C · WBGT ૩૮.૫°C</span>
+                  </div>
+                  <ul class="text-[11.5px] space-y-1.5 text-stone-800 list-disc list-inside">
+                    <li><strong>સવારે ૧૧:૦૦ થી સાંજે ૫:૦૦</strong> સુધી ઘરની અંદર રહો.</li>
+                    <li>દર ૨૦ મિનિટે પાણી પીવો, ORS લો.</li>
+                    <li>પાર્ક કરેલા વાહનોમાં બાળકો કે વડીલોને ક્યારેય એકલા ન છોડશો.</li>
+                    <li>ચક્કર આવે, ઉલટી થાય કે બેભાન થવાય તો તુરંત <strong>૧૦૮ ડાયલ કરો</strong>.</li>
+                  </ul>
+                  <div class="pt-1.5 border-t border-stone-100 text-[11px] font-medium text-brand-dark flex items-center gap-1">
+                    <span>🏛️</span>
+                    <span>અમદાવાદમાં ૧૧૨ કુલિંગ સેન્ટર્સ કાર્યરત છે.</span>
+                  </div>
+                </div>
+
+                <!-- Bubble content in English (Switchable) -->
+                <div id="msgEnglish" class="space-y-2 text-xs leading-relaxed text-stone-900 hidden">
+                  <div class="flex items-center gap-1.5 text-risk-red font-bold font-mono text-[11px] tracking-wide border-b border-red-100 pb-1.5">
+                    <span>🚨</span>
+                    <span>*AMC HEAT ALERT — SEVERE*</span>
+                  </div>
+                  <div class="font-mono text-[11px] text-stone-600 bg-stone-50 p-1.5 rounded border border-stone-100">
+                    14 Sep · Maninagar, Naranpura, Bapunagar, Vatva<br>
+                    <span class="font-bold text-risk-red">Feels like 56°C · WBGT 38.5°C</span>
+                  </div>
+                  <ul class="text-[11.5px] space-y-1.5 text-stone-800 list-disc list-inside">
+                    <li>Stay indoors 11:00–17:00</li>
+                    <li>Drink water every 20 minutes, take ORS</li>
+                    <li>Never leave children or elders in a parked vehicle</li>
+                    <li>Dizziness, vomiting or fainting — call 108</li>
+                  </ul>
+                  <div class="pt-1.5 border-t border-stone-100 text-[11px] font-medium text-brand-dark flex items-center gap-1">
+                    <span>🏛️</span>
+                    <span>112 cooling centres are open across AMC.</span>
+                  </div>
+                </div>
+
+                <!-- Bubble content in Hindi (Switchable) -->
+                <div id="msgHindi" class="space-y-2 text-xs leading-relaxed text-stone-900 hidden">
+                  <div class="flex items-center gap-1.5 text-risk-red font-bold font-mono text-[11px] tracking-wide border-b border-red-100 pb-1.5">
+                    <span>🚨</span>
+                    <span>*AMC हीट अलर्ट — गंभीर (RED)*</span>
+                  </div>
+                  <div class="font-mono text-[11px] text-stone-600 bg-stone-50 p-1.5 rounded border border-stone-100">
+                    14 सितम्बर · मणिनगर, नारनपुरा, बापूनगर, वटवा<br>
+                    <span class="font-bold text-risk-red">महसूस तापमान 56°C · WBGT 38.5°C</span>
+                  </div>
+                  <ul class="text-[11.5px] space-y-1.5 text-stone-800 list-disc list-inside">
+                    <li>सुबह 11:00 से 17:00 बजे तक घर के अंदर रहें।</li>
+                    <li>प्रत्येक 20 मिनट में पानी पिएं, ORS का घोल लें।</li>
+                    <li>खड़े वाहन में बच्चों या बुजुर्गों को कभी अकेला न छोड़ें।</li>
+                    <li>चक्कर, उल्टी या बेहोशी की स्थिति में 108 पर कॉल करें।</li>
+                  </ul>
+                  <div class="pt-1.5 border-t border-stone-100 text-[11px] font-medium text-brand-dark flex items-center gap-1">
+                    <span>🏛️</span>
+                    <span>112 नागरिक कूलिंग केंद्र खुले हैं।</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Message meta -->
+              <div class="text-[10px] text-right text-stone-500 mt-1.5 font-mono">
+                SMS Channel 1 · Encrypted
+              </div>
+            </div>
+
+            <!-- UNDER THE PREVIEW: COST & TELECOM ENCODING LINE -->
+            <div class="mt-3.5 px-3 py-2 rounded-lg bg-white border border-hairline flex items-center justify-between text-xs font-mono">
+              <span class="text-ink font-semibold" id="charCountLabel">352 chars · 6 SMS parts (Unicode)</span>
+              <span class="text-[11px] text-inkMuted bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200">UCS-2 70ch/seg</span>
+            </div>
+          </div>
+
+          <!-- AFTER SENDING: COMPACT MONOSPACE DELIVERY AUDIT TIMELINE -->
+          <div class="bg-white border border-hairline rounded-xl p-3.5 space-y-2 mt-2">
+            <div class="flex items-center justify-between">
+              <span class="font-heading font-bold text-[11px] uppercase tracking-wider text-ink flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Delivery Audit Stream
+              </span>
+              <span class="font-mono text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200 font-semibold">
+                ACTIVE PIPELINE
+              </span>
+            </div>
+
+            <!-- Compact Monospace Delivery Log -->
+            <div class="font-mono text-[10.5px] leading-snug bg-[#1E1B18] text-[#F3EFEA] p-2.5 rounded-lg space-y-1.5 overflow-x-auto border border-stone-800">
+              <div class="flex items-center justify-between text-stone-400 pb-1 border-b border-stone-800">
+                <span>[JOB: HAP-AMD-20240914-04]</span>
+                <span class="text-amber-400">STATUS: DRY_RUN_VERIFIED</span>
+              </div>
+              <div class="text-emerald-400">
+                › DATA BASIS: IMD-AWS-42647 (SVPI) + 18-NODES [SYNC 14:30:12 IST]
+              </div>
+              <div class="text-stone-300">
+                › PAYLOAD HASH: <span class="text-stone-400">sha256:7f4c91...b0e3</span>
+              </div>
+              <div class="text-emerald-300 bg-emerald-950/60 p-1 rounded border border-emerald-800/60">
+                ✓ "sent text matches the approved preview"
+              </div>
+              <div class="text-stone-400 text-[10px] flex justify-between pt-0.5">
+                <span>GW: BSNL/NIC-CELL-BCAST</span>
+                <span>LATENCY: 142ms</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 3. MODAL FOOTER -->
+      <div class="px-6 py-3.5 bg-[#FAF8F5] border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        
+        <div class="flex items-center gap-2 text-xs font-mono text-inkMuted">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Simulation safety interlock: <strong class="text-ink">ARMED</strong></span>
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+          <!-- Cancel Button -->
+          <button type="button" class="px-5 py-2.5 rounded-xl border border-hairline bg-white hover:bg-stone-50 text-ink text-xs font-bold font-heading transition shadow-xs">
+            Cancel
+          </button>
+          
+          <!-- Primary Red "Send dry run" Button -->
+          <button type="button" id="sendDryRunBtn" class="px-6 py-2.5 rounded-xl bg-risk-red hover:bg-[#b91c1c] text-white text-xs font-bold font-heading shadow-md hover:shadow-lg transition flex items-center gap-2 group">
+            <span class="tracking-wide uppercase">Send dry run</span>
+            <span class="group-hover:translate-x-0.5 transition-transform font-mono">→</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Interactive script for Audience Pills, Language Switch, and Dry-Run toggle -->
+  <script>
+    // Audience pill toggle logic
+    document.querySelectorAll('.audience-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const isSelected = pill.classList.contains('bg-brand-light');
+        const indicator = pill.querySelector('.indicator');
+        if (isSelected) {
+          pill.classList.remove('bg-brand-light', 'text-brand-dark', 'border-brand-dark', 'shadow-xs');
+          pill.classList.add('bg-[#FAF8F5]', 'text-ink', 'border-hairline');
+          if (indicator) {
+            indicator.classList.remove('bg-brand-dark');
+            indicator.classList.add('bg-inkLight');
+          }
+        } else {
+          pill.classList.remove('bg-[#FAF8F5]', 'text-ink', 'border-hairline');
+          pill.classList.add('bg-brand-light', 'text-brand-dark', 'border-brand-dark', 'shadow-xs');
+          if (indicator) {
+            indicator.classList.remove('bg-inkLight');
+            indicator.classList.add('bg-brand-dark');
+          }
+        }
+      });
+    });
+
+    // Language switcher
+    const btnGu = document.getElementById('btnLangGu');
+    const btnEn = document.getElementById('btnLangEn');
+    const btnHi = document.getElementById('btnLangHi');
+    const msgGu = document.getElementById('msgGujarati');
+    const msgEn = document.getElementById('msgEnglish');
+    const msgHi = document.getElementById('msgHindi');
+    const badge = document.getElementById('previewLangBadge');
+    const charCount = document.getElementById('charCountLabel');
+
+    function resetLangButtons() {
+      [btnGu, btnEn, btnHi].forEach(btn => {
+        btn.classList.remove('bg-white', 'text-ink', 'shadow-xs');
+        btn.classList.add('text-inkMuted');
+      });
+      [msgGu, msgEn, msgHi].forEach(m => m.classList.add('hidden'));
+    }
+
+    btnGu.addEventListener('click', () => {
+      resetLangButtons();
+      btnGu.classList.add('bg-white', 'text-ink', 'shadow-xs');
+      btnGu.classList.remove('text-inkMuted');
+      msgGu.classList.remove('hidden');
+      badge.textContent = 'Gujarati (Unicode UTF-8)';
+      charCount.textContent = '352 chars · 6 SMS parts (Unicode)';
+    });
+
+    btnEn.addEventListener('click', () => {
+      resetLangButtons();
+      btnEn.classList.add('bg-white', 'text-ink', 'shadow-xs');
+      btnEn.classList.remove('text-inkMuted');
+      msgEn.classList.remove('hidden');
+      badge.textContent = 'English (GSM 7-bit ASCII)';
+      charCount.textContent = '264 chars · 2 SMS parts (Standard GSM)';
+    });
+
+    btnHi.addEventListener('click', () => {
+      resetLangButtons();
+      btnHi.classList.add('bg-white', 'text-ink', 'shadow-xs');
+      btnHi.classList.remove('text-inkMuted');
+      msgHi.classList.remove('hidden');
+      badge.textContent = 'Hindi (Devanagari Unicode)';
+      charCount.textContent = '338 chars · 5 SMS parts (Unicode)';
+    });
+
+    // Data Source Toggle (Scenario vs Live demonstration)
+    const toggleBtn = document.getElementById('toggleDataSourceBtn');
+    const severityChip = document.getElementById('severityChip');
+    const sourceLabel = document.getElementById('currentSourceLabel');
+    let isScenario = false;
+
+    toggleBtn.addEventListener('click', () => {
+      isScenario = !isScenario;
+      if (isScenario) {
+        severityChip.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-600 text-white shadow-xs";
+        severityChip.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-white"></span> SCENARIO · RED · SEVERE';
+        sourceLabel.textContent = 'SIMULATED (May Peak Rehearsal)';
+        sourceLabel.className = 'font-bold text-amber-700';
+      } else {
+        severityChip.className = "inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-mono font-bold tracking-wider uppercase bg-risk-red text-white shadow-xs";
+        severityChip.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> RED · SEVERE';
+        sourceLabel.textContent = 'LIVE (IMD SVPI)';
+        sourceLabel.className = 'font-bold text-emerald-800';
+      }
+    });
+
+    // Send dry run button feedback
+    const sendBtn = document.getElementById('sendDryRunBtn');
+    sendBtn.addEventListener('click', () => {
+      const originalText = sendBtn.innerHTML;
+      sendBtn.innerHTML = '<span class="font-mono">DISPATCHING...</span>';
+      sendBtn.classList.add('opacity-80');
+      setTimeout(() => {
+        sendBtn.innerHTML = '<span>✓ DRY RUN LOGGED</span>';
+        sendBtn.classList.remove('bg-risk-red');
+        sendBtn.classList.add('bg-emerald-700');
+        setTimeout(() => {
+          sendBtn.innerHTML = originalText;
+          sendBtn.classList.remove('bg-emerald-700', 'opacity-80');
+          sendBtn.classList.add('bg-risk-red');
+        }, 2200);
+      }, 700);
+    });
+  </script>
+</body>
+</html>

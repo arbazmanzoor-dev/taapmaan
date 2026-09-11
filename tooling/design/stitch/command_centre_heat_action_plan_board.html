@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>Taapmaan · Command Centre — AMC Heat Action Plan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            surface: '#FAF8F5',
+            'card-border': '#E6E2DA',
+            brand: '#9A3412',
+            'brand-dark': '#7C2D12',
+            'brand-accent': '#C2410C',
+            'risk-green': '#15803D',
+            'risk-yellow': '#A16207',
+            'risk-orange': '#C2410C',
+            'risk-red': '#B91C1C',
+            'risk-magenta': '#831843',
+            'risk-red-bg': '#FEF2F2',
+            'risk-orange-bg': '#FFF7ED',
+            'risk-yellow-bg': '#FEFCE8',
+            'amber-drill': '#D97706',
+            'amber-drill-bg': '#FEF3C7',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1C1917;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #D6D3D1;
+      border-radius: 4px;
+    }
+    .hairline-border {
+      border: 1px solid #E6E2DA;
+    }
+  </style>
+</head>
+<body class="w-[1440px] min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-orange-100 selection:text-orange-900">
+
+  <!-- TOP APP SHELL BAR -->
+  <header class="w-full bg-[#FAF8F5] border-b border-[#E6E2DA] px-6 py-2.5 flex items-center justify-between sticky top-0 z-50">
+    <!-- Brand / Logo Area -->
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg overflow-hidden bg-[#9A3412] flex items-center justify-center shadow-sm">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1UG0xuS3heQyg7PjV6Mthmh4HUlELoycxW9hrFETxzbX5LiWAPxIpErRBNMPNlpTbDNBtD6At_3Hcm9WwokP1OW9483jsN1X2kxS65Y86o4OftWnjrb_GR3b7AKaAnebXyw8vqOR_SrsutKGywaPHQ-PF88XN49eyJW9zreVy0qoAImHZkP-DIswd6YvCld0NTHXAfe4vfzgffv82Vlj3-k2ZpO9BXLnENty8dJCB6RzIFtnkidwhh_mLU" alt="Taapmaan Logo" class="w-full h-full object-cover"/>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-display font-extrabold text-lg tracking-tight text-stone-900 leading-none">Taapmaan</span>
+          <span class="font-mono text-[10px] tracking-wider px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 font-semibold uppercase">Cell-HAP</span>
+        </div>
+        <div class="text-[11px] text-stone-500 font-medium leading-tight">तापमान · AMC Heat Action Plan Cell</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="flex items-center p-1 bg-stone-200/70 rounded-lg border border-stone-300/60 text-xs font-semibold">
+      <a href="#" class="px-4 py-1.5 rounded text-stone-600 hover:text-stone-900 transition-colors">Monitor</a>
+      <a href="#" class="px-4 py-1.5 rounded-md bg-white text-stone-900 shadow-sm font-bold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+        Command centre
+      </a>
+      <a href="#" class="px-3.5 py-1.5 rounded text-stone-600 hover:text-stone-900 transition-colors">Ward Analytics</a>
+      <a href="#" class="px-3.5 py-1.5 rounded text-stone-600 hover:text-stone-900 transition-colors">Hospital Triage</a>
+      <a href="#" class="px-3.5 py-1.5 rounded text-stone-600 hover:text-stone-900 transition-colors">Cooling Centres</a>
+    </nav>
+
+    <!-- Shell Controls & Operational Status -->
+    <div class="flex items-center gap-3">
+      <!-- Scenario Toggle -->
+      <div class="flex items-center bg-stone-200/80 rounded-md p-0.5 text-[11px] font-mono font-medium">
+        <button class="px-2.5 py-1 text-stone-600 hover:text-stone-900">Live</button>
+        <button class="px-2.5 py-1 bg-amber-500 text-stone-950 font-bold rounded shadow-xs flex items-center gap-1">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm.75 4a.75.75 0 00-1.5 0v5a.75.75 0 00.75.75h4a.75.75 0 000-1.5h-3.25V6z"/></svg>
+          May peak (Drill)
+        </button>
+      </div>
+
+      <!-- City Dropdown -->
+      <div class="flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E6E2DA] rounded text-xs font-medium text-stone-800">
+        <span class="text-stone-400 text-[10px]">📍</span>
+        <span class="font-semibold">Ahmedabad</span>
+        <span class="text-[10px] text-stone-400 font-mono">AMC</span>
+        <svg class="w-3 h-3 text-stone-500 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+
+      <!-- Horizon Dropdown -->
+      <div class="flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E6E2DA] rounded text-xs font-mono font-medium text-stone-800">
+        <span class="text-stone-400 text-[10px]">HORIZON</span>
+        <span class="font-bold text-red-700">+72 h</span>
+      </div>
+
+      <!-- Broadcast Alert CTA -->
+      <button class="flex items-center gap-1.5 px-3.5 py-1.5 bg-[#B91C1C] hover:bg-red-800 text-white rounded text-xs font-bold font-sans shadow-sm transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+        Broadcast alert
+      </button>
+
+      <!-- Light/Dark toggle icon -->
+      <button class="w-8 h-8 rounded border border-[#E6E2DA] bg-white flex items-center justify-center text-stone-600 hover:text-stone-900">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <!-- User avatar badge -->
+      <div class="w-8 h-8 rounded-full bg-stone-200 border border-stone-300 flex items-center justify-center text-xs font-mono font-bold text-stone-700" title="Senior Controller (AMC Disaster Cell)">
+        SC
+      </div>
+    </div>
+  </header>
+
+  <!-- AMBER DRILL BANNER -->
+  <div class="w-full bg-[#FEF3C7] border-b border-amber-300/80 px-6 py-2 flex items-center justify-between text-amber-950 font-sans">
+    <div class="flex items-center gap-2.5">
+      <span class="inline-flex items-center gap-1 font-mono font-bold text-[11px] px-2 py-0.5 rounded bg-amber-600 text-white tracking-wide uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+        DRILL ACTIVE
+      </span>
+      <p class="text-xs font-medium leading-tight text-amber-900">
+        <span class="font-bold">DRILL — actions here are rehearsal records, kept separate from live.</span>
+        Simulating 45.4°C peak scenario based on May 2022 historical heatwave progression for Ahmedabad Municipal Corporation.
+      </p>
+    </div>
+    <div class="flex items-center gap-4 text-xs font-mono">
+      <span class="text-amber-800"><span class="font-semibold text-stone-500">SESSION ID:</span> AMC-HAP-SIM-2024-05A</span>
+      <span class="inline-flex items-center gap-1 font-semibold text-amber-900 bg-amber-200/70 px-2 py-0.5 rounded">
+        SANDBOX ISOLATED
+      </span>
+    </div>
+  </div>
+
+  <!-- MAIN OPERATIONAL WORKSPACE (12-col layout) -->
+  <main class="w-full max-w-[1440px] mx-auto px-6 py-4 space-y-4">
+
+    <!-- TOP HEADER CARD: OPERATING LEVEL & CONTROLS -->
+    <section class="w-full bg-white rounded-xl border border-[#E6E2DA] p-4 shadow-xs">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        
+        <!-- Severity & Countdown Block -->
+        <div class="flex items-center gap-4">
+          <!-- Level Badge -->
+          <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-red-50 border border-red-200">
+            <div class="w-3 h-3 rounded-full bg-red-600 animate-pulse"></div>
+            <div>
+              <div class="text-[10px] font-mono tracking-wider font-bold text-red-600 uppercase">AMC HAP STAGE 3</div>
+              <div class="font-display font-extrabold text-stone-900 text-lg leading-tight flex items-center gap-2">
+                Operating level RED 
+                <span class="text-xs px-2 py-0.5 rounded bg-red-600 text-white font-mono font-bold tracking-tight">44.8°C PEAK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-10 w-[1px] bg-stone-200 hidden md:block"></div>
+
+          <!-- Countdown to next update -->
+          <div>
+            <div class="text-[10px] font-mono text-stone-500 uppercase tracking-wider font-semibold">Next Meteorological Sync</div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-mono text-xl font-bold text-stone-900">00:18:42</span>
+              <span class="text-xs text-stone-500 font-medium">at 15:00 IST (IMD Radar + AWS)</span>
+            </div>
+          </div>
+
+          <div class="h-10 w-[1px] bg-stone-200 hidden md:block"></div>
+
+          <!-- Operator field -->
+          <div>
+            <div class="text-[10px] font-mono text-stone-500 uppercase tracking-wider font-semibold">Incident Commander</div>
+            <div class="flex items-center gap-2 mt-0.5">
+              <div class="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 text-amber-800 flex items-center justify-center text-[10px] font-bold">MK</div>
+              <span class="text-sm font-semibold text-stone-900">Dr. M. K. Solanki (Addl. Municipal Comm.)</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 bg-stone-100 rounded text-stone-600 border border-stone-200">ID: AMC-DM-04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Tools & Buttons -->
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1.5 rounded-lg border border-[#E6E2DA] bg-white hover:bg-stone-50 text-stone-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            Print bulletin
+          </button>
+          <button class="px-3 py-1.5 rounded-lg border border-[#E6E2DA] bg-white hover:bg-stone-50 text-stone-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Export audit CSV
+          </button>
+          <button class="px-3 py-1.5 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            Reset drill
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Secondary info bar inside top card -->
+      <div class="mt-3 pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-600">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <strong class="text-stone-800">Directives en force:</strong> Moratorium on outdoor labour (11:00–16:00), Anganwadi early dismissals, BRTS air misting activated.
+          </span>
+        </div>
+        <div class="flex items-center gap-3 font-mono text-[11px]">
+          <span>Ensemble spread: <strong class="text-stone-900">43.8°C – 45.4°C</strong></span>
+          <span class="text-stone-300">|</span>
+          <span>Wet-bulb critical: <strong class="text-red-700">31.4°C</strong></span>
+          <span class="text-stone-300">|</span>
+          <span>Forecast validation confidence: <strong class="text-emerald-700">99.8%</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKSPACE SPLIT: 8 COLS (MAIN ACTION BOARD) + 4 COLS (RESOURCE GAPS & AUDIT LOG) -->
+    <div class="grid grid-cols-12 gap-4 items-start">
+
+      <!-- LEFT 8 COLS: DEPARTMENT ACTION BOARD -->
+      <div class="col-span-8 space-y-3">
+        
+        <!-- Filter Bar & Progress Metrics -->
+        <div class="bg-white rounded-xl border border-[#E6E2DA] p-3 flex items-center justify-between shadow-xs">
+          <!-- Filter Tabs -->
+          <div class="flex items-center gap-1 bg-stone-100 p-1 rounded-lg">
+            <button class="px-3 py-1 rounded-md text-xs font-semibold bg-white text-stone-900 shadow-xs">All Actions (20)</button>
+            <button class="px-3 py-1 rounded-md text-xs font-semibold text-stone-600 hover:text-stone-900">Open (12)</button>
+            <button class="px-3 py-1 rounded-md text-xs font-semibold text-red-700 bg-red-50 border border-red-200">Overdue (2)</button>
+            <button class="px-3 py-1 rounded-md text-xs font-semibold text-stone-600 hover:text-stone-900">Done (6)</button>
+          </div>
+
+          <!-- Progress summary strip -->
+          <div class="flex items-center gap-4">
+            <div class="text-right">
+              <div class="text-[11px] font-mono text-stone-500">
+                <span class="font-bold text-stone-800">20</span> actions · <span class="font-bold text-emerald-600">6</span> done · <span class="font-bold text-red-600">2</span> overdue
+              </div>
+              <div class="text-[10px] text-stone-400">Response completion: 30%</div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-32 h-2.5 bg-stone-100 rounded-full overflow-hidden flex border border-stone-200">
+              <div class="bg-emerald-500 h-full" style="width: 30%"></div>
+              <div class="bg-amber-400 h-full" style="width: 45%"></div>
+              <div class="bg-red-500 h-full" style="width: 10%"></div>
+              <div class="bg-stone-200 h-full" style="width: 15%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION LIST BY DEPARTMENTS (Dense, scannable layout) -->
+        <div class="space-y-3">
+
+          <!-- 1. DISASTER MANAGEMENT & EMERGENCY COORDINATION -->
+          <div class="bg-white rounded-xl border border-[#E6E2DA] overflow-hidden shadow-xs">
+            <div class="bg-stone-50/80 px-4 py-2 border-b border-stone-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#9A3412]"></span>
+                <h3 class="font-display font-bold text-xs uppercase tracking-wider text-stone-800">Disaster Management & Central Control Room</h3>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-stone-200 text-stone-600">4 actions</span>
+              </div>
+              <span class="text-[11px] text-stone-500 font-mono">Lead: AMC Commissioner Office</span>
+            </div>
+
+            <!-- Action Rows -->
+            <div class="divide-y divide-stone-100 text-xs">
+              
+              <!-- Action Row 1: Overdue -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-red-50/20 transition-colors bg-red-50/10">
+                <div class="w-5/12 pr-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-stone-900">Broadcast Cell-Broadcast Emergency Alert (Phase 3)</span>
+                    <span class="px-1.5 py-0.2 rounded bg-red-100 text-red-800 text-[10px] font-mono font-bold">CRITICAL</span>
+                  </div>
+                  <div class="text-[11px] text-stone-500 mt-0.5 flex items-center gap-2">
+                    <span>Officer: <strong class="text-stone-700">R. K. Rathore (Dir. Disaster Mgmt)</strong></span>
+                    <span>•</span>
+                    <span class="font-mono text-red-600 font-bold">Target: 37 Wards</span>
+                  </div>
+                </div>
+
+                <!-- Due time countdown -->
+                <div class="w-2/12 text-center">
+                  <span class="inline-flex items-center gap-1 font-mono text-[11px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .2.08.39.22.53l3 3a.75.75 0 001.06-1.06l-2.78-2.78V5z" clip-rule="evenodd"/></svg>
+                    -00:14:10 OVERDUE
+                  </span>
+                  <div class="text-[10px] text-stone-400 font-mono mt-0.5">Due: 14:15 IST</div>
+                </div>
+
+                <!-- Stepper -->
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">In Progress</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <!-- Primary CTA -->
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-bold shadow-xs">
+                    Authorize Alert →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action Row 2 -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-stone-50/80 transition-colors">
+                <div class="w-5/12 pr-2">
+                  <div class="text-xs font-bold text-stone-900">Activate 24/7 Heat Incident Control Cell at Danilimda</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">P. V. Chawda (Dy. Municipal Comm.)</strong> · South Zone
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-semibold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                    Due in 00:45:00
+                  </span>
+                  <div class="text-[10px] text-stone-400 font-mono mt-0.5">Due: 15:15 IST</div>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="px-1.5 py-0.5 rounded bg-stone-200 text-stone-800 font-bold">Pending</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-stone-900 hover:bg-stone-800 text-white rounded text-xs font-semibold">
+                    Acknowledge
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 2. HEALTH & FAMILY WELFARE -->
+          <div class="bg-white rounded-xl border border-[#E6E2DA] overflow-hidden shadow-xs">
+            <div class="bg-stone-50/80 px-4 py-2 border-b border-stone-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-rose-700"></span>
+                <h3 class="font-display font-bold text-xs uppercase tracking-wider text-stone-800">Health Department & Medical Triage</h3>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-stone-200 text-stone-600">5 actions</span>
+              </div>
+              <span class="text-[11px] text-stone-500 font-mono">Lead: Chief Medical Officer (AMC)</span>
+            </div>
+
+            <div class="divide-y divide-stone-100 text-xs">
+              
+              <!-- Action: Overdue -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-red-50/20 transition-colors bg-red-50/10">
+                <div class="w-5/12 pr-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-stone-900">Pre-position 108 heat-dedicated ambulances in high-risk industrial wards</span>
+                    <span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 text-[10px] font-mono font-bold">HIGH</span>
+                  </div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">Dr. Bhavin Joshi (Addl. MOH)</strong> · Vatva & Odhav zones
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="inline-flex items-center gap-1 font-mono text-[11px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">
+                    -00:05:30 OVERDUE
+                  </span>
+                  <div class="text-[10px] text-stone-400 font-mono mt-0.5">Due: 14:25 IST</div>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">In Progress (8/12)</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-[#9A3412] hover:bg-orange-800 text-white rounded text-xs font-bold">
+                    Mark 12 Deployed →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action: In progress -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-stone-50/80 transition-colors">
+                <div class="w-5/12 pr-2">
+                  <div class="text-xs font-bold text-stone-900">Restock IV Saline (Normal Saline 0.9%) and Ice Packs in Civil & Shardaben Hospitals</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">Dr. N. T. Vora (Medical Supdt.)</strong> · Central Stores
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-semibold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                    Due in 01:15:00
+                  </span>
+                  <div class="text-[10px] text-stone-400 font-mono mt-0.5">Due: 15:45 IST</div>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">In Progress</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-stone-800 hover:bg-stone-900 text-white rounded text-xs font-semibold">
+                    Confirm Stocks →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action: Done -->
+              <div class="p-3.5 flex items-center justify-between bg-stone-50/40">
+                <div class="w-5/12 pr-2 opacity-75">
+                  <div class="text-xs font-semibold text-stone-800 line-through">Notify Urban Community Health Centres (UCHCs) to suspend non-urgent elective visits</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">Dr. S. Patel (Dir. UCHC)</strong> · Completed at 11:20 IST
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    ✓ COMPLETED
+                  </span>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono text-emerald-700 font-bold">
+                  <span>Pending</span> → <span>Ack</span> → <span>Progress</span> → <span class="bg-emerald-600 text-white px-1.5 py-0.5 rounded">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <span class="text-[11px] font-mono text-stone-400">Verified by HQ</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3. WATER SUPPLY & SEWERAGE -->
+          <div class="bg-white rounded-xl border border-[#E6E2DA] overflow-hidden shadow-xs">
+            <div class="bg-stone-50/80 px-4 py-2 border-b border-stone-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-blue-600"></span>
+                <h3 class="font-display font-bold text-xs uppercase tracking-wider text-stone-800">Water Supply & Civic Tanker Operations</h3>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-stone-200 text-stone-600">3 actions</span>
+              </div>
+              <span class="text-[11px] text-stone-500 font-mono">Lead: Chief City Engineer (Water Works)</span>
+            </div>
+
+            <div class="divide-y divide-stone-100 text-xs">
+              <!-- Action: In Progress -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-stone-50/80 transition-colors">
+                <div class="w-5/12 pr-2">
+                  <div class="text-xs font-bold text-stone-900">Deploy 50 Emergency Potable Water Tankers to 18 informal slum pockets</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">Er. H. K. Shah</strong> · Dispatched: 42/50 (84%)
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-semibold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                    Due in 00:30:00
+                  </span>
+                  <div class="text-[10px] text-stone-400 font-mono mt-0.5">Target: 15:00 IST</div>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">In Progress</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-[#9A3412] hover:bg-orange-800 text-white rounded text-xs font-bold">
+                    Dispatch Last 8 →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. LABOUR & FACTORY INSPECTORATE -->
+          <div class="bg-white rounded-xl border border-[#E6E2DA] overflow-hidden shadow-xs">
+            <div class="bg-stone-50/80 px-4 py-2 border-b border-stone-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-amber-600"></span>
+                <h3 class="font-display font-bold text-xs uppercase tracking-wider text-stone-800">Labour & Industrial Safety Inspectorate</h3>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-stone-200 text-stone-600">3 actions</span>
+              </div>
+              <span class="text-[11px] text-stone-500 font-mono">Lead: Labour Commissioner Gujarat / AMC Enforcement</span>
+            </div>
+
+            <div class="divide-y divide-stone-100 text-xs">
+              <!-- Action: Done -->
+              <div class="p-3.5 flex items-center justify-between bg-stone-50/40">
+                <div class="w-5/12 pr-2 opacity-80">
+                  <div class="text-xs font-semibold text-stone-800 line-through">Enforce mandatory outdoor construction halt between 11:00 and 16:00 IST</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">D. J. Barot (Chief Inspector)</strong> · 98 Metro & building sites checked
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    ✓ ENFORCED
+                  </span>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono text-emerald-700 font-bold">
+                  <span>Pending</span> → <span>Ack</span> → <span>Progress</span> → <span class="bg-emerald-600 text-white px-1.5 py-0.5 rounded">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <span class="text-[11px] font-mono text-stone-400">4 Stop-works issued</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. POWER, TRANSPORT, EDUCATION, POLICE, FIRE (Condensed multi-dept grouping) -->
+          <div class="bg-white rounded-xl border border-[#E6E2DA] overflow-hidden shadow-xs">
+            <div class="bg-stone-50/80 px-4 py-2 border-b border-stone-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-stone-700"></span>
+                <h3 class="font-display font-bold text-xs uppercase tracking-wider text-stone-800">Power, Transport & Public Safety</h3>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-stone-200 text-stone-600">5 actions</span>
+              </div>
+              <span class="text-[11px] text-stone-500 font-mono">Inter-departmental liaison</span>
+            </div>
+
+            <div class="divide-y divide-stone-100 text-xs">
+              <!-- Action: Power -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-stone-50/80 transition-colors">
+                <div class="w-5/12 pr-2">
+                  <div class="text-xs font-bold text-stone-900">Torrent Power & UGVCL: Guarantee zero load-shedding for hospital feeder lines</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">Grid Control Chief</strong> · 14 General hospitals on priority grid
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+                    Active & Monitored
+                  </span>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">Sustained</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded text-xs font-semibold">
+                    View telemetry
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action: Transport & BRTS -->
+              <div class="p-3.5 flex items-center justify-between hover:bg-stone-50/80 transition-colors">
+                <div class="w-5/12 pr-2">
+                  <div class="text-xs font-bold text-stone-900">AMTS & BRTS: Keep misting stations active at all 118 high-footfall shelters</div>
+                  <div class="text-[11px] text-stone-500 mt-0.5">
+                    Officer: <strong class="text-stone-700">J. M. Brahmbhatt (Gen. Mgr. Transport)</strong>
+                  </div>
+                </div>
+
+                <div class="w-2/12 text-center">
+                  <span class="font-mono text-[11px] font-semibold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                    Due in 02:00:00
+                  </span>
+                </div>
+
+                <div class="w-3/12 flex items-center justify-center gap-1 text-[10px] font-mono">
+                  <span class="text-emerald-700 font-bold">Ack</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">In Progress (92/118)</span>
+                  <span class="text-stone-300">→</span>
+                  <span class="text-stone-400">Done</span>
+                </div>
+
+                <div class="w-2/12 text-right">
+                  <button class="px-2.5 py-1.5 bg-stone-900 hover:bg-stone-800 text-white rounded text-xs font-semibold">
+                    Update Station Logs
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT 4 COLS: RESOURCE GAPS & AUDIT TRAIL TIMELINE -->
+      <div class="col-span-4 space-y-4">
+        
+        <!-- RESOURCE GAPS CONTAINER -->
+        <div class="bg-white rounded-xl border border-[#E6E2DA] p-4 shadow-xs space-y-4">
+          <div class="flex items-center justify-between border-b border-stone-100 pb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-600"></span>
+              <h3 class="font-display font-bold text-stone-900 text-sm tracking-tight">Resource Gaps · Live Triage</h3>
+            </div>
+            <span class="text-[10px] font-mono text-stone-500 uppercase">Ranked by Deficit</span>
+          </div>
+
+          <!-- Gap 1: Wards Short of Cooling Centres -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-stone-800 flex items-center gap-1">
+                <span>❄️</span> Wards Short of Cooling Centres
+              </span>
+              <span class="text-[11px] font-mono font-bold text-red-600">Deficit: -14 Hubs</span>
+            </div>
+            <div class="border border-stone-200 rounded-lg overflow-hidden text-[11px]">
+              <table class="w-full text-left font-mono">
+                <thead class="bg-stone-50 text-stone-500 text-[10px] uppercase border-b border-stone-200">
+                  <tr>
+                    <th class="py-1 px-2 font-semibold">Ward</th>
+                    <th class="py-1 px-1 text-right font-semibold">Req</th>
+                    <th class="py-1 px-1 text-right font-semibold">Act</th>
+                    <th class="py-1 px-2 text-right font-semibold text-red-600">Gap</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 text-stone-700">
+                  <tr class="bg-red-50/30">
+                    <td class="py-1 px-2 font-sans font-bold text-stone-900">Danilimda Ind.</td>
+                    <td class="py-1 px-1 text-right">8</td>
+                    <td class="py-1 px-1 text-right">3</td>
+                    <td class="py-1 px-2 text-right font-bold text-red-600">-5</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Vatva GIDC</td>
+                    <td class="py-1 px-1 text-right">7</td>
+                    <td class="py-1 px-1 text-right">3</td>
+                    <td class="py-1 px-2 text-right font-bold text-red-600">-4</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Odhav Ring Rd</td>
+                    <td class="py-1 px-1 text-right">6</td>
+                    <td class="py-1 px-1 text-right">3</td>
+                    <td class="py-1 px-2 text-right font-bold text-red-600">-3</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Naroda Bethak</td>
+                    <td class="py-1 px-1 text-right">5</td>
+                    <td class="py-1 px-1 text-right">3</td>
+                    <td class="py-1 px-2 text-right font-bold text-amber-600">-2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex justify-end">
+              <button class="text-[10px] font-semibold text-stone-600 hover:text-stone-900 underline">Route mobile AC shelters →</button>
+            </div>
+          </div>
+
+          <!-- Gap 2: Hospital Beds Under Heat Load -->
+          <div class="space-y-1.5 pt-1 border-t border-stone-100">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-stone-800 flex items-center gap-1">
+                <span>🏥</span> Hospital Beds Under Heat Load
+              </span>
+              <span class="text-[11px] font-mono font-bold text-red-600">89% Occupancy</span>
+            </div>
+            <div class="border border-stone-200 rounded-lg overflow-hidden text-[11px]">
+              <table class="w-full text-left font-mono">
+                <thead class="bg-stone-50 text-stone-500 text-[10px] uppercase border-b border-stone-200">
+                  <tr>
+                    <th class="py-1 px-2 font-semibold">Hospital Facility</th>
+                    <th class="py-1 px-1 text-right font-semibold">Total</th>
+                    <th class="py-1 px-1 text-right font-semibold">Heat</th>
+                    <th class="py-1 px-2 text-right font-semibold text-stone-700">Free</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 text-stone-700">
+                  <tr class="bg-red-50/40">
+                    <td class="py-1 px-2 font-sans font-bold text-stone-900">Civil Hospital Asarwa</td>
+                    <td class="py-1 px-1 text-right">180</td>
+                    <td class="py-1 px-1 text-right font-bold text-red-600">168</td>
+                    <td class="py-1 px-2 text-right font-bold text-red-700">12 (7%)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Shardaben General</td>
+                    <td class="py-1 px-1 text-right">95</td>
+                    <td class="py-1 px-1 text-right font-bold text-amber-700">84</td>
+                    <td class="py-1 px-2 text-right font-bold text-amber-700">11 (11%)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">LG Municipal Hospital</td>
+                    <td class="py-1 px-1 text-right">110</td>
+                    <td class="py-1 px-1 text-right">88</td>
+                    <td class="py-1 px-2 text-right font-bold text-stone-700">22 (20%)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex justify-between items-center text-[10px] text-stone-500">
+              <span>Reserve ICU protocol ready</span>
+              <button class="font-semibold text-stone-700 hover:text-stone-900 underline">Request military tent ward</button>
+            </div>
+          </div>
+
+          <!-- Gap 3: ASHA Reach to Residents Over 60 -->
+          <div class="space-y-1.5 pt-1 border-t border-stone-100">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-stone-800 flex items-center gap-1">
+                <span>👵</span> ASHA Reach to Elderly (60+)
+              </span>
+              <span class="text-[11px] font-mono font-bold text-amber-600">68% Coverage</span>
+            </div>
+            <div class="border border-stone-200 rounded-lg overflow-hidden text-[11px]">
+              <table class="w-full text-left font-mono">
+                <thead class="bg-stone-50 text-stone-500 text-[10px] uppercase border-b border-stone-200">
+                  <tr>
+                    <th class="py-1 px-2 font-semibold">Priority Ward</th>
+                    <th class="py-1 px-1 text-right font-semibold">Elderly</th>
+                    <th class="py-1 px-1 text-right font-semibold">Visited</th>
+                    <th class="py-1 px-2 text-right font-semibold text-red-600">Pending</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 text-stone-700">
+                  <tr class="bg-amber-50/30">
+                    <td class="py-1 px-2 font-sans font-bold text-stone-900">Maninagar East</td>
+                    <td class="py-1 px-1 text-right">3,420</td>
+                    <td class="py-1 px-1 text-right">1,940</td>
+                    <td class="py-1 px-2 text-right font-bold text-amber-700">1,480</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Bapunagar Chawls</td>
+                    <td class="py-1 px-1 text-right">2,890</td>
+                    <td class="py-1 px-1 text-right">1,610</td>
+                    <td class="py-1 px-2 text-right font-bold text-amber-700">1,280</td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-2 font-sans font-semibold">Khadia (Walled City)</td>
+                    <td class="py-1 px-1 text-right">4,110</td>
+                    <td class="py-1 px-1 text-right">3,200</td>
+                    <td class="py-1 px-2 text-right font-bold text-stone-700">910</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex justify-end">
+              <button class="text-[10px] font-semibold text-stone-600 hover:text-stone-900 underline">Send WhatsApp task broadcast to 140 ASHAs →</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- APPEND-ONLY AUDIT TRAIL TIMELINE -->
+        <div class="bg-white rounded-xl border border-[#E6E2DA] p-4 shadow-xs space-y-3">
+          <div class="flex items-center justify-between border-b border-stone-100 pb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-stone-600"></span>
+              <h3 class="font-display font-bold text-stone-900 text-sm tracking-tight">Append-Only Audit Trail</h3>
+            </div>
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 font-semibold border border-stone-200">
+              SHA-256 IMMUTABLE
+            </span>
+          </div>
+
+          <!-- Timeline entries (Dense, scannable, calm monospace records) -->
+          <div class="space-y-3 font-mono text-[11px] max-h-[360px] overflow-y-auto custom-scroll pr-1">
+            
+            <!-- Log Entry 1 -->
+            <div class="relative pl-4 border-l-2 border-red-500 space-y-0.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-stone-900">14:26:12 IST</span>
+                <span class="text-[10px] text-stone-400">ACTOR: AMC-DM-04</span>
+              </div>
+              <div class="font-sans font-semibold text-stone-800 text-xs">
+                Emergency Overdue Escalation Triggered
+              </div>
+              <p class="font-sans text-[11px] text-stone-600 leading-snug">
+                Disaster cell paged Dir. Disaster Mgmt regarding broadcast alert delay for 37 wards.
+              </p>
+            </div>
+
+            <!-- Log Entry 2 -->
+            <div class="relative pl-4 border-l-2 border-emerald-500 space-y-0.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-stone-900">14:18:05 IST</span>
+                <span class="text-[10px] text-stone-400">ACTOR: AMC-ENF-09</span>
+              </div>
+              <div class="font-sans font-semibold text-stone-800 text-xs">
+                Labour Moratorium Sweep Logged
+              </div>
+              <p class="font-sans text-[11px] text-stone-600 leading-snug">
+                Enforcement flying squad sealed 4 metro construction sites in Sabarmati & Thaltej for non-compliance.
+              </p>
+            </div>
+
+            <!-- Log Entry 3 -->
+            <div class="relative pl-4 border-l-2 border-amber-500 space-y-0.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-stone-900">14:02:44 IST</span>
+                <span class="text-[10px] text-stone-400">ACTOR: AMC-WTR-02</span>
+              </div>
+              <div class="font-sans font-semibold text-stone-800 text-xs">
+                Tanker Fleet Re-route Dispatched
+              </div>
+              <p class="font-sans text-[11px] text-stone-600 leading-snug">
+                8 standby tankers redirected to Behrampura chawls following 46.1°C hotspot telemetry alert.
+              </p>
+            </div>
+
+            <!-- Log Entry 4 -->
+            <div class="relative pl-4 border-l-2 border-stone-400 space-y-0.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-stone-900">13:45:00 IST</span>
+                <span class="text-[10px] text-stone-400">ACTOR: IMD-SVPI-AUTOSYNC</span>
+              </div>
+              <div class="font-sans font-semibold text-stone-800 text-xs">
+                Meteorological Telemetry Ingest
+              </div>
+              <p class="font-sans text-[11px] text-stone-600 leading-snug">
+                IMD Station #42647 updated dry-bulb 44.2°C, wet-bulb 31.2°C. Risk posture upgraded to RED Stage 3.
+              </p>
+            </div>
+
+            <!-- Log Entry 5 -->
+            <div class="relative pl-4 border-l-2 border-stone-300 space-y-0.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-stone-900">12:30:19 IST</span>
+                <span class="text-[10px] text-stone-400">ACTOR: AMC-MED-01</span>
+              </div>
+              <div class="font-sans font-semibold text-stone-800 text-xs">
+                Hospital Heat Stroke Code Activated
+              </div>
+              <p class="font-sans text-[11px] text-stone-600 leading-snug">
+                All 6 municipal teaching hospitals opened dedicated cold-water immersion tubs in trauma rooms.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Bottom Audit Footer -->
+          <div class="pt-2 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-mono">
+            <span>Audit log buffer: 142 events</span>
+            <span class="text-stone-600 hover:text-stone-900 cursor-pointer font-semibold">View complete trail (CSV) →</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- CONTROL ROOM STATUS BAR FOOTER -->
+  <footer class="w-full max-w-[1440px] mx-auto px-6 py-3 border-t border-[#E6E2DA] flex items-center justify-between text-xs text-stone-500 font-mono mt-6">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5 text-stone-700 font-semibold">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        CONTROL ROOM SESSION: DESK-02-ACTIVE
+      </span>
+      <span>•</span>
+      <span>HAP Protocol Ver: 2024.4 (Ahmedabad Model)</span>
+      <span>•</span>
+      <span>Authorized Incident Dispatch System</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span>LATENCY: 28ms</span>
+      <span>WS CONNECTED: ws://hap.amc.gov.in/telemetry</span>
+      <span class="px-2 py-0.5 rounded bg-stone-200 text-stone-700 font-bold">DRILL MODE</span>
+    </div>
+  </footer>
+
+</body>
+</html>

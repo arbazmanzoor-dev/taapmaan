@@ -1,0 +1,185 @@
+{
+ "same40": {
+  "20": {
+   "wbgt": 30.6,
+   "hi": 39.4,
+   "wet_bulb": 22.7,
+   "utci": 50.3
+  },
+  "70": {
+   "wbgt": 39.2,
+   "hi": 71.9,
+   "wet_bulb": 34.9,
+   "utci": 49.4
+  }
+ },
+ "era5_wbgt": {
+  "ahmedabad": {
+   "n": 4748,
+   "p5": 21.3,
+   "p50": 28.9,
+   "p95": 32.6
+  },
+  "delhi": {
+   "n": 4748,
+   "p5": 16.5,
+   "p50": 27.5,
+   "p95": 33.0
+  },
+  "nagpur": {
+   "n": 4748,
+   "p5": 22.5,
+   "p50": 28.4,
+   "p95": 32.4
+  },
+  "chennai": {
+   "n": 4748,
+   "p5": 25.6,
+   "p50": 29.9,
+   "p95": 33.0
+  },
+  "lucknow": {
+   "n": 4748,
+   "p5": 17.9,
+   "p50": 28.4,
+   "p95": 33.4
+  }
+ },
+ "era5_days_total": 23740,
+ "model": {
+  "d1": {
+   "n_train": 18210,
+   "n_test": 5480,
+   "model": {
+    "mae": 0.885,
+    "rmse": 1.162,
+    "bias": -0.084
+   },
+   "baseline_persistence": {
+    "mae": 0.95,
+    "rmse": 1.272,
+    "bias": 0.001
+   },
+   "baseline_climatology": {
+    "mae": 1.307,
+    "rmse": 1.653,
+    "bias": -0.275
+   },
+   "skill_vs_persistence": 0.0684,
+   "skill_vs_climatology": 0.3229,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 0.69,
+    "p80": 1.41,
+    "p90": 1.89,
+    "p95": 2.35,
+    "share_within_mae": 0.607
+   },
+   "hottest_10pct_days": {
+    "n": 673,
+    "model_mae": 1.154,
+    "model_bias": -1.07,
+    "persistence_mae": 0.981,
+    "climatology_mae": 1.729,
+    "beats_persistence": false
+   },
+   "days_at_or_above_31c": {
+    "n": 1472,
+    "model_recall": 0.758,
+    "model_precision": 0.793,
+    "persistence_recall": 0.776,
+    "persistence_precision": 0.776
+   }
+  },
+  "d3": {
+   "n_train": 18200,
+   "n_test": 5480,
+   "model": {
+    "mae": 1.213,
+    "rmse": 1.555,
+    "bias": -0.189
+   },
+   "baseline_persistence": {
+    "mae": 1.418,
+    "rmse": 1.856,
+    "bias": 0.005
+   },
+   "baseline_climatology": {
+    "mae": 1.307,
+    "rmse": 1.653,
+    "bias": -0.275
+   },
+   "skill_vs_persistence": 0.1446,
+   "skill_vs_climatology": 0.0719,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 0.98,
+    "p80": 1.92,
+    "p90": 2.54,
+    "p95": 3.1,
+    "share_within_mae": 0.591
+   },
+   "hottest_10pct_days": {
+    "n": 673,
+    "model_mae": 1.595,
+    "model_bias": -1.566,
+    "persistence_mae": 1.389,
+    "climatology_mae": 1.729,
+    "beats_persistence": false
+   },
+   "days_at_or_above_31c": {
+    "n": 1472,
+    "model_recall": 0.632,
+    "model_precision": 0.759,
+    "persistence_recall": 0.675,
+    "persistence_precision": 0.675
+   }
+  },
+  "d5": {
+   "n_train": 18190,
+   "n_test": 5480,
+   "model": {
+    "mae": 1.291,
+    "rmse": 1.639,
+    "bias": -0.233
+   },
+   "baseline_persistence": {
+    "mae": 1.609,
+    "rmse": 2.091,
+    "bias": 0.006
+   },
+   "baseline_climatology": {
+    "mae": 1.307,
+    "rmse": 1.653,
+    "bias": -0.275
+   },
+   "skill_vs_persistence": 0.1976,
+   "skill_vs_climatology": 0.0122,
+   "beats_both": true,
+   "error_bands": {
+    "p50": 1.05,
+    "p80": 2.08,
+    "p90": 2.72,
+    "p95": 3.24,
+    "share_within_mae": 0.588
+   },
+   "hottest_10pct_days": {
+    "n": 673,
+    "model_mae": 1.69,
+    "model_bias": -1.664,
+    "persistence_mae": 1.616,
+    "climatology_mae": 1.729,
+    "beats_persistence": false
+   },
+   "days_at_or_above_31c": {
+    "n": 1472,
+    "model_recall": 0.592,
+    "model_precision": 0.746,
+    "persistence_recall": 0.644,
+    "persistence_precision": 0.644
+   }
+  }
+ },
+ "api_operations": 24,
+ "api_paths": 23
+}

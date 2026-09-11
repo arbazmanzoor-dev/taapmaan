@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMC Daily Heat Bulletin — Taapmaan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f5f3ef;
+      color: #1c1917;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .font-mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .font-heading {
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    .font-gujarati {
+      font-family: 'Noto Sans Gujarati', sans-serif;
+    }
+    .font-hindi {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+    
+    /* A4 simulation container on screen */
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05);
+      padding: 12mm 14mm;
+      box-sizing: border-box;
+      position: relative;
+    }
+    
+    @media print {
+      body {
+        background: transparent;
+      }
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Print hairline utilities */
+    .border-hairline {
+      border-width: 0.75px;
+    }
+    .border-hairline-b {
+      border-bottom-width: 0.75px;
+    }
+    .border-hairline-t {
+      border-top-width: 0.75px;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <!-- Print Action Bar (hidden in print) -->
+  <div class="max-w-[210mm] mx-auto mb-4 flex items-center justify-between no-print bg-stone-900 text-stone-200 px-4 py-2.5 rounded-lg text-xs shadow-md">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center px-2 py-0.5 rounded font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 uppercase tracking-wider text-[10px]">Official Dispatch</span>
+      <span>AMC Heat Action Plan (HAP) Daily Bulletin &bull; Standard A4 Print Ready</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="window.print()" class="px-3 py-1.5 rounded font-semibold bg-stone-100 text-stone-900 hover:bg-white flex items-center gap-1.5 shadow-sm transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- A4 Document Surface -->
+  <main class="a4-page text-stone-900 flex flex-col justify-between text-[11px] leading-tight">
+    <div>
+      
+      <!-- Top Civic Header -->
+      <header class="border-b-2 border-stone-900 pb-2.5 mb-2">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Government Emblem / AMC Logo Mark -->
+            <div class="w-11 h-11 border border-stone-800 rounded p-1 flex flex-col items-center justify-center bg-stone-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-7 h-7" fill="none">
+                <rect width="64" height="64" rx="10" fill="#1c1917"/>
+                <circle cx="32" cy="42" r="8" fill="#FAF8F5"/>
+                <rect x="28" y="16" width="8" height="22" rx="4" fill="#FAF8F5"/>
+                <circle cx="32" cy="42" r="5" fill="#DC2626"/>
+                <rect x="30" y="24" width="4" height="16" rx="2" fill="#DC2626"/>
+                <line x1="42" y1="20" x2="48" y2="20" stroke="#FAF8F5" stroke-width="2" stroke-linecap="round"/>
+                <line x1="42" y1="26" x2="46" y2="26" stroke="#FAF8F5" stroke-width="2" stroke-linecap="round"/>
+                <line x1="42" y1="32" x2="48" y2="32" stroke="#FAF8F5" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h1 class="font-heading font-extrabold text-base tracking-tight uppercase text-stone-950">Ahmedabad Municipal Corporation</h1>
+                <span class="font-mono text-[9px] px-1.5 py-0.2 bg-stone-100 text-stone-700 border border-stone-300 rounded font-semibold uppercase">AMC HAP Cell</span>
+              </div>
+              <p class="text-stone-600 text-[10px] font-medium tracking-normal">
+                Disaster Management Department &bull; Health Department &bull; In Technical Collaboration with IMD &amp; IIPH-G
+              </p>
+              <p class="font-heading font-bold text-xs uppercase tracking-wider text-stone-900 mt-0.5">
+                Daily Operational Heat Bulletin &bull; દૈનિક હીટ વેવ બુલેટિન
+              </p>
+            </div>
+          </div>
+
+          <!-- Metadata Box (Rigid Monospace Grid) -->
+          <div class="text-right font-mono text-[10px] border border-stone-300 rounded bg-stone-50/70 p-2 min-w-[190px]">
+            <div class="flex justify-between gap-2 text-stone-600">
+              <span>BULLETIN NO:</span>
+              <strong class="text-stone-950 font-bold">AMC-HAP-2026/09-14</strong>
+            </div>
+            <div class="flex justify-between gap-2 text-stone-600 mt-0.5">
+              <span>GENERATED:</span>
+              <span class="text-stone-900 font-medium">11 Sep 2026, 14:00 IST</span>
+            </div>
+            <div class="flex justify-between gap-2 text-stone-900 font-bold border-t border-stone-200 pt-0.5 mt-0.5">
+              <span>VALIDITY:</span>
+              <span class="text-stone-950 bg-stone-200/80 px-1 rounded">Valid for 14 Sep 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRAFT / Machine Generated Watermark Line -->
+        <div class="mt-2 py-1 px-2.5 bg-stone-100 border border-stone-300 text-stone-700 text-[9.5px] font-mono flex items-center justify-between rounded-sm">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-stone-700"></span>
+            <span class="font-semibold uppercase tracking-wider text-stone-900">Notice:</span>
+            <span>Machine-generated by Taapmaan — not valid until reviewed and signed by the Heat Action Plan Nodal Officer.</span>
+          </div>
+          <span class="font-bold text-stone-500 uppercase tracking-widest text-[8.5px]">INTERNAL WORKING DRAFT</span>
+        </div>
+      </header>
+
+      <!-- Operating Level Hero Box (Risk Level Color strictly restricted to risk tag) -->
+      <section class="border border-stone-900 rounded p-2.5 mb-2.5 bg-white">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-2 mb-2">
+          <div class="flex items-center gap-2.5">
+            <!-- 5-Level Heat Risk scale: RED Severe Warning -->
+            <div class="bg-red-700 text-white font-heading font-black text-sm px-3 py-1 rounded tracking-wide uppercase flex items-center gap-1.5 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+              Operating Level: RED — Warning (Severe)
+            </div>
+            <span class="font-mono text-[10px] text-stone-600 font-medium">
+              Trigger Criteria: Projected Dry-Bulb &ge; 44.5&deg;C OR Wet-Bulb Globe Temp (WBGT) &ge; 38.0&deg;C
+            </span>
+          </div>
+          <div class="font-mono text-[10px] text-right text-stone-700 font-semibold">
+            Primary Sync: IMD Station #42647 (SVPI Airport)
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3 items-center">
+          <div class="col-span-8">
+            <p class="font-bold text-stone-900 text-xs mb-1">
+              SITUATION SUMMARY &amp; METEOROLOGICAL DIAGNOSIS:
+            </p>
+            <p class="text-stone-700 leading-snug text-[10.5px]">
+              Severe heatwave conditions are forecast over Ahmedabad Municipal Limits due to dry continental north-westerly airflow and strong ground solar insolation. High nocturnal floor temperatures (&gt;31.0&deg;C) will prevent physiological heat dissipation, posing critical cardiovascular stress to vulnerable populations.
+            </p>
+          </div>
+          <div class="col-span-4 border-l border-stone-200 pl-3 grid grid-cols-2 gap-1.5 font-mono text-[9.5px]">
+            <div class="bg-stone-50 p-1 rounded border border-stone-200">
+              <div class="text-stone-500 text-[8.5px]">MAX WBGT PEAK</div>
+              <div class="font-bold text-stone-950 text-xs">38.5 &deg;C</div>
+            </div>
+            <div class="bg-stone-50 p-1 rounded border border-stone-200">
+              <div class="text-stone-500 text-[8.5px]">CITY STRESS INDEX</div>
+              <div class="font-bold text-stone-950 text-xs">77.5 / 100</div>
+            </div>
+            <div class="bg-stone-50 p-1 rounded border border-stone-200">
+              <div class="text-stone-500 text-[8.5px]">WARDS AFFECTED</div>
+              <div class="font-bold text-stone-950 text-xs">37 / 37 (100%)</div>
+            </div>
+            <div class="bg-stone-50 p-1 rounded border border-stone-200">
+              <div class="text-stone-500 text-[8.5px]">EXCESS DEATH RISK</div>
+              <div class="font-bold text-stone-950 text-xs">65 / day</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Five-Day Outlook Table -->
+      <section class="mb-2.5">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="font-heading font-bold text-xs uppercase tracking-wider text-stone-900 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-stone-900 inline-block"></span>
+            1. Five-Day Meteorological &amp; Impact Outlook (Ahmedabad Consolidated)
+          </h2>
+          <span class="font-mono text-[9px] text-stone-500">Multi-Model Ensemble &bull; IMD GFS + ECMWF HRES</span>
+        </div>
+        
+        <table class="w-full border-collapse border border-stone-900 text-[10px] font-sans">
+          <thead>
+            <tr class="bg-stone-100 border-b border-stone-900 font-mono text-[9.5px] text-stone-900">
+              <th class="border-r border-stone-300 p-1 text-left font-bold w-24">Date</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold w-28">Risk Level</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">City Index</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Peak WBGT</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Night Min</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Wards &gt; Threshold</th>
+              <th class="p-1 text-right font-bold w-32">Modelled Excess Deaths</th>
+            </tr>
+          </thead>
+          <tbody class="font-mono divide-y divide-stone-200">
+            <!-- Row 1: Valid Target Day -->
+            <tr class="bg-red-50/40">
+              <td class="border-r border-stone-300 p-1 font-semibold text-stone-950">
+                14 Sep (Thu) <span class="text-[8.5px] text-red-700 font-bold">[VALID]</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-red-600 text-white uppercase tracking-wider">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">77.5 / 100</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950 font-bold">38.5 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">31.0 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">37 / 37 (100%)</td>
+              <td class="p-1 text-right font-bold text-red-900">65 / day <span class="text-[8px] text-stone-500 font-normal">(95% CI: 48–82)</span></td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="bg-red-50/20">
+              <td class="border-r border-stone-300 p-1 text-stone-900">15 Sep (Fri)</td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-red-600 text-white uppercase tracking-wider">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">78.2 / 100</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950">38.8 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">31.4 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950">37 / 37 (100%)</td>
+              <td class="p-1 text-right font-bold text-red-900">72 / day <span class="text-[8px] text-stone-500 font-normal">(95% CI: 54–90)</span></td>
+            </tr>
+            <!-- Row 3: Peak Stress -->
+            <tr class="bg-fuchsia-50/50">
+              <td class="border-r border-stone-300 p-1 font-semibold text-stone-950">
+                16 Sep (Sat) <span class="text-[8.5px] text-fuchsia-800 font-bold">[PEAK]</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-fuchsia-800 text-white uppercase tracking-wider">MAGENTA &bull; Extreme</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">84.1 / 100</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950 font-bold">39.4 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900 font-bold">32.1 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">37 / 37 (100%)</td>
+              <td class="p-1 text-right font-bold text-fuchsia-950">88 / day <span class="text-[8px] text-stone-500 font-normal">(95% CI: 69–112)</span></td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="bg-orange-50/30">
+              <td class="border-r border-stone-300 p-1 text-stone-900">17 Sep (Sun)</td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-orange-600 text-white uppercase tracking-wider">ORANGE &bull; High</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">68.4 / 100</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950">36.1 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">29.5 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">24 / 37 (65%)</td>
+              <td class="p-1 text-right font-medium text-stone-800">34 / day <span class="text-[8px] text-stone-500 font-normal">(95% CI: 22–46)</span></td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="bg-amber-50/30">
+              <td class="border-r border-stone-300 p-1 text-stone-900">18 Sep (Mon)</td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-amber-500 text-stone-950 uppercase tracking-wider">YELLOW &bull; Moderate</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-stone-950">54.0 / 100</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-950">34.0 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">28.0 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">08 / 37 (22%)</td>
+              <td class="p-1 text-right font-medium text-stone-800">14 / day <span class="text-[8px] text-stone-500 font-normal">(95% CI: 06–22)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 2: Highest-Risk Wards Table -->
+      <section class="mb-2.5">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="font-heading font-bold text-xs uppercase tracking-wider text-stone-900 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-stone-900 inline-block"></span>
+            2. Priority Vulnerability Matrix — Highest-Risk Municipal Wards
+          </h2>
+          <span class="font-mono text-[9px] text-stone-500">Ranked by Composite Microclimate &amp; Socio-Demographic Vulnerability</span>
+        </div>
+
+        <table class="w-full border-collapse border border-stone-900 text-[9.5px] font-sans">
+          <thead>
+            <tr class="bg-stone-100 border-b border-stone-900 font-mono text-[9px] text-stone-900">
+              <th class="border-r border-stone-300 p-1 text-left font-bold w-10">Ward #</th>
+              <th class="border-r border-stone-300 p-1 text-left font-bold w-28">Ward Name &amp; Zone</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Risk Level</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Est. Peak Temp</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Peak WBGT</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Tin/Asbestos Roof</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Elderly (60+)</th>
+              <th class="border-r border-stone-300 p-1 text-center font-bold">Cooling Hubs</th>
+              <th class="p-1 text-left font-bold">Mandatory Field Directives</th>
+            </tr>
+          </thead>
+          <tbody class="font-mono divide-y divide-stone-200">
+            <!-- Ward 1 -->
+            <tr>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-900">#28</td>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-950 font-sans">Maninagar <span class="text-stone-500 font-mono text-[8.5px]">(South)</span></td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-red-600 text-white">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">44.8 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center">38.5 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">42% (High)</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">14.2%</td>
+              <td class="border-r border-stone-300 p-1 text-center">3 Active</td>
+              <td class="p-1 font-sans text-stone-800 leading-tight">Misting in chawls; deploy 14 ASHA outreach pairs for elderly door-to-door triage.</td>
+            </tr>
+            <!-- Ward 2 -->
+            <tr class="bg-stone-50/50">
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-900">#31</td>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-950 font-sans">Danilimda Ind. <span class="text-stone-500 font-mono text-[8.5px]">(South)</span></td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-fuchsia-800 text-white">MAGENTA</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">46.1 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">39.2 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-red-750">68% (Crit)</td>
+              <td class="border-r border-stone-300 p-1 text-center">11.8%</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-red-700">3 (Gap: -5)</td>
+              <td class="p-1 font-sans text-stone-800 leading-tight">Pre-position 2 mobile AC shelters; enforce 11:00-16:00 factory boiler stoppage.</td>
+            </tr>
+            <!-- Ward 3 -->
+            <tr>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-900">#34</td>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-950 font-sans">Vatva GIDC <span class="text-stone-500 font-mono text-[8.5px]">(South)</span></td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-red-600 text-white">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">45.0 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center">38.6 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">62% (Crit)</td>
+              <td class="border-r border-stone-300 p-1 text-center">9.5%</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-red-700">3 (Gap: -4)</td>
+              <td class="p-1 font-sans text-stone-800 leading-tight">Direct 8 emergency water tankers to industrial migrant settlements; keep 108 on standby.</td>
+            </tr>
+            <!-- Ward 4 -->
+            <tr class="bg-stone-50/50">
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-900">#24</td>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-950 font-sans">Odhav Ring Rd <span class="text-stone-500 font-mono text-[8.5px]">(East)</span></td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-red-600 text-white">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">45.4 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center">38.4 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">58% (High)</td>
+              <td class="border-r border-stone-300 p-1 text-center">10.4%</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold text-red-700">3 (Gap: -3)</td>
+              <td class="p-1 font-sans text-stone-800 leading-tight">Deploy secondary generator at Community Health Hub; replenish ORS packets at BRTS.</td>
+            </tr>
+            <!-- Ward 5 -->
+            <tr>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-900">#19</td>
+              <td class="border-r border-stone-300 p-1 font-bold text-stone-950 font-sans">Bapunagar Chawls <span class="text-stone-500 font-mono text-[8.5px]">(East)</span></td>
+              <td class="border-r border-stone-300 p-1 text-center">
+                <span class="px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-red-600 text-white">RED &bull; Severe</span>
+              </td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">44.6 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center">38.1 &deg;C</td>
+              <td class="border-r border-stone-300 p-1 text-center text-stone-900">52% (High)</td>
+              <td class="border-r border-stone-300 p-1 text-center font-bold">13.6%</td>
+              <td class="border-r border-stone-300 p-1 text-center">4 Active</td>
+              <td class="p-1 font-sans text-stone-800 leading-tight">Extend night shelter operational hours to 24/7 with active cool drinking water provision.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 3: Trilingual Public Advisories (English, Hindi, Gujarati) -->
+      <section class="mb-2.5">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="font-heading font-bold text-xs uppercase tracking-wider text-stone-900 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-stone-900 inline-block"></span>
+            3. Mandatory Public Advisories &amp; Departmental Directives (સત્તાવાર માર્ગદર્શિકા)
+          </h2>
+          <span class="font-mono text-[9px] text-stone-500">Public Release &bull; Radio, SMS, WhatsApp &amp; Zonal Hoardings</span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 border border-stone-900 rounded p-2 bg-stone-50/40">
+          
+          <!-- English Advisory Column -->
+          <div class="border-r border-stone-300 pr-2">
+            <div class="flex items-center justify-between border-b border-stone-300 pb-1 mb-1.5">
+              <span class="font-heading font-bold text-[10.5px] uppercase text-stone-900">English Bulletin</span>
+              <span class="font-mono text-[8px] px-1 bg-stone-200 rounded font-semibold">Standard</span>
+            </div>
+            <ul class="text-[9.5px] text-stone-800 space-y-1 leading-snug list-disc pl-3 font-sans">
+              <li><strong>Stay Indoors:</strong> Avoid direct sun exposure between 11:00 AM and 5:00 PM.</li>
+              <li><strong>Continuous Hydration:</strong> Drink water every 20 minutes; consume ORS, chaas, or lemon water even if not thirsty.</li>
+              <li><strong>Moratorium:</strong> Mandatory cessation of outdoor labour (11:00&ndash;16:00) strictly enforced across all sites.</li>
+              <li><strong>Vehicle Safety:</strong> Never leave children, elders, or pets inside parked vehicles.</li>
+              <li><strong>Emergency Contact:</strong> On severe dizziness, vomiting, or cessation of sweating, call <strong>108</strong> immediately.</li>
+            </ul>
+          </div>
+
+          <!-- Gujarati Advisory Column -->
+          <div class="border-r border-stone-300 pr-2 font-gujarati">
+            <div class="flex items-center justify-between border-b border-stone-300 pb-1 mb-1.5 font-sans">
+              <span class="font-heading font-bold text-[10.5px] uppercase text-stone-900 font-gujarati">ગુજરાતી માર્ગદર્શિકા</span>
+              <span class="font-mono text-[8px] px-1 bg-stone-200 rounded font-semibold font-sans">પ્રાથમિક (સ્થાનિક)</span>
+            </div>
+            <ul class="text-[9.5px] text-stone-800 space-y-1 leading-snug list-disc pl-3">
+              <li><strong>ઘરમાં રહો:</strong> સવારે ૧૧:૦૦ થી સાંજે ૫:૦૦ વાગ્યા સુધી સીધા તડકામાં જવાનું ટાળો.</li>
+              <li><strong>હાઇડ્રેશન:</strong> દર ૨૦ મિનિટે પાણી પીવો; તરસ ન હોય તો પણ ઓઆરએસ (ORS), છાશ કે લીંબુ શરબત લો.</li>
+              <li><strong>શ્રમ પ્રતિબંધ:</strong> બાંધકામ સ્થળોએ ૧૧:૦૦ થી ૧૬:૦૦ દરમિયાન આઉટડોર શ્રમ પર સંપૂર્ણ પ્રતિબંધ રહેશે.</li>
+              <li><strong>વાહન સુરક્ષા:</strong> પાર્ક કરેલા વાહનોમાં બાળકો કે વડીલોને ક્યારેય એકલા ન છોડો.</li>
+              <li><strong>કટોકટી સેવા:</strong> ચક્કર આવે, ઉલટી થાય કે બેભાન થવાય તો તરત <strong>૧૦૮</strong> હેલ્પલાઇન પર ફોન કરો.</li>
+            </ul>
+          </div>
+
+          <!-- Hindi Advisory Column -->
+          <div class="font-hindi">
+            <div class="flex items-center justify-between border-b border-stone-300 pb-1 mb-1.5 font-sans">
+              <span class="font-heading font-bold text-[10.5px] uppercase text-stone-900 font-hindi">हिन्दी दिशा-निर्देश</span>
+              <span class="font-mono text-[8px] px-1 bg-stone-200 rounded font-semibold font-sans">औद्योगिक एवं प्रवासी</span>
+            </div>
+            <ul class="text-[9.5px] text-stone-800 space-y-1 leading-snug list-disc pl-3">
+              <li><strong>घर के भीतर रहें:</strong> सुबह ११:०० से शाम ५:०० बजे के बीच कड़ी धूप में बाहर न निकलें।</li>
+              <li><strong>तरल पदार्थ लें:</strong> हर २० मिनट में पानी पिएं; ओआरएस (ORS), छाछ व शिकंजी का नियमित सेवन करें।</li>
+              <li><strong>कार्य विराम:</strong> दोपहर ११:०० से १६:०० तक खुले में शारीरिक श्रम पर पूर्ण प्रतिबंध लागू है।</li>
+              <li><strong>वाहन सुरक्षा:</strong> बंद वाहनों में बच्चों या बुजुर्गों को अकेला कदापि न छोड़ें।</li>
+              <li><strong>आपातकालीन सेवा:</strong> अत्यधिक चक्कर, उल्टी या बेहोशी की स्थिति में तुरंत <strong>१०८</strong> पर कॉल करें।</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Operational Field Directives & Coordination Checklist -->
+      <section class="mb-2 border border-stone-300 rounded p-2 bg-stone-50/70 text-[9.5px] font-mono">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-1 mb-1">
+          <span class="font-bold text-stone-900 uppercase">Inter-Departmental Response Directives (Immediate Execution)</span>
+          <span class="text-stone-500 text-[8.5px]">Ref: AMC HAP Stage 3 SOP</span>
+        </div>
+        <div class="grid grid-cols-4 gap-2 text-stone-800">
+          <div>
+            <strong class="text-stone-950 block border-b border-stone-200 pb-0.5 mb-0.5">Water Works</strong>
+            &bull; 50 tankers to slum clusters<br>
+            &bull; Keep 112 cooling posts charged
+          </div>
+          <div>
+            <strong class="text-stone-950 block border-b border-stone-200 pb-0.5 mb-0.5">Health (UCHCs)</strong>
+            &bull; Reserve 15% beds for heat load<br>
+            &bull; Restock IV Saline &amp; ice packs
+          </div>
+          <div>
+            <strong class="text-stone-950 block border-b border-stone-200 pb-0.5 mb-0.5">Labour Squads</strong>
+            &bull; Deploy 4 flying inspection units<br>
+            &bull; Seal non-compliant metro sites
+          </div>
+          <div>
+            <strong class="text-stone-950 block border-b border-stone-200 pb-0.5 mb-0.5">AMTS / BRTS</strong>
+            &bull; Misting stations active at 118 stops<br>
+            &bull; Chilled water pots refilled
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Official Authorization & Signature Block -->
+    <footer class="border-t-2 border-stone-900 pt-2 mt-auto">
+      <div class="text-[9.5px] font-medium text-stone-600 mb-2">
+        I hereby certify that the meteorological projections and ward-level risk classifications above have been verified in accordance with the Ahmedabad Heat Action Plan (HAP) 2024–2026 Protocol and National Disaster Management Authority (NDMA) guidelines.
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 pt-1">
+        
+        <!-- Officer Signature Box 1 -->
+        <div class="border border-stone-300 rounded p-2 bg-stone-50/50 flex flex-col justify-between h-24">
+          <div class="text-[8.5px] font-mono text-stone-500 uppercase tracking-wider">PREPARED BY (METEOROLOGICAL ANALYST)</div>
+          <div class="border-b border-stone-400 border-dashed mb-1 h-8 flex items-end">
+            <span class="font-mono text-[9px] text-stone-400 italic">Signature: __________________________</span>
+          </div>
+          <div class="font-mono text-[9px] leading-tight text-stone-800">
+            <div>Name: <span class="font-semibold text-stone-950">Er. Rajesh K. Mehta</span></div>
+            <div>Desig: <span class="text-stone-700">Sr. Technical Officer, AMC HAP Cell</span></div>
+            <div>Date &amp; Time: <span class="text-stone-700">11 Sep 2026, 14:15 IST</span></div>
+          </div>
+        </div>
+
+        <!-- Officer Signature Box 2 -->
+        <div class="border border-stone-300 rounded p-2 bg-stone-50/50 flex flex-col justify-between h-24">
+          <div class="text-[8.5px] font-mono text-stone-500 uppercase tracking-wider">MEDICAL REVIEW &amp; SURVEILLANCE</div>
+          <div class="border-b border-stone-400 border-dashed mb-1 h-8 flex items-end">
+            <span class="font-mono text-[9px] text-stone-400 italic">Signature: __________________________</span>
+          </div>
+          <div class="font-mono text-[9px] leading-tight text-stone-800">
+            <div>Name: <span class="font-semibold text-stone-950">Dr. Bhavin Joshi</span></div>
+            <div>Desig: <span class="text-stone-700">Addl. Medical Officer of Health (AMC)</span></div>
+            <div>Date &amp; Time: <span class="text-stone-700">11 Sep 2026, 14:30 IST</span></div>
+          </div>
+        </div>
+
+        <!-- Officer Signature Box 3: HAP Nodal Officer (Primary Sign-off) -->
+        <div class="border-2 border-stone-900 rounded p-2 bg-white flex flex-col justify-between h-24 relative shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="text-[8.5px] font-mono font-bold text-stone-950 uppercase tracking-wider">HAP NODAL OFFICER (AUTHORIZATION)</div>
+            <span class="text-[8px] font-mono px-1 bg-stone-900 text-white rounded">MANDATORY</span>
+          </div>
+          <div class="border-b border-stone-500 border-dashed mb-1 h-8 flex items-end">
+            <span class="font-mono text-[9px] text-stone-500 italic">Official Stamp &amp; Sign: ____________________</span>
+          </div>
+          <div class="font-mono text-[9px] leading-tight text-stone-900">
+            <div>Name: <span class="font-bold text-stone-950">Dr. M. K. Solanki, IAS</span></div>
+            <div>Desig: <span class="font-semibold text-stone-800">Addl. Municipal Commissioner / HAP Lead</span></div>
+            <div>Date &amp; Time: <span class="text-stone-700">____ / 09 / 2026, ____:____ IST</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Micro-Metadata -->
+      <div class="mt-2 pt-1 border-t border-stone-200 flex justify-between items-center text-[8px] font-mono text-stone-500">
+        <div>AMC HEAT ACTION PLAN &bull; REGD GOVT OF GUJARAT &bull; CONFIDENTIAL RECORD AMC-DM-DOC-44</div>
+        <div class="flex items-center gap-3">
+          <span>SHA-256: 8f3b20c4...9d81e</span>
+          <span>PAGE 1 OF 1 (A4 PORTRAIT)</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Census 2011 city demography — Taapmaan vulnerability anchors",
+    "retrieved": "2026-09-10",
+    "retrieved_by": "WebFetch against census2011.co.in city pages (Census of India 2011 tables)",
+    "caveats": [
+      "Figures are the 2011 Census. Population has grown since; `population_projected` in cities.json is used for mortality baselines, these shares for vulnerability.",
+      "The source phrases the household count as 'no. of Slums'. The magnitude shows it is slum HOUSEHOLDS, not settlements, so it is stored as slum_households.",
+      "Slum definitions differ between the Census, state slum boards and PMAY. Other published figures for the same city will not match exactly. Cite this source, not a different one.",
+      "Ward-level splits are NOT from the Census. Ward values are dispersed around these real city anchors and are labelled 'modelled' in the API. Drop a real ward CSV in this folder to replace them."
+    ]
+  },
+  "national_urban": {
+    "elderly_60plus_pct": {
+      "value": 7.7,
+      "source": "census2011",
+      "geography": "india_urban",
+      "note": "Census 2011: 60+ share of urban India is 7.7% (rural 8.4%, national 8.2%). State-urban breakdown sits behind IndiaStat, so this national-urban figure is the anchor.",
+      "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847436"
+    }
+  },
+  "cities": {
+    "ahmedabad": {
+      "census_unit": "Ahmedabad Municipal Corporation",
+      "population_2011": 5577940, "child_0_6": 621034,
+      "literacy_pct": 88.29, "sex_ratio": 898,
+      "slum_households": 51451, "slum_population": 250681, "slum_pct": 4.49,
+      "source_url": "https://www.census2011.co.in/census/city/314-ahmedabad.html"
+    },
+    "delhi": {
+      "census_unit": "Delhi Municipal Corporation",
+      "population_2011": 11034555, "child_0_6": 1238350,
+      "literacy_pct": 87.59, "sex_ratio": 876,
+      "slum_households": 332022, "slum_population": 1617239, "slum_pct": 14.66,
+      "source_url": "https://www.census2011.co.in/census/city/49-delhi.html"
+    },
+    "nagpur": {
+      "census_unit": "Nagpur Municipal Corporation",
+      "population_2011": 2405665, "child_0_6": 247078,
+      "literacy_pct": 91.92, "sex_ratio": 963,
+      "slum_households": 179952, "slum_population": 859487, "slum_pct": 35.73,
+      "source_url": "https://www.census2011.co.in/census/city/353-nagpur.html"
+    },
+    "chennai": {
+      "census_unit": "Greater Chennai Corporation",
+      "population_2011": 4646732, "child_0_6": 459324,
+      "literacy_pct": 90.18, "sex_ratio": 989,
+      "slum_households": 329827, "slum_population": 1342337, "slum_pct": 28.89,
+      "source_url": "https://www.census2011.co.in/census/city/463-chennai.html"
+    },
+    "lucknow": {
+      "census_unit": "Lucknow Municipal Corporation",
+      "population_2011": 2817105, "child_0_6": 293697,
+      "literacy_pct": 82.50, "sex_ratio": 928,
+      "slum_households": 65629, "slum_population": 364941, "slum_pct": 12.95,
+      "source_url": "https://www.census2011.co.in/census/city/127-lucknow.html"
+    }
+  }
+}

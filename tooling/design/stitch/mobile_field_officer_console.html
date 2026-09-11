@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Taapmaan · Field Officer Console (Ahmedabad)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAF8F5;
+      color: #1c1917;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-display {
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    .font-mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    /* Hide scrollbar for clean swipeable row */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Subtle touch feedback */
+    .tap-active:active {
+      transform: scale(0.985);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FAF8F5] text-[#1c1917] pb-24 antialiased selection:bg-orange-200">
+
+  <!-- ================= STICKY TOP BAR ================= -->
+  <header class="sticky top-0 z-40 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E6E2DA] px-4 py-2.5 shadow-sm">
+    <div class="flex items-center justify-between gap-2">
+      <!-- Left: Logo & Brand -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-orange-950/10">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1UG0xuS3heQyg7PjV6Mthmh4HUlELoycxW9hrFETxzbX5LiWAPxIpErRBNMPNlpTbDNBtD6At_3Hcm9WwokP1OW9483jsN1X2kxS65Y86o4OftWnjrb_GR3b7AKaAnebXyw8vqOR_SrsutKGywaPHQ-PF88XN49eyJW9zreVy0qoAImHZkP-DIswd6YvCld0NTHXAfe4vfzgffv82Vlj3-k2ZpO9BXLnENty8dJCB6RzIFtnkidwhh_mLU" alt="Taapmaan Logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5 leading-none">
+            <span class="font-display font-extrabold text-base tracking-tight text-[#9A3412]">Taapmaan</span>
+            <span class="text-[10px] font-mono uppercase px-1 py-0.5 rounded bg-orange-100/70 text-[#9A3412] font-semibold border border-orange-200">Field</span>
+          </div>
+          <p class="text-[10px] text-stone-500 font-medium leading-tight mt-0.5">AMC Heat Action Plan</p>
+        </div>
+      </div>
+
+      <!-- Right: City Selector & Live Status Pill -->
+      <div class="flex items-center gap-1.5">
+        <!-- City Switcher -->
+        <button class="flex items-center gap-1 bg-white border border-[#E6E2DA] rounded-lg px-2 py-1 text-xs font-semibold text-stone-800 shadow-sm tap-active">
+          <svg class="w-3 h-3 text-[#c2410c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <span class="truncate max-w-[86px]">Ahmedabad</span>
+          <svg class="w-3 h-3 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+        <!-- Data Status Pill (Honesty First) -->
+        <div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-mono font-bold tracking-tight">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>LIVE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-status provenance bar -->
+    <div class="mt-2 pt-1.5 border-t border-stone-200/60 flex items-center justify-between text-[10px] font-mono text-stone-500">
+      <span class="truncate">IMD SVPI #42647 · 14:30 IST</span>
+      <span class="text-[#c2410c] font-semibold bg-orange-50 px-1 rounded">HORIZON +72H</span>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="px-3.5 pt-3.5 space-y-3.5">
+
+    <!-- OFFICER WELCOME & SECTOR BAR -->
+    <div class="flex items-center justify-between bg-white rounded-xl p-3 border border-[#E6E2DA] shadow-xs">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full bg-[#c2410c]/10 text-[#c2410c] font-bold text-xs flex items-center justify-center font-mono border border-[#c2410c]/20">
+          DM
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h3 class="text-xs font-bold text-stone-900 leading-none">R. K. Rathore</h3>
+            <span class="text-[9px] bg-stone-100 text-stone-600 font-mono px-1 py-0.5 rounded">ID: AMC-DM-04</span>
+          </div>
+          <p class="text-[11px] text-stone-500 mt-0.5 font-medium">Disaster Mgmt · South Zone (Danilimda/Vatva)</p>
+        </div>
+      </div>
+      <span class="text-[10px] font-mono font-bold text-[#b91c1c] bg-red-50 border border-red-200 px-2 py-1 rounded-md">
+        PHASE 3
+      </span>
+    </div>
+
+    <!-- ================= HERO RISK CARD ================= -->
+    <!-- Red Alert Card using the 5-level risk system with pale red wash -->
+    <section class="bg-[#FFF1F1] border-2 border-[#EF4444] rounded-2xl p-4 shadow-sm relative overflow-hidden">
+      <!-- Decorative Risk Indicator Accent Bar -->
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#DC2626]"></div>
+
+      <div class="flex items-start justify-between">
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#DC2626] text-white text-[10px] font-mono font-bold uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+              Severe
+            </span>
+            <span class="text-[11px] font-mono font-semibold text-[#991B1B]">TODAY · 14 SEP</span>
+          </div>
+          <h1 class="font-display font-extrabold text-2xl text-[#7F1D1D] tracking-tight mt-1">
+            Operating Level RED
+          </h1>
+        </div>
+
+        <div class="text-right">
+          <div class="font-mono text-xs font-semibold text-[#991B1B]">Peak Projected</div>
+          <div class="font-mono font-extrabold text-2xl text-[#DC2626] leading-none">44.8°C</div>
+          <div class="text-[10px] font-mono text-stone-500 mt-0.5">at 15:10 IST</div>
+        </div>
+      </div>
+
+      <!-- Live metrics grid inside hero -->
+      <div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-[#FCA5A5]/50">
+        <div class="bg-white/90 rounded-xl p-2 border border-red-200/80">
+          <div class="text-[9px] font-mono uppercase text-stone-500 font-medium">Heat Index</div>
+          <div class="font-mono font-bold text-sm text-[#991B1B] mt-0.5">77.5<span class="text-[10px] text-stone-500 font-normal">/100</span></div>
+          <div class="text-[9px] text-[#DC2626] font-semibold leading-tight mt-0.5">Extreme</div>
+        </div>
+
+        <div class="bg-white/90 rounded-xl p-2 border border-red-200/80">
+          <div class="text-[9px] font-mono uppercase text-stone-500 font-medium">Wet-Bulb</div>
+          <div class="font-mono font-bold text-sm text-[#991B1B] mt-0.5">31.4°C</div>
+          <div class="text-[9px] text-amber-700 font-semibold leading-tight mt-0.5">Critical floor</div>
+        </div>
+
+        <div class="bg-white/90 rounded-xl p-2 border border-red-200/80">
+          <div class="text-[9px] font-mono uppercase text-stone-500 font-medium">Wards Over</div>
+          <div class="font-mono font-bold text-sm text-[#DC2626] mt-0.5">37 / 37</div>
+          <div class="text-[9px] text-stone-600 font-medium leading-tight mt-0.5">100% breach</div>
+        </div>
+      </div>
+
+      <!-- Plain language order banner for field staff -->
+      <div class="mt-3 bg-white rounded-xl p-2.5 border border-red-200 flex items-start gap-2 shadow-2xs">
+        <span class="text-base leading-none mt-0.5">⚠️</span>
+        <div class="text-[11px] text-stone-800 leading-snug">
+          <span class="font-bold text-[#991B1B]">Mandatory Order:</span> Outdoor labour halt active (11:00–16:00). All BRTS misting stations running.
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SWIPEABLE 5-DAY STRIP ================= -->
+    <section>
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="font-display font-bold text-sm text-stone-900 tracking-tight flex items-center gap-1.5">
+          <span>5-Day Risk Outlook</span>
+          <span class="text-[10px] font-mono font-normal text-stone-500">(Swipe)</span>
+        </h2>
+        <span class="text-[10px] font-mono font-semibold text-orange-700 bg-orange-100/70 px-1.5 py-0.5 rounded">
+          Peak: Sat 16th
+        </span>
+      </div>
+
+      <!-- Horizontal scroll container -->
+      <div class="flex gap-2.5 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar -mx-3.5 px-3.5 snap-x">
+        
+        <!-- Day 1 (Today): RED -->
+        <div class="snap-start flex-shrink-0 w-[110px] bg-[#FFF1F1] border-2 border-[#DC2626] rounded-xl p-2.5 shadow-2xs relative">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-stone-900">Today</span>
+            <span class="text-[9px] font-mono font-bold bg-[#DC2626] text-white px-1 py-0.5 rounded">RED</span>
+          </div>
+          <div class="font-mono font-extrabold text-lg text-[#991B1B] mt-1 leading-none">44.8°C</div>
+          <div class="text-[10px] font-mono text-stone-600 mt-1">WBGT 38.5°</div>
+          <div class="text-[9px] font-mono text-stone-500">Night 31.0°</div>
+          <div class="mt-1.5 text-[9px] font-bold text-[#DC2626] uppercase">Severe peak</div>
+        </div>
+
+        <!-- Day 2 (Fri 15): RED -->
+        <div class="snap-start flex-shrink-0 w-[110px] bg-[#FFF1F1] border border-[#F87171] rounded-xl p-2.5 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-stone-900">Fri 15</span>
+            <span class="text-[9px] font-mono font-bold bg-[#DC2626] text-white px-1 py-0.5 rounded">RED</span>
+          </div>
+          <div class="font-mono font-extrabold text-lg text-[#991B1B] mt-1 leading-none">45.0°C</div>
+          <div class="text-[10px] font-mono text-stone-600 mt-1">WBGT 38.8°</div>
+          <div class="text-[9px] font-mono text-stone-500">Night 31.4°</div>
+          <div class="mt-1.5 text-[9px] font-bold text-[#DC2626] uppercase">Severe risk</div>
+        </div>
+
+        <!-- Day 3 (Sat 16): MAGENTA (Extreme) -->
+        <div class="snap-start flex-shrink-0 w-[110px] bg-[#FDF2F8] border-2 border-[#BE185D] rounded-xl p-2.5 shadow-2xs relative">
+          <div class="absolute -top-1.5 right-2 bg-[#BE185D] text-white text-[8px] font-mono font-bold px-1 rounded-full">PEAK</div>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-stone-900">Sat 16</span>
+            <span class="text-[9px] font-mono font-bold bg-[#BE185D] text-white px-1 py-0.5 rounded">EXTR</span>
+          </div>
+          <div class="font-mono font-extrabold text-lg text-[#831843] mt-1 leading-none">45.8°C</div>
+          <div class="text-[10px] font-mono text-stone-600 mt-1">WBGT 39.4°</div>
+          <div class="text-[9px] font-mono text-stone-500">Night 32.1°</div>
+          <div class="mt-1.5 text-[9px] font-bold text-[#BE185D] uppercase">Magenta alert</div>
+        </div>
+
+        <!-- Day 4 (Sun 17): ORANGE (High) -->
+        <div class="snap-start flex-shrink-0 w-[110px] bg-[#FFF7ED] border border-[#F97316] rounded-xl p-2.5 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-stone-900">Sun 17</span>
+            <span class="text-[9px] font-mono font-bold bg-[#EA580C] text-white px-1 py-0.5 rounded">HIGH</span>
+          </div>
+          <div class="font-mono font-extrabold text-lg text-[#9A3412] mt-1 leading-none">42.4°C</div>
+          <div class="text-[10px] font-mono text-stone-600 mt-1">WBGT 36.1°</div>
+          <div class="text-[9px] font-mono text-stone-500">Night 29.5°</div>
+          <div class="mt-1.5 text-[9px] font-semibold text-[#EA580C] uppercase">Orange tier</div>
+        </div>
+
+        <!-- Day 5 (Mon 18): YELLOW (Moderate) -->
+        <div class="snap-start flex-shrink-0 w-[110px] bg-[#FEFCE8] border border-[#EAB308] rounded-xl p-2.5 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-stone-900">Mon 18</span>
+            <span class="text-[9px] font-mono font-bold bg-[#CA8A04] text-white px-1 py-0.5 rounded">MOD</span>
+          </div>
+          <div class="font-mono font-extrabold text-lg text-[#854D0E] mt-1 leading-none">40.2°C</div>
+          <div class="text-[10px] font-mono text-stone-600 mt-1">WBGT 34.0°</div>
+          <div class="text-[9px] font-mono text-stone-500">Night 28.0°</div>
+          <div class="mt-1.5 text-[9px] font-semibold text-[#CA8A04] uppercase">Yellow tier</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= MY DEPARTMENT'S ACTIONS ================= -->
+    <section class="space-y-2.5">
+      <!-- Section Header with Quick Filter -->
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-display font-bold text-base text-stone-900 tracking-tight">
+            My Department's Actions
+          </h2>
+          <p class="text-[11px] text-stone-500 font-mono">Disaster Management · 4 assigned · 1 Overdue</p>
+        </div>
+        <div class="flex items-center gap-1 bg-stone-100 p-0.5 rounded-lg border border-stone-200 text-[10px] font-medium">
+          <button class="bg-white text-stone-900 px-2 py-0.5 rounded shadow-2xs font-semibold">Active (3)</button>
+          <button class="text-stone-500 px-2 py-0.5">Done (1)</button>
+        </div>
+      </div>
+
+      <!-- ACTION CARD 1: CRITICAL & OVERDUE (One-Tap Status Change) -->
+      <div class="bg-white rounded-2xl border-2 border-red-300 p-3.5 shadow-sm space-y-3 relative">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="bg-red-600 text-white text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase">
+                Critical
+              </span>
+              <span class="font-mono text-[10px] font-bold text-red-600 bg-red-50 border border-red-200 px-1.5 py-0.5 rounded animate-pulse">
+                -00:14:10 OVERDUE
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-sm text-stone-900 mt-1 leading-snug">
+              Broadcast Cell-Broadcast Emergency Alert (Phase 3)
+            </h3>
+            <p class="text-[11px] text-stone-500 mt-0.5 font-medium">
+              Target: 37 Wards · Telecom Tower Push (BSNL/Jio/Airtel)
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Stepper Progress Indicator -->
+        <div class="bg-stone-50 rounded-xl p-2 border border-stone-200/80">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="text-stone-400">1. Pending</span>
+            <span class="text-amber-700 font-bold bg-amber-100/80 px-1.5 py-0.2 rounded">2. In Progress</span>
+            <span class="text-stone-400">3. Done</span>
+          </div>
+          <!-- Visual step bar -->
+          <div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden flex">
+            <div class="bg-emerald-500 w-1/3 h-full"></div>
+            <div class="bg-amber-500 w-1/3 h-full"></div>
+            <div class="bg-stone-300 w-1/3 h-full"></div>
+          </div>
+        </div>
+
+        <!-- Large Tap Target Primary Action Button (One-tap change) -->
+        <button class="w-full py-3 px-4 rounded-xl bg-[#DC2626] text-white font-display font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-red-600/20 tap-active">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span>One-Tap Authorize Broadcast →</span>
+        </button>
+      </div>
+
+      <!-- ACTION CARD 2: PENDING / UPCOMING -->
+      <div class="bg-white rounded-2xl border border-[#E6E2DA] p-3.5 shadow-xs space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="bg-amber-500 text-white text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase">
+                High Priority
+              </span>
+              <span class="font-mono text-[10px] text-stone-600 bg-stone-100 px-1.5 py-0.5 rounded font-medium">
+                Due in 00:45:00 (15:15 IST)
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-sm text-stone-900 mt-1 leading-snug">
+              Activate 24/7 Heat Incident Control Cell at Danilimda
+            </h3>
+            <p class="text-[11px] text-stone-500 mt-0.5 font-medium">
+              Field Officer: P. V. Chawda · South Zone Sub-center
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Stepper Progress Indicator -->
+        <div class="bg-stone-50 rounded-xl p-2 border border-stone-200/80">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="text-stone-800 font-bold bg-stone-200 px-1.5 py-0.2 rounded">1. Pending</span>
+            <span class="text-stone-400">2. Acknowledged</span>
+            <span class="text-stone-400">3. Deployed</span>
+          </div>
+          <div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden flex">
+            <div class="bg-stone-400 w-1/3 h-full"></div>
+            <div class="bg-stone-200 w-2/3 h-full"></div>
+          </div>
+        </div>
+
+        <!-- Large Tap Target Button -->
+        <button class="w-full py-2.5 px-4 rounded-xl bg-stone-900 text-white font-display font-bold text-xs flex items-center justify-center gap-2 tap-active">
+          <svg class="w-3.5 h-3.5 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>Acknowledge & Confirm Deployment</span>
+        </button>
+      </div>
+
+      <!-- ACTION CARD 3: INTER-DEPARTMENT COLLABORATION (Water Tankers) -->
+      <div class="bg-white rounded-2xl border border-[#E6E2DA] p-3.5 shadow-xs space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="bg-sky-600 text-white text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase">
+                Water Works Liaison
+              </span>
+              <span class="font-mono text-[10px] text-stone-600 bg-stone-100 px-1.5 py-0.5 rounded">
+                Due in 00:30:00
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-sm text-stone-900 mt-1 leading-snug">
+              Deploy 50 Potable Water Tankers to Informal Slums
+            </h3>
+            <p class="text-[11px] text-stone-500 mt-0.5 font-medium">
+              42/50 dispatched (84%) · Vatva, Odhav & Danilimda
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-sky-50/60 rounded-xl p-2 border border-sky-100 flex items-center justify-between text-[11px]">
+          <span class="text-sky-900 font-medium">Remaining: 8 Tankers</span>
+          <span class="font-mono font-bold text-sky-800">480,000L Dispersed</span>
+        </div>
+
+        <!-- Large Tap Target Button -->
+        <button class="w-full py-2.5 px-4 rounded-xl bg-[#c2410c] text-white font-display font-bold text-xs flex items-center justify-center gap-2 shadow-sm tap-active">
+          <span>Verify Last 8 Tankers Dispatched →</span>
+        </button>
+      </div>
+
+      <!-- ACTION CARD 4: COMPLETED STATE -->
+      <div class="bg-[#F8FAF8] rounded-2xl border border-emerald-200/80 p-3 shadow-2xs flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-stone-800 leading-tight">Labour Moratorium Notice Enforced</h4>
+            <p class="text-[10px] text-stone-500 font-mono">98 sites checked · Verified at 11:15 IST</p>
+          </div>
+        </div>
+        <span class="text-[9px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-1 rounded">
+          DONE
+        </span>
+      </div>
+
+    </section>
+
+    <!-- QUICK TELEMETRY / REFRESH FOOTER CALLOUT -->
+    <div class="p-3 bg-stone-100/80 rounded-xl border border-stone-200 flex items-center justify-between text-[11px] text-stone-600">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="font-mono text-[10px]">Sync: 14:30:12 IST (Latency 420ms)</span>
+      </div>
+      <button class="text-[#c2410c] font-bold text-xs hover:underline tap-active">
+        Pull Refresh ↻
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-[#E6E2DA] max-w-[390px] mx-auto shadow-lg">
+    <div class="grid grid-cols-4 h-16 items-center px-1">
+      
+      <!-- Tab 1: Monitor -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-stone-700 tap-active">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <span class="text-[10px] font-medium">Monitor</span>
+      </a>
+
+      <!-- Tab 2: Actions (ACTIVE) -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-[#c2410c] relative tap-active">
+        <span class="absolute top-1 right-6 w-2 h-2 rounded-full bg-red-600 ring-2 ring-white"></span>
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+        </svg>
+        <span class="text-[10px] font-bold">Actions</span>
+        <!-- Active indicator bar -->
+        <span class="w-8 h-0.5 bg-[#c2410c] rounded-full absolute bottom-1"></span>
+      </a>
+
+      <!-- Tab 3: Map -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-stone-700 tap-active">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+        </svg>
+        <span class="text-[10px] font-medium">Map</span>
+      </a>
+
+      <!-- Tab 4: Alerts -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-stone-700 relative tap-active">
+        <span class="absolute top-1.5 right-6 w-2 h-2 rounded-full bg-amber-500 ring-2 ring-white"></span>
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+        </svg>
+        <span class="text-[10px] font-medium">Alerts</span>
+      </a>
+
+    </div>
+  </nav>
+
+</body>
+</html>

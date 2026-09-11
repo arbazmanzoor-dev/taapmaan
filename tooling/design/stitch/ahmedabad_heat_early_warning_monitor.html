@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary":"#ffffff","inverse-surface":"#342f2b","surface-tint":"#ac3400","surface-container-highest":"#eae1da","on-secondary-fixed":"#121c2a","primary-fixed-dim":"#ffb59d","surface-variant":"#eae1da","on-error":"#ffffff","on-surface-variant":"#59413a","surface-dim":"#e2d8d2","primary-container":"#c2410c","on-tertiary-fixed":"#3a0a00","error-container":"#ffdad6","on-tertiary-container":"#ffede8","tertiary":"#983311","on-background":"#1f1b17","primary-fixed":"#ffdbd0","inverse-primary":"#ffb59d","surface-container-low":"#fcf2eb","outline":"#8d7168","inverse-on-surface":"#f9efe8","on-primary-container":"#ffece7","on-error-container":"#93000a","on-tertiary-fixed-variant":"#842503","error":"#ba1a1a","surface-container-high":"#f0e6e0","surface-container-lowest":"#ffffff","on-primary-fixed":"#390c00","surface-container":"#f6ece6","surface-bright":"#fff8f5","on-secondary-fixed-variant":"#3d4756","background":"#fff8f5","secondary":"#555f6f","surface":"#fff8f5","outline-variant":"#e1bfb5","on-surface":"#1f1b17","on-primary":"#ffffff","on-secondary-container":"#596373","secondary-fixed-dim":"#bdc7d9","on-primary-fixed-variant":"#832600","on-tertiary":"#ffffff","secondary-container":"#d6e0f3","tertiary-fixed":"#ffdbd1","primary":"#9b2f00","tertiary-container":"#b94a27","tertiary-fixed-dim":"#ffb59f","secondary-fixed":"#d9e3f6"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"1rem","gutter-desktop":"1.5rem","space-lg":"1.5rem","margin-desktop":"2rem","space-sm":"0.75rem","space-2xs":"0.25rem","gutter":"1rem","space-xs":"0.5rem","space-md":"1rem","space-2xl":"3rem","margin-tablet":"1.5rem","space-xl":"2rem"},fontFamily:{"label-caps":["Space Mono"],"caption":["Inter"],"telemetry-data":["Space Mono"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Inter"],"telemetry-metric-lg":["Space Mono"],"body-md":["Inter"],"headline-md":["Bricolage Grotesque"],"telemetry-metric-md":["Space Mono"],"body-lg":["Inter"],"display-hero-mobile":["Bricolage Grotesque"],"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"headline-lg-mobile":["Bricolage Grotesque"]},fontSize:{"label-caps":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.06em","fontWeight":"700"}],"caption":["0.75rem",{"lineHeight":"1rem","fontWeight":"500"}],"telemetry-data":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"headline-sm":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"telemetry-metric-lg":["2.25rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"headline-md":["1.5rem",{"lineHeight":"1.875rem","letterSpacing":"-0.015em","fontWeight":"600"}],"telemetry-metric-md":["1.375rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.625rem","fontWeight":"400"}],"display-hero-mobile":["2rem",{"lineHeight":"2.25rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["2rem",{"lineHeight":"2.375rem","letterSpacing":"-0.02em","fontWeight":"600"}],"display-hero":["2.75rem",{"lineHeight":"3rem","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"1.875rem","letterSpacing":"-0.015em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><img alt="Taapmaan Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UG0xuS3heQyg7PjV6Mthmh4HUlELoycxW9hrFETxzbX5LiWAPxIpErRBNMPNlpTbDNBtD6At_3Hcm9WwokP1OW9483jsN1X2kxS65Y86o4OftWnjrb_GR3b7AKaAnebXyw8vqOR_SrsutKGywaPHQ-PF88XN49eyJW9zreVy0qoAImHZkP-DIswd6YvCld0NTHXAfe4vfzgffv82Vlj3-k2ZpO9BXLnENty8dJCB6RzIFtnkidwhh_mLU"/><div class="flex flex-col"><div class="flex items-center gap-space-2xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Taapmaan</span><span class="bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps px-space-2xs py-0.5 rounded">CELL-HAP</span></div><span class="font-caption text-caption text-on-surface-variant leading-none">तापमान · AMC Heat Action Plan Cell</span></div></div><div class="hidden xl:flex items-center"><nav class="flex items-center bg-surface-container p-1 rounded-lg gap-1" data-active-classes="bg-surface-container-lowest text-primary shadow-[0_1px_3px_rgba(28,25,23,0.04)] font-semibold"><a aria-current="page" class="px-space-md py-1.5 rounded transition-colors bg-surface-container-lowest text-primary shadow-[0_1px_3px_rgba(28,25,23,0.04)] font-semibold" data-path="monitor" href="#">Monitor</a><a class="font-body-sm text-body-sm text-on-surface-variant px-space-md py-1.5 rounded hover:text-on-surface transition-colors" data-path="command-centre" href="#">Command centre</a><a class="font-body-sm text-body-sm text-on-surface-variant px-space-md py-1.5 rounded hover:text-on-surface transition-colors" data-path="ward-analytics" href="#">Ward Analytics</a><a class="font-body-sm text-body-sm text-on-surface-variant px-space-md py-1.5 rounded hover:text-on-surface transition-colors" data-path="hospital-surveillance" href="#">Hospital Triage</a><a class="font-body-sm text-body-sm text-on-surface-variant px-space-md py-1.5 rounded hover:text-on-surface transition-colors" data-path="cooling-resources" href="#">Cooling Centers</a></nav></div><div class="flex items-center gap-space-xs shrink-0"><div class="hidden lg:flex items-center bg-surface-container p-0.5 rounded-lg"><button class="bg-surface-container-lowest text-primary px-space-xs py-1 rounded text-caption font-caption font-bold shadow-[0_1px_2px_rgba(0,0,0,0.03)]" type="button">Live</button><button class="text-on-surface-variant hover:text-on-surface px-space-xs py-1 rounded text-caption font-caption transition-colors" type="button">May peak</button></div><div class="hidden md:flex items-center gap-space-2xs bg-surface-container-low px-space-sm py-1.5 rounded-lg"><span class="material-symbols-outlined text-[16px] text-primary">location_city</span><span class="font-body-sm text-body-sm font-medium text-on-surface">Ahmedabad</span><span class="font-label-caps text-label-caps bg-surface-container-highest text-on-surface-variant px-1 rounded">AMC</span><span class="material-symbols-outlined text-[14px] text-on-surface-variant">arrow_drop_down</span></div><div class="hidden sm:flex items-center gap-space-2xs bg-surface-container-low px-space-sm py-1.5 rounded-lg"><span class="font-label-caps text-label-caps text-on-surface-variant">HORIZON</span><span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">+72 h</span><span class="material-symbols-outlined text-[14px] text-on-surface-variant">arrow_drop_down</span></div><div class="hidden 2xl:flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1 rounded-full shadow-[0_1px_3px_rgba(28,25,23,0.04)]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-tint opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-surface-tint"></span></span><span class="font-label-caps text-label-caps text-on-surface-variant">LIVE · IMD AWS · 14:30 IST</span></div><button aria-label="Toggle light and dark mode" class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><button class="flex items-center gap-space-2xs bg-primary-container text-on-primary-container hover:bg-primary px-space-sm h-9 rounded-lg font-body-sm text-body-sm font-bold shadow-[0_1px_3px_rgba(28,25,23,0.04)] transition-all" type="button"><span class="material-symbols-outlined text-[18px]">podcasts</span><span class="hidden sm:inline">Broadcast alert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between p-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-sm"><div class="px-space-xs py-space-2xs font-label-caps text-label-caps text-on-surface-variant">TACTICAL DISPATCH</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-lowest text-primary font-bold shadow-[0_1px_3px_rgba(28,25,23,0.04)]"><a aria-current="page" class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg transition-all bg-surface-container-lowest text-primary font-bold shadow-[0_1px_3px_rgba(28,25,23,0.04)]" data-path="monitor" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Ward Overview</span></a><a class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="command-centre" href="#"><span class="material-symbols-outlined text-[20px]">emergency</span><span>Incident Command</span></a><a class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="ward-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Thermal Telemetry</span></a><a class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="hospital-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">local_hospital</span><span>Hospital Surveillance</span></a><a class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="cooling-resources" href="#"><span class="material-symbols-outlined text-[20px]">water_drop</span><span>Water &amp; Cool Shelters</span></a><a class="flex items-center gap-space-xs px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="broadcast-log" href="#"><span class="material-symbols-outlined text-[20px]">cell_tower</span><span>Mass Alert Log</span></a></nav></div><div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-on-surface-variant">IMD GRID FEED</span><span class="font-label-caps text-label-caps text-surface-tint font-bold">99.8% SYNC</span></div><span class="font-caption text-caption text-on-surface-variant">INSAT-3D Thermal Sounder</span><div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden"><div class="bg-primary h-1.5 rounded-full w-5/6"></div></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">LATENCY: 420ms · 48 AWS LIVE</span></div></aside><div class="pl-64"><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- AMC TACTICAL TICKER SUB-BAR -->
+<div class="bg-primary-container text-on-primary-container px-space-md py-space-xs flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-bright opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-surface-bright"></span>
+</span>
+<span class="font-label-caps text-label-caps tracking-wider text-on-primary font-bold">
+        AMC HEAT EMERGENCY PROTOCOL PHASE 3 ACTIVE · HIGH NOCTURNAL STRESS ADVISORY IN EFFECT
+      </span>
+</div>
+<div class="hidden xl:flex items-center gap-space-md text-on-primary text-caption font-caption">
+<span>ZONAL DISPATCH TEAMS: <strong class="font-telemetry-data">48/48 DEPLOYED</strong></span>
+<span>COOLING SHELTERS: <strong class="font-telemetry-data">142 OPERATIONAL</strong></span>
+<span class="bg-primary px-2 py-0.5 rounded text-on-primary font-label-caps text-[10px]">IMD BULLETIN #28</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col gap-space-lg max-w-[1440px] mx-auto w-full">
+<!-- SECTION 1: HERO OVERVIEW (3-second scan) -->
+<div class="grid grid-cols-12 gap-gutter-desktop items-stretch">
+<!-- Primary Crisis Alert Card (4 cols) -->
+<div class="col-span-12 lg:col-span-5 xl:col-span-4 bg-error-container text-on-error-container rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-40 h-40 bg-error/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-error tracking-widest font-bold">AMC · FORECAST FOR THU 14 SEP</span>
+<span class="bg-error text-on-error font-label-caps text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1 font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> TIER 4 ACTIVE
+            </span>
+</div>
+<div class="mt-2 flex items-baseline gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-error font-bold leading-none">RED · Severe</h1>
+</div>
+<p class="font-caption text-caption text-on-surface-variant font-medium">Urban Heat Island exacerbation active across central and eastern industrial sectors.</p>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-lowest/80 backdrop-blur-sm rounded-lg p-space-sm">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">CITY HEAT-STRESS INDEX</span>
+<div class="flex items-baseline gap-1">
+<span class="font-telemetry-metric-lg text-telemetry-metric-lg text-error font-bold leading-none">77.5</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block bg-error/15 text-error px-2 py-0.5 rounded font-label-caps text-[10px] font-bold">
+                Extreme Physiological Strain
+              </span>
+<span class="font-caption text-caption text-on-surface-variant block mt-1">Wet-Bulb Globe: 38.5 °C</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 mt-3 overflow-hidden">
+<div class="bg-error h-2 rounded-full w-[77.5%]"></div>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between text-[11px] font-telemetry-data text-on-surface-variant pt-2">
+<span>STATION: AHMEDABAD AP (SVPI)</span>
+<span class="text-error font-bold">44.8 °C PEAK AT 15:10</span>
+</div>
+</div>
+<!-- Hero 4 Stat Tiles Grid (8 cols) -->
+<div class="col-span-12 lg:col-span-7 xl:col-span-8 flex flex-col justify-between gap-gutter">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-gutter h-full">
+<!-- Tile 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">WARDS OVER THRESHOLD</span>
+<span class="material-symbols-outlined text-[18px] text-error">domain_disabled</span>
+</div>
+<div class="my-2">
+<div class="font-telemetry-metric-lg text-telemetry-metric-lg text-error font-bold leading-tight">37 / 37</div>
+<span class="font-caption text-caption text-on-surface-variant font-medium">100% of municipal limits</span>
+</div>
+<div class="bg-error-container text-on-error-container px-2 py-1 rounded text-center font-label-caps text-[10px] font-bold">
+              UNIVERSAL RED ALERT
+            </div>
+</div>
+<!-- Tile 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">POPULATION EXPOSED</span>
+<span class="material-symbols-outlined text-[18px] text-primary">groups</span>
+</div>
+<div class="my-2">
+<div class="font-telemetry-metric-lg text-telemetry-metric-lg text-on-surface font-bold leading-tight">84.5 <span class="text-sm font-normal">lakh</span></div>
+<span class="font-caption text-caption text-on-surface-variant font-medium">Informal settlements: 24.1L</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-center font-label-caps text-[10px] font-semibold">
+              SECC HIGH RISK DENSITY
+            </div>
+</div>
+<!-- Tile 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">VS CLIMATE NORMAL</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">thermostat</span>
+</div>
+<div class="my-2">
+<div class="font-telemetry-metric-lg text-telemetry-metric-lg text-tertiary font-bold leading-tight">+2.1 <span class="text-sm font-normal">°C</span></div>
+<span class="font-caption text-caption text-on-surface-variant font-medium">1991–2020 IMD Baseline</span>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed px-2 py-1 rounded text-center font-label-caps text-[10px] font-bold">
+              97TH PERCENTILE ANOMALY
+            </div>
+</div>
+<!-- Tile 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">MODELLED EXCESS DEATHS</span>
+<span class="material-symbols-outlined text-[18px] text-error">ecg_heart</span>
+</div>
+<div class="my-2">
+<div class="font-telemetry-metric-lg text-telemetry-metric-lg text-error font-bold leading-tight">65 <span class="text-sm font-normal">/ day</span></div>
+<span class="font-caption text-caption text-on-surface-variant font-medium">95% CI: 48–82 unmitigated</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-center font-label-caps text-[10px] font-semibold">
+              GSDMA POISSON MODEL
+            </div>
+</div>
+</div>
+<!-- Operational Plain-Language Directive Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm flex items-center gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="text-primary font-semibold">Directive AMC-HAP/2024/09:</strong> Severe heatwave condition will peak between <strong>14:00 and 16:30 IST today</strong>; mandatory outdoor labor moratoriums and water misting deployments active across all 7 civic zones.
+          </p>
+</div>
+</div>
+</div>
+<!-- SECTION 2 & 4: MAIN INTERACTIVE GRID (Hex Map & Maninagar Dossier & Live Dispatch) -->
+<div class="grid grid-cols-12 gap-gutter-desktop items-start">
+<!-- Left Column: Honeycomb Ward Severity Hex Map (7 cols) -->
+<div class="col-span-12 xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">AMC 37 Municipal Wards · Thermal Severity Grid</h2>
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] px-2 py-0.5 rounded">HEX-TOPOLOGY</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">Centroid spatialized grid derived from Landsat 9 TIRS-2 &amp; AWS surface telemetry</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-lg">
+<button class="px-2.5 py-1 bg-surface-container-lowest shadow-sm rounded text-caption font-bold text-primary font-caption">Risk Tier</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded text-caption font-caption">Wet-Bulb</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded text-caption font-caption">Informal Dens.</button>
+</div>
+</div>
+<!-- Honeycomb Hex Map Visualization -->
+<div class="relative w-full bg-surface-container-low rounded-xl p- space-md flex items-center justify-center overflow-hidden min-h-[440px]">
+<!-- SVG Hexagon Mesh for AMC Wards -->
+<svg class="w-full h-full max-w-[720px] select-none" viewbox="0 0 760 410" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Hexagon Base Definition: R=34, w=58.9, h=68 -->
+<polygon id="hex" points="0,-32 27.7,-16 27.7,16 0,32 -27.7,16 -27.7,-16"></polygon>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="2" flood-color="#7f1d1d" flood-opacity="0.3" stddeviation="3"></fedropshadow>
+</filter>
+</defs>
+<!-- Row 1 (y: 50) -->
+<g transform="translate(190, 50)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">CHA</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W01</text>
+</g>
+<g transform="translate(254, 50)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">GHA</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W02</text>
+</g>
+<g transform="translate(318, 50)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">RAN</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W03</text>
+</g>
+<g transform="translate(382, 50)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">SAB</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W04</text>
+</g>
+<g transform="translate(446, 50)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">NAR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W05</text>
+</g>
+<g transform="translate(510, 50)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">KUB</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W06</text>
+</g>
+<!-- Row 2 (y: 102, offset +32) -->
+<g transform="translate(158, 102)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">THL</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W07</text>
+</g>
+<g transform="translate(222, 102)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">BOD</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W08</text>
+</g>
+<g transform="translate(286, 102)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">NAVR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W09</text>
+</g>
+<g transform="translate(350, 102)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">SHA</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W10</text>
+</g>
+<g transform="translate(414, 102)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">ASR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W11</text>
+</g>
+<g transform="translate(478, 102)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">NIK</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W12</text>
+</g>
+<g transform="translate(542, 102)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">SAR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W13</text>
+</g>
+<!-- Row 3 (y: 154) -->
+<g transform="translate(126, 154)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">SOT</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W14</text>
+</g>
+<g transform="translate(190, 154)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">JOD</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W15</text>
+</g>
+<g transform="translate(254, 154)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">PAL</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W16</text>
+</g>
+<g transform="translate(318, 154)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">KHA</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W17</text>
+</g>
+<g transform="translate(382, 154)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">BAP</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W18</text>
+</g>
+<g transform="translate(446, 154)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VIR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W19</text>
+</g>
+<g transform="translate(510, 154)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">ODH</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W20</text>
+</g>
+<!-- Row 4 (y: 206) -->
+<g transform="translate(158, 206)">
+<use class="fill-[#F97316] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VEJ</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W21</text>
+</g>
+<g transform="translate(222, 206)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VAS</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W22</text>
+</g>
+<g transform="translate(286, 206)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">JAM</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W23</text>
+</g>
+<g transform="translate(350, 206)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">RAI</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W24</text>
+</g>
+<g transform="translate(414, 206)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">GOM</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W25</text>
+</g>
+<g transform="translate(478, 206)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">AMR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W26</text>
+</g>
+<g transform="translate(542, 206)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VAT</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W27</text>
+</g>
+<!-- Row 5 (y: 258) -->
+<g transform="translate(190, 258)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">MAKAR</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W30</text>
+</g>
+<g transform="translate(254, 258)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">BEH</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W29</text>
+</g>
+<!-- MANINAGAR (SELECTED WARD 28) - Prominently highlighted -->
+<g class="cursor-pointer" filter="url(#glow)" transform="translate(318, 258)">
+<!-- Pulse halo -->
+<circle class="fill-primary/20 animate-ping" r="38"></circle>
+<circle class="fill-none stroke-error stroke-2" r="36"></circle>
+<use class="fill-error" href="#hex"></use>
+<text class="fill-white font-headline-sm text-[11px] font-bold" text-anchor="middle" y="-2">MANI</text>
+<text class="fill-white font-telemetry-data text-[9px] font-bold" text-anchor="middle" y="12">W-28</text>
+</g>
+<g transform="translate(382, 258)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">DAN</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W31</text>
+</g>
+<g transform="translate(446, 258)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">ISN</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W32</text>
+</g>
+<g transform="translate(510, 258)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">RAM</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W33</text>
+</g>
+<!-- Row 6 (y: 310) -->
+<g transform="translate(222, 310)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">SARX</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W34</text>
+</g>
+<g transform="translate(286, 310)">
+<use class="fill-[#EF4444] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VASN</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W35</text>
+</g>
+<g transform="translate(350, 310)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">LAM</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W36</text>
+</g>
+<g transform="translate(414, 310)">
+<use class="fill-[#991B1B] transition-all hover:opacity-80 cursor-pointer" href="#hex"></use>
+<text class="fill-white font-label-caps text-[10px] font-bold" text-anchor="middle" y="2">VTW</text>
+<text class="fill-white/80 font-telemetry-data text-[8px]" text-anchor="middle" y="14">W37</text>
+</g>
+<!-- Connected Callout Tag to Maninagar -->
+<path d="M 345 235 L 420 185 L 520 185" fill="none" stroke="#1f1b17" stroke-dasharray="3,3" stroke-width="1.5"></path>
+<circle cx="345" cy="235" fill="#1f1b17" r="3"></circle>
+</svg>
+<!-- Interactive Tooltip Overlay Card -->
+<div class="absolute right-6 top-8 bg-surface-container-lowest/95 backdrop-blur-md p-3 rounded-lg shadow-md max-w-xs pointer-events-none">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="font-headline-sm text-sm font-bold text-on-surface">Maninagar (Ward 28)</span>
+</div>
+<div class="mt-1 font-telemetry-data text-[11px] text-on-surface-variant flex flex-col gap-0.5">
+<span>Heat Index: <strong class="text-error font-bold">79.2 / 100</strong> (Extremely High)</span>
+<span>Resident Pop: <strong class="text-on-surface">2,14,000</strong> · South Zone</span>
+<span class="text-tertiary">Industrial-settlement interface exposure</span>
+</div>
+</div>
+</div>
+<!-- Hex Map Severity Legend Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs pt-space-xs text-caption">
+<div class="flex items-center gap-4 flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#16A34A]"></span>
+<span class="text-on-surface-variant font-caption text-caption">Low (&lt;38°C) <strong class="text-on-surface">0</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#EAB308]"></span>
+<span class="text-on-surface-variant font-caption text-caption">Mod (38-41°C) <strong class="text-on-surface">0</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#F97316]"></span>
+<span class="text-on-surface-variant font-caption text-caption">High (41-43°C) <strong class="text-on-surface">8</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#EF4444]"></span>
+<span class="text-on-surface-variant font-caption text-caption">Severe (43-45°C) <strong class="text-on-surface">21</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#991B1B]"></span>
+<span class="text-on-surface-variant font-caption text-caption">Extreme (&gt;45°C) <strong class="text-on-surface">8</strong></span>
+</div>
+</div>
+<span class="font-telemetry-data text-[11px] text-on-surface-variant">UPDATED 14:30 IST</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Maninagar Detailed Dossier (5 cols) -->
+<div class="col-span-12 xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Dossier Header -->
+<div class="flex items-start justify-between pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps bg-error-container text-error px-2 py-0.5 rounded font-bold">WARD 28 · SEVERE</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SOUTH ZONE</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Maninagar Focus Dossier</h3>
+<p class="font-caption text-caption text-on-surface-variant">Real-time localized microclimate &amp; epidemiological telemetry</p>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-container-highest p-2 rounded-lg text-on-surface-variant transition-colors" title="Export Ward PDF">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+<!-- Big Triad Metrics -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant">FEELS-LIKE</span>
+<span class="font-telemetry-metric-md text-telemetry-metric-md text-error font-bold">56 °C</span>
+<span class="font-caption text-[11px] text-on-surface-variant">RH 62% at peak</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant">WBGT GLOBE</span>
+<span class="font-telemetry-metric-md text-telemetry-metric-md text-error font-bold">38.5 °C</span>
+<span class="font-caption text-[11px] text-error font-semibold">Exceeds 32° fatal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant">NIGHT MIN</span>
+<span class="font-telemetry-metric-md text-telemetry-metric-md text-tertiary font-bold">31 °C</span>
+<span class="font-caption text-[11px] text-tertiary">Severe nocturnal load</span>
+</div>
+</div>
+<!-- Vulnerability Score Comparison Slider -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface font-bold">COMPOSITE VULNERABILITY SCORE</span>
+<span class="font-telemetry-data text-telemetry-data text-error font-bold">0.62 / 1.0</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<span>Ward 28 (0.62)</span>
+<span class="text-error font-medium">+29% above civic baseline</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-error h-2 rounded-full w-[62%]"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-caption text-on-surface-variant">
+<span>AMC City Average (0.48)</span>
+<div class="w-32 bg-surface-container-highest rounded-full h-1.5 inline-block">
+<div class="bg-secondary h-1.5 rounded-full w-[48%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Demographic & Tactical Resource Indicators with Comparative Progress Bars -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider font-bold">WARD RESOURCE &amp; DEMOGRAPHIC PROXIES</span>
+<!-- Indicator 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Elderly Share (60+ yrs)</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">14.2% <span class="text-error text-caption font-normal">(vs 10.8% City)</span></span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[70%]"></div>
+</div>
+</div>
+<!-- Indicator 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Tin / Asbestos Roof Fraction</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">42% <span class="text-error text-caption font-normal">(Extreme retention)</span></span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-error h-1.5 rounded-full w-[42%]"></div>
+</div>
+</div>
+<!-- Indicator 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Designated Heat Beds</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">86 / 120 <span class="text-error text-caption font-normal">(72% occupied)</span></span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-error h-1.5 rounded-full w-[72%]"></div>
+</div>
+</div>
+<!-- Indicator 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Active Cooling Centres</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">3 Active <span class="text-on-surface-variant text-caption font-normal">(850 capacity)</span></span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full w-[85%]"></div>
+</div>
+</div>
+<!-- Indicator 5 -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">ASHA / CHW Outreach Force</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface bg-surface-container-high px-2 py-0.5 rounded">14 Deployed (Door-to-door ORS)</span>
+</div>
+</div>
+<!-- Action Buttons for Selected Ward -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="bg-primary hover:bg-tertiary text-on-primary py-2 px-3 rounded-lg font-body-sm text-body-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+              Deploy Mist Tanker
+            </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface py-2 px-3 rounded-lg font-body-sm text-body-sm font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+              Mobilize CHW Cell
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3 & 5: FORECAST STRIP & DIURNAL CURVE & LIVE INCIDENTS -->
+<div class="grid grid-cols-12 gap-gutter-desktop items-start">
+<!-- 5-Day Horizon & ML Bias Correction Sub-panel (7 cols) -->
+<div class="col-span-12 xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">5-Day Meteorological Trajectory</h3>
+<p class="font-caption text-caption text-on-surface-variant">Multi-model ensemble consensus (IMD GFS + ECMWF HRES 0.1°)</p>
+</div>
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-2 py-1 rounded font-bold">EXTENDED WATCH</span>
+</div>
+<!-- 5-Day Strip Grid -->
+<div class="grid grid-cols-5 gap-space-xs">
+<!-- Day 1: Today Thu -->
+<div class="bg-error-container/60 p-space-sm rounded-lg flex flex-col items-center text-center">
+<span class="font-label-caps text-[11px] text-on-surface-variant">TODAY</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Thu 14</span>
+<span class="my-2 px-1.5 py-0.5 rounded font-label-caps text-[9px] font-bold bg-error text-on-error">RED</span>
+<div class="font-telemetry-data text-telemetry-data font-bold text-error">38.5°</div>
+<span class="font-caption text-[10px] text-on-surface-variant">WBGT Peak</span>
+<div class="mt-2 font-telemetry-data text-[11px] text-on-surface">31.0° Min</div>
+</div>
+<!-- Day 2: Fri 15 -->
+<div class="bg-error-container/60 p-space-sm rounded-lg flex flex-col items-center text-center">
+<span class="font-label-caps text-[11px] text-on-surface-variant">DAY +1</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Fri 15</span>
+<span class="my-2 px-1.5 py-0.5 rounded font-label-caps text-[9px] font-bold bg-error text-on-error">RED</span>
+<div class="font-telemetry-data text-telemetry-data font-bold text-error">38.8°</div>
+<span class="font-caption text-[10px] text-on-surface-variant">WBGT Peak</span>
+<div class="mt-2 font-telemetry-data text-[11px] text-on-surface">31.4° Min</div>
+</div>
+<!-- Day 3: Sat 16 (Peak Severity) -->
+<div class="bg-error-container p-space-sm rounded-lg flex flex-col items-center text-center shadow-sm">
+<span class="font-label-caps text-[11px] text-error font-bold">PEAK STRESS</span>
+<span class="font-body-sm text-body-sm font-bold text-error">Sat 16</span>
+<span class="my-2 px-1.5 py-0.5 rounded font-label-caps text-[9px] font-bold bg-[#991B1B] text-white">MAGENTA</span>
+<div class="font-telemetry-data text-telemetry-data font-bold text-[#991B1B]">39.4°</div>
+<span class="font-caption text-[10px] text-error font-medium">WBGT Peak</span>
+<div class="mt-2 font-telemetry-data text-[11px] text-error font-bold">32.1° Min</div>
+</div>
+<!-- Day 4: Sun 17 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center text-center">
+<span class="font-label-caps text-[11px] text-on-surface-variant">DAY +3</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Sun 17</span>
+<span class="my-2 px-1.5 py-0.5 rounded font-label-caps text-[9px] font-bold bg-[#F97316] text-white">ORANGE</span>
+<div class="font-telemetry-data text-telemetry-data font-bold text-on-surface">36.1°</div>
+<span class="font-caption text-[10px] text-on-surface-variant">WBGT Peak</span>
+<div class="mt-2 font-telemetry-data text-[11px] text-on-surface">29.5° Min</div>
+</div>
+<!-- Day 5: Mon 18 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center text-center">
+<span class="font-label-caps text-[11px] text-on-surface-variant">DAY +4</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Mon 18</span>
+<span class="my-2 px-1.5 py-0.5 rounded font-label-caps text-[9px] font-bold bg-[#EAB308] text-white">YELLOW</span>
+<div class="font-telemetry-data text-telemetry-data font-bold text-on-surface">34.0°</div>
+<span class="font-caption text-[10px] text-on-surface-variant">WBGT Peak</span>
+<div class="mt-2 font-telemetry-data text-[11px] text-on-surface">28.0° Min</div>
+</div>
+</div>
+<!-- Learned Model Diagnostics Panel -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-secondary">psychology</span>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface font-bold block">AI / ML BIAS-CORRECTED LEARNED DIAGNOSTICS</span>
+<span class="font-telemetry-data text-body-sm text-on-surface">
+                  D+3 WBGT <strong>34.2 °C</strong> · 80% of historical test days within <strong class="font-telemetry-data">±1.9 °C</strong> error band
+                </span>
+</div>
+</div>
+<div class="bg-surface-container-highest/90 text-on-surface-variant px-3 py-1.5 rounded text-caption font-caption max-w-xs">
+<strong class="text-error font-semibold">Caution:</strong> Model reads ~1.6 °C low on extreme peak days (&gt;44°C); human clearance required for alert retraction.
+            </div>
+</div>
+</div>
+<!-- 24-Hour Diurnal Thermal Stress SVG Curve -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">24-Hour Diurnal Heat Stress Progression</h3>
+<p class="font-caption text-caption text-on-surface-variant">Dry Bulb Temperature vs Physiological Wet-Bulb Load (IST)</p>
+</div>
+<div class="flex items-center gap-3 text-caption">
+<span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-error"></span> Dry-Bulb (°C)</span>
+<span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-tertiary stroke-dasharray"></span> WBGT (°C)</span>
+</div>
+</div>
+<div class="relative w-full h-44 bg-surface-container-low rounded-lg p-2 overflow-hidden">
+<!-- Inline SVG Diurnal Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="heatGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#DC2626" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#DC2626" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Danger zone shading (13:00 to 17:30) -->
+<rect fill="#FEE2E2" height="120" opacity="0.7" width="135" x="375" y="0"></rect>
+<!-- Baseline gridlines -->
+<line stroke="#EAE1DA" stroke-dasharray="2,2" stroke-width="1" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="#EAE1DA" stroke-dasharray="2,2" stroke-width="1" x1="0" x2="700" y1="70" y2="70"></line>
+<line stroke="#EAE1DA" stroke-width="1" x1="0" x2="700" y1="110" y2="110"></line>
+<!-- Fill under curve -->
+<path d="M 0 100 Q 120 105, 200 95 T 320 60 T 440 20 T 520 40 T 620 85 T 700 98 L 700 120 L 0 120 Z" fill="url(#heatGradient)"></path>
+<!-- Dry bulb temperature curve -->
+<path d="M 0 100 Q 120 105, 200 95 T 320 60 T 440 20 T 520 40 T 620 85 T 700 98" fill="none" stroke="#DC2626" stroke-width="2.5"></path>
+<!-- WBGT Curve -->
+<path d="M 0 112 Q 120 114, 200 108 T 320 82 T 440 45 T 520 62 T 620 100 T 700 110" fill="none" stroke="#983311" stroke-dasharray="4,3" stroke-width="2"></path>
+<!-- Peak annotation -->
+<circle cx="440" cy="20" fill="#DC2626" r="4"></circle>
+<text fill="#991B1B" font-family="Space Mono" font-size="9" font-weight="700" text-anchor="middle" x="440" y="14">44.8°C PEAK (15:10)</text>
+<!-- Nocturnal risk label -->
+<text fill="#59413a" font-family="Space Mono" font-size="8" x="80" y="90">NOCTURNAL FLOOR: 31°C</text>
+</svg>
+<!-- Time markers -->
+<div class="absolute bottom-1 left-2 right-2 flex justify-between font-label-caps text-[9px] text-on-surface-variant">
+<span>00:00</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span class="text-error font-bold">14:00–16:30 PEAK</span>
+<span>18:00</span>
+<span>21:00</span>
+<span>23:59</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-caption font-caption text-on-surface-variant pt-1">
+<span class="flex items-center gap-1 text-error font-semibold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+              Critical window for construction moratorium compliance
+            </span>
+<span class="font-telemetry-data text-[11px]">AMC SENSOR HUB #04</span>
+</div>
+</div>
+</div>
+<!-- Live Operational Incident Stream (5 cols) -->
+<div class="col-span-12 xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Active Dispatch Flags</h3>
+<span class="bg-error text-on-error font-label-caps text-[10px] px-2 py-0.5 rounded-full font-bold">6 PENDING</span>
+</div>
+<button class="font-label-caps text-label-caps text-primary hover:underline font-bold">DISPATCH ALL</button>
+</div>
+<!-- Incident Card 1 (Extreme Magenta) -->
+<div class="bg-error-container p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="bg-[#991B1B] text-white font-label-caps text-[9px] px-1.5 py-0.5 rounded font-bold">EXTREME MAGENTA</span>
+<span class="font-telemetry-data text-[11px] text-error font-bold">14:15 IST</span>
+</div>
+<h4 class="font-headline-sm text-sm font-bold text-on-surface">Extreme Wet-Bulb Spike &gt;38.5°C</h4>
+<p class="font-caption text-caption text-on-surface-variant">Danilimda GIDC Industrial Cluster · Automatic sprinkler trigger issued</p>
+<div class="mt-2 flex items-center justify-between pt-2">
+<span class="font-caption text-[11px] text-on-surface-variant">Assigned: Unit AMC-South-3</span>
+<button class="bg-[#991B1B] hover:bg-[#7f1d1d] text-white px-2.5 py-1 rounded text-caption font-bold font-caption">Acknowledge</button>
+</div>
+</div>
+<!-- Incident Card 2 (Severe Red) -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="bg-error text-on-error font-label-caps text-[9px] px-1.5 py-0.5 rounded font-bold">SEVERE RED</span>
+<span class="font-telemetry-data text-[11px] text-on-surface-variant">14:02 IST</span>
+</div>
+<h4 class="font-headline-sm text-sm font-bold text-on-surface">Cooling Station Generator Power Cut</h4>
+<p class="font-caption text-caption text-on-surface-variant">Odhav Ring Rd Community Hub · Backup diesel unit failed sync</p>
+<div class="mt-2 flex items-center justify-between pt-2">
+<span class="font-caption text-[11px] text-on-surface-variant">Assigned: UGVCL Grid Liaison</span>
+<button class="bg-surface-container-highest hover:bg-surface-dim text-on-surface px-2.5 py-1 rounded text-caption font-semibold font-caption">Route Tech</button>
+</div>
+</div>
+<!-- Incident Card 3 (Severe Red) -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="bg-error text-on-error font-label-caps text-[9px] px-1.5 py-0.5 rounded font-bold">SEVERE RED</span>
+<span class="font-telemetry-data text-[11px] text-on-surface-variant">13:48 IST</span>
+</div>
+<h4 class="font-headline-sm text-sm font-bold text-on-surface">Moratorium Breach: Construction Site AMC-4</h4>
+<p class="font-caption text-caption text-on-surface-variant">Sabarmati Riverfront Phase 2 · 38 laborers active in open sun</p>
+<div class="mt-2 flex items-center justify-between pt-2">
+<span class="font-caption text-[11px] text-on-surface-variant">Assigned: AMC Flying Squad #2</span>
+<button class="bg-primary text-on-primary hover:bg-tertiary px-2.5 py-1 rounded text-caption font-semibold font-caption">Issue Cease</button>
+</div>
+</div>
+<!-- Incident Card 4 (High Orange) -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="bg-[#F97316] text-white font-label-caps text-[9px] px-1.5 py-0.5 rounded font-bold">HIGH ORANGE</span>
+<span class="font-telemetry-data text-[11px] text-on-surface-variant">13:20 IST</span>
+</div>
+<h4 class="font-headline-sm text-sm font-bold text-on-surface">ORS Stock Reorder Level Reached</h4>
+<p class="font-caption text-caption text-on-surface-variant">Naroda Ward Post #6 · Residual inventory: 120 sachets</p>
+<div class="mt-2 flex items-center justify-between pt-2">
+<span class="font-caption text-[11px] text-on-surface-variant">Depot: Central Shardaben Stores</span>
+<button class="bg-surface-container-highest hover:bg-surface-dim text-on-surface px-2.5 py-1 rounded text-caption font-semibold font-caption">Auto-Dispatch</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 6: FOOTER STRIP & DATA PROVENANCE -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface font-bold block mb-1">DATA PROVENANCE &amp; SENSOR INTEGRITY LOG</span>
+<p class="font-caption text-caption text-on-surface-variant">
+            Official operational feed under Gujarat State Disaster Management Authority (GSDMA) &amp; Ahmedabad Municipal Corporation HAP 2024 Framework.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs font-telemetry-data text-caption text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>SYSTEM CONFIDENCE: <strong>99.4% NOMINAL</strong></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<div>
+<span class="font-caption text-caption text-on-surface-variant block">SURFACE WEATHER MESH</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">Open-Meteo High-Res Ensemble (0.1°)</span>
+</div>
+<span class="bg-emerald-100 text-emerald-800 font-label-caps text-[9px] px-2 py-0.5 rounded font-bold">SYNCED 4m ago</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<div>
+<span class="font-caption text-caption text-on-surface-variant block">AUTOMATIC OBSERVATION</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">IMD SVPI AWS #42647 + ERA5 Archive</span>
+</div>
+<span class="bg-emerald-100 text-emerald-800 font-label-caps text-[9px] px-2 py-0.5 rounded font-bold">VALIDATED 14:30</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<div>
+<span class="font-caption text-caption text-on-surface-variant block">POPULATION EXPOSURE BASE</span>
+<span class="font-telemetry-data text-telemetry-data font-bold text-on-surface">Census AMC Grids + SECC Vulnerability</span>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-caps text-[9px] px-2 py-0.5 rounded font-bold">RE-WEIGHTED 2023</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Micro-interactions for the tactical ward hexagons
+    document.querySelectorAll('polygon[id="hex"]').forEach(el => {
+      el.addEventListener('mouseenter', function() {
+        this.setAttribute('opacity', '0.8');
+      });
+      el.addEventListener('mouseleave', function() {
+        this.setAttribute('opacity', '1.0');
+      });
+    });
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,19 @@
+# Render.com blueprint. Push this repo to GitHub, then:
+#   Render dashboard -> New -> Blueprint -> pick the repo.
+# The free tier sleeps after 15 min idle; first request after that takes ~30 s.
+services:
+  - type: web
+    name: taapmaan
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: TAAPMAAN_REFRESH_MIN
+        value: "30"
+      - key: TAAPMAAN_SALT
+        generateValue: true      # salts the subscriber phone hashes
+      - key: TAAPMAAN_OPERATOR_TOKEN
+        generateValue: true      # operator password for live changes: Render dashboard -> Environment
+      - key: GOOGLE_MAPS_API_KEY
+        sync: false              # optional; without it the street map uses OpenStreetMap

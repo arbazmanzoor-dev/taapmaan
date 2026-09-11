@@ -1,0 +1,19 @@
+# Rename to wards_ahmedabad.csv to activate. ward_name must match the names in
+# data/cities.json exactly (case-insensitive). Supply only the columns you have —
+# every column you omit falls back to the Census anchor or the modelled value,
+# and /v1/census will tell you which fields are which.
+#
+# Where each column comes from:
+#   population            Census 2011 PCA, ward-level (municipal corporation website)
+#   elderly_60plus_pct    Census 2011 C-13 age tables
+#   outdoor_worker_pct    Census 2011 B-series worker classification
+#   informal_housing_pct  Census 2011 slum tables / state slum board ward list
+#   ac_ownership_pct      NFHS-5 district factsheet
+#   canopy_cover_pct      Sentinel-2 NDVI via Google Earth Engine
+#   cooling_centres       municipal Heat Action Plan
+#   hospital_beds         district health society
+#   asha_workers          NUHM roster
+ward_code,ward_name,population,elderly_60plus_pct,outdoor_worker_pct,informal_housing_pct,ac_ownership_pct,canopy_cover_pct,cooling_centres,hospital_beds,asha_workers
+AMC-01,Maninagar,235835,8.1,29.4,6.2,31.0,9.4,2,410,94
+AMC-02,Naranpura,198430,9.6,18.2,2.1,52.3,17.8,3,505,79
+AMC-03,Bapunagar,241902,6.8,38.7,12.9,14.6,4.1,1,188,97

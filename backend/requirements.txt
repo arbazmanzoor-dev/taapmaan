@@ -1,0 +1,8 @@
+APScheduler==3.11.3
+fastapi==0.141.1
+httpx==0.28.1
+joblib==1.6.0
+numpy==2.5.3
+pydantic==2.13.5
+scikit-learn==1.9.0
+uvicorn[standard]==0.52.4

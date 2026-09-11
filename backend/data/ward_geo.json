@@ -1,0 +1,918 @@
+{
+ "ahmedabad": {
+  "Maninagar": {
+   "lat": 22.99866,
+   "lon": 72.6114,
+   "source": "nominatim",
+   "match": "Maninagar, Lala Lajpat Rai Marg, Uttamnagar, Maninagar, Maninagar Taluka, Ahmedabad, Gujarat, 380008, India"
+  },
+  "Naranpura": {
+   "lat": 23.05671,
+   "lon": 72.55086,
+   "source": "nominatim",
+   "match": "Naranpura, SabarmatiTaluka, Ahmedabad, Gujarat, 380063, India"
+  },
+  "Bapunagar": {
+   "lat": 23.03244,
+   "lon": 72.63136,
+   "source": "nominatim",
+   "match": "Bapunagar Police Station, workers road steet, Shastri Nagar, Maninagar Taluka, Ahmedabad, Gujarat, 380024, India"
+  },
+  "Vatva": {
+   "lat": 22.959,
+   "lon": 72.6298,
+   "source": "nominatim",
+   "match": "Vatva, Vatva phase -2 road, Vatva Taluka, Ahmedabad, Gujarat, 382445, India"
+  },
+  "Sabarmati": {
+   "lat": 23.07707,
+   "lon": 72.58907,
+   "source": "nominatim",
+   "match": "Sabarmati, BULKHIDAS ROAD, Sabarmati, SabarmatiTaluka, Ahmedabad, Gujarat, 380005, India"
+  },
+  "Gomtipur": {
+   "lat": 23.0137,
+   "lon": 72.62058,
+   "source": "nominatim",
+   "match": "Rajpur Gomtipur, Maninagar Taluka, Ahmedabad, Gujarat, 380023, India"
+  },
+  "Danilimda": {
+   "lat": 22.99669,
+   "lon": 72.58339,
+   "source": "nominatim",
+   "match": "DaniLimda, Maninagar Taluka, Ahmedabad, Gujarat, 380043, India"
+  },
+  "Ranip": {
+   "lat": 23.07662,
+   "lon": 72.57642,
+   "source": "nominatim",
+   "match": "Ranip, SabarmatiTaluka, Ahmedabad, Gujarat, 382480, India"
+  },
+  "Odhav": {
+   "lat": 23.02558,
+   "lon": 72.66535,
+   "source": "nominatim",
+   "match": "Odhav Lake, Ahmedabad, Vatva Taluka, Ahmedabad, Gujarat, 382415, India"
+  },
+  "Behrampura": {
+   "lat": 23.00359,
+   "lon": 72.58384,
+   "source": "nominatim",
+   "match": "Behrampura, Maninagar Taluka, Ahmedabad, Gujarat, 380022, India"
+  },
+  "Navrangpura": {
+   "lat": 23.036,
+   "lon": 72.56434,
+   "source": "nominatim",
+   "match": "Navrangpura, SabarmatiTaluka, Ahmedabad, Gujarat, 380009, India"
+  },
+  "Thaltej": {
+   "lat": 23.04854,
+   "lon": 72.51174,
+   "source": "nominatim",
+   "match": "Thaltej, Ghatlodiya Taluka, Ahmedabad, Gujarat, 380059, India"
+  },
+  "Chandkheda": {
+   "lat": 23.11006,
+   "lon": 72.58112,
+   "source": "nominatim",
+   "match": "Chandkheda, SabarmatiTaluka, Ahmedabad, Gujarat, India"
+  },
+  "Nikol": {
+   "lat": 23.05893,
+   "lon": 72.67187,
+   "source": "nominatim",
+   "match": "Madhuvan Green Party Plot ,Nikol, Nava Naroda, Asarva Taluka, Ahmedabad, Gujarat, India"
+  },
+  "Amraiwadi": {
+   "lat": 23.00576,
+   "lon": 72.62698,
+   "source": "nominatim",
+   "match": "Amraiwadi, Maninagar Taluka, Ahmedabad, Gujarat, 380026, India"
+  },
+  "Ellisbridge": {
+   "lat": 23.02317,
+   "lon": 72.56026,
+   "source": "nominatim",
+   "match": "Ellisbridge Gymkhana, Netaji Subhash Chandra Road, Ambawadi, Navrangpura, SabarmatiTaluka, Ahmedabad, Gujarat, 380006, India"
+  },
+  "Paldi": {
+   "lat": 23.01455,
+   "lon": 72.56354,
+   "source": "nominatim",
+   "match": "Paldi, SabarmatiTaluka, Ahmedabad, Gujarat, 380007, India"
+  },
+  "Vasna": {
+   "lat": 23.00201,
+   "lon": 72.54724,
+   "source": "nominatim",
+   "match": "Vasna, Ahmedabad, SabarmatiTaluka, Ahmedabad, Gujarat, 380007, India"
+  },
+  "Jodhpur": {
+   "lat": 23.01693,
+   "lon": 72.52043,
+   "source": "nominatim",
+   "match": "Jodhpur, Sarkhej, Vejalpur Taluka, Ahmedabad, Gujarat, 380015, India"
+  },
+  "Bodakdev": {
+   "lat": 23.04459,
+   "lon": 72.51734,
+   "source": "nominatim",
+   "match": "Bodakdev, Ghatlodiya Taluka, Ahmedabad, Gujarat, 380054, India"
+  },
+  "Ghatlodia": {
+   "lat": 23.08485,
+   "lon": 72.53033,
+   "source": "nominatim",
+   "match": "Ghatlodiya Lake, Chanakyapuri, Ghatlodiya Taluka, Ahmedabad, Gujarat, India"
+  },
+  "Nava Vadaj": {
+   "lat": 23.06822,
+   "lon": 72.5641,
+   "source": "nominatim",
+   "match": "Nava-Vadaj, SabarmatiTaluka, Ahmedabad, Gujarat, 382480, India"
+  },
+  "Asarwa": {
+   "lat": 23.04725,
+   "lon": 72.6088,
+   "source": "nominatim",
+   "match": "Asarwa, Asarva Taluka, Ahmedabad, Gujarat, 380025, India"
+  },
+  "Shahpur": {
+   "lat": 23.03921,
+   "lon": 72.58103,
+   "source": "nominatim",
+   "match": "Shahpur Station, Kasturba Gandhi Road, Madhupura, Asarva Taluka, Ahmedabad, Gujarat, 380004, India"
+  },
+  "Khadia": {
+   "lat": 23.02139,
+   "lon": 72.58929,
+   "source": "nominatim",
+   "match": "Khadia, Ahmedabad, Gujarat, 380001, India"
+  },
+  "Dariapur": {
+   "source": "not_found"
+  },
+  "Rakhial": {
+   "lat": 23.02198,
+   "lon": 72.6219,
+   "source": "nominatim",
+   "match": "Rakhial Road, Pratapnagar, Maninagar Taluka, Ahmedabad, Gujarat, 380023, India"
+  },
+  "Saraspur": {
+   "source": "not_found"
+  },
+  "Isanpur": {
+   "lat": 22.98113,
+   "lon": 72.60129,
+   "source": "nominatim",
+   "match": "Isanpur, Maninagar Taluka, Ahmedabad, Gujarat, 382443, India"
+  },
+  "Lambha": {
+   "lat": 22.93177,
+   "lon": 72.57494,
+   "source": "nominatim",
+   "match": "Lambha, Vatva Taluka, Ahmedabad, Gujarat, 382427, India"
+  },
+  "Vejalpur": {
+   "lat": 23.00694,
+   "lon": 72.52084,
+   "source": "nominatim",
+   "match": "vejalpur, Sarkhej, Vejalpur Taluka, Ahmedabad, Gujarat, 380051, India"
+  },
+  "Sarkhej": {
+   "lat": 22.98348,
+   "lon": 72.50072,
+   "source": "nominatim",
+   "match": "Sarkhej, Vejalpur Taluka, Ahmedabad, Gujarat, 380051, India"
+  },
+  "Gota": {
+   "lat": 23.101,
+   "lon": 72.54084,
+   "source": "nominatim",
+   "match": "Gota, Ghatlodiya Taluka, Ahmedabad, Gujarat, 380081, India"
+  },
+  "Motera": {
+   "lat": 23.09177,
+   "lon": 72.59733,
+   "source": "nominatim",
+   "match": "Narendra Modi Stadium, Motera Stadium Exit Road, Sabarmati, Asarva Taluka, Ahmedabad, Gujarat, 380005, India"
+  },
+  "Kubernagar": {
+   "lat": 23.08041,
+   "lon": 72.63405,
+   "source": "nominatim",
+   "match": "Ambavadi / kubernagar, Asarva Taluka, Ahmedabad, Gujarat, 382340, India"
+  },
+  "Saijpur": {
+   "lat": 23.05966,
+   "lon": 72.64144,
+   "source": "nominatim",
+   "match": "Saijpur Lake, Sahijpur boga, Asarva Taluka, Ahmedabad, Gujarat, India"
+  },
+  "Thakkarbapa": {
+   "lat": 23.03896,
+   "lon": 72.63968,
+   "source": "nominatim",
+   "match": "Thakkarbapa Nagar Flyover, Shastri Nagar, Maninagar Taluka, Ahmedabad, Gujarat, 382346, India"
+  }
+ },
+ "delhi": {
+  "Karol Bagh": {
+   "source": "not_found"
+  },
+  "Rohini": {
+   "source": "not_found"
+  },
+  "Narela": {
+   "source": "not_found"
+  },
+  "Civil Lines": {
+   "source": "not_found"
+  },
+  "Shahdara N": {
+   "source": "not_found"
+  },
+  "Shahdara S": {
+   "source": "not_found"
+  },
+  "Najafgarh": {
+   "source": "not_found"
+  },
+  "Dwarka": {
+   "source": "not_found"
+  },
+  "Mayur Vihar": {
+   "source": "not_found"
+  },
+  "Seelampur": {
+   "source": "not_found"
+  },
+  "Patparganj": {
+   "source": "not_found"
+  },
+  "Okhla": {
+   "source": "not_found"
+  },
+  "Badarpur": {
+   "source": "not_found"
+  },
+  "Kalkaji": {
+   "source": "not_found"
+  },
+  "Vasant Kunj": {
+   "source": "not_found"
+  },
+  "Janakpuri": {
+   "source": "not_found"
+  },
+  "Pitampura": {
+   "source": "not_found"
+  },
+  "Model Town": {
+   "source": "not_found"
+  },
+  "Paharganj": {
+   "source": "not_found"
+  },
+  "Chandni Chowk": {
+   "source": "not_found"
+  },
+  "Daryaganj": {
+   "source": "not_found"
+  },
+  "Anand Vihar": {
+   "source": "not_found"
+  },
+  "Preet Vihar": {
+   "source": "not_found"
+  },
+  "Rajouri Garden": {
+   "source": "not_found"
+  },
+  "Punjabi Bagh": {
+   "source": "not_found"
+  },
+  "Keshavpuram": {
+   "source": "not_found"
+  },
+  "Bawana": {
+   "source": "not_found"
+  },
+  "Alipur": {
+   "source": "not_found"
+  },
+  "Kanjhawala": {
+   "source": "not_found"
+  },
+  "Ghonda": {
+   "source": "not_found"
+  },
+  "Yamuna Vihar": {
+   "source": "not_found"
+  },
+  "Nand Nagri": {
+   "source": "not_found"
+  },
+  "Dilshad Garden": {
+   "source": "not_found"
+  },
+  "Vikaspuri": {
+   "source": "not_found"
+  },
+  "Uttam Nagar": {
+   "source": "not_found"
+  },
+  "Sangam Vihar": {
+   "source": "not_found"
+  },
+  "Mehrauli": {
+   "source": "not_found"
+  }
+ },
+ "nagpur": {
+  "Dharampeth": {
+   "lat": 21.14097,
+   "lon": 79.06243,
+   "source": "nominatim",
+   "match": "Dharampeth, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440011, India"
+  },
+  "Sitabuldi": {
+   "lat": 21.14844,
+   "lon": 79.08405,
+   "source": "nominatim",
+   "match": "Sitabuldi Fort, NH53, Ramdaspeth, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440001, India"
+  },
+  "Sadar": {
+   "lat": 21.1592,
+   "lon": 79.07961,
+   "source": "nominatim",
+   "match": "Sadar Flyover, Mominpura, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440001, India"
+  },
+  "Gandhibagh": {
+   "lat": 21.15433,
+   "lon": 79.10585,
+   "source": "nominatim",
+   "match": "Vyas Hospital, Gandhibagh, Old Bhandara Road, Santra Bazaar, Itwari, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440022, India"
+  },
+  "Mangalwari": {
+   "lat": 21.14881,
+   "lon": 79.11044,
+   "source": "nominatim",
+   "match": "Jagdamba Xerox Center, Mangalwari, Mahal Road, Mahal, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440002, India"
+  },
+  "Laxmi Nagar": {
+   "lat": 21.12547,
+   "lon": 79.06398,
+   "source": "nominatim",
+   "match": "Laxmi Nagar Square, West High Court Road, Dharampeth, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440010, India"
+  },
+  "Hanuman Nagar": {
+   "lat": 21.1263,
+   "lon": 79.10209,
+   "source": "nominatim",
+   "match": "Hanuman Nagar Basketball Ground, Mahal, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, India"
+  },
+  "Nehru Nagar": {
+   "lat": 21.1161,
+   "lon": 79.10703,
+   "source": "nominatim",
+   "match": "Pt. Jawaharlal Nehru stadium, Lane 3, Jawahar Nagar, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440009, India"
+  },
+  "Ashi Nagar": {
+   "source": "not_found"
+  },
+  "Dhantoli": {
+   "lat": 21.13394,
+   "lon": 79.08057,
+   "source": "nominatim",
+   "match": "Dhantoli, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 411010, India"
+  },
+  "Ramdaspeth": {
+   "lat": 21.13659,
+   "lon": 79.07499,
+   "source": "nominatim",
+   "match": "Ramdaspeth, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 411010, India"
+  },
+  "Jaripatka": {
+   "lat": 21.18949,
+   "lon": 79.08532,
+   "source": "nominatim",
+   "match": "Jaripatka Road, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440026, India"
+  },
+  "Kamptee Rd": {
+   "lat": 21.21158,
+   "lon": 79.16011,
+   "source": "nominatim",
+   "match": "Kamptee Road, Kamptee, Kamptee Taluka, Nagpur, Maharashtra, 441404, India"
+  },
+  "Wardha Rd": {
+   "lat": 21.10365,
+   "lon": 79.0683,
+   "source": "nominatim",
+   "match": "Wardha Road, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440005, India"
+  },
+  "Manewada": {
+   "lat": 21.10863,
+   "lon": 79.10355,
+   "source": "nominatim",
+   "match": "Manewada Road, Ladikar Layout, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440027, India"
+  },
+  "Besa": {
+   "lat": 21.08475,
+   "lon": 79.09447,
+   "source": "nominatim",
+   "match": "Besa, Nagpur Rural Taluka, Nagpur, Maharashtra, 440037, India"
+  },
+  "Khamla": {
+   "lat": 21.10342,
+   "lon": 79.06705,
+   "source": "nominatim",
+   "match": "Khamla cricket ground, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, India"
+  },
+  "Trimurti Nagar": {
+   "lat": 21.11316,
+   "lon": 79.04266,
+   "source": "nominatim",
+   "match": "Trimurti Nagar Garden, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, India"
+  },
+  "Pratap Nagar": {
+   "lat": 21.11371,
+   "lon": 79.05678,
+   "source": "nominatim",
+   "match": "Pratap Nagar Square, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440022, India"
+  },
+  "Bharat Nagar": {
+   "lat": 21.15001,
+   "lon": 79.04626,
+   "source": "nominatim",
+   "match": "Bharat Nagar, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440021, India"
+  },
+  "Gittikhadan": {
+   "lat": 21.17502,
+   "lon": 79.06085,
+   "source": "nominatim",
+   "match": "Gittikhadan road, Seminary Hills, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440006, India"
+  },
+  "Mankapur": {
+   "lat": 21.18781,
+   "lon": 79.07909,
+   "source": "nominatim",
+   "match": "Mankapur Square, P & T colony, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440030, India"
+  },
+  "Kalamna": {
+   "lat": 21.16785,
+   "lon": 79.14091,
+   "source": "nominatim",
+   "match": "Kalamna, Inner Ring Road Flyover, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440008, India"
+  },
+  "Pardi": {
+   "lat": 21.32984,
+   "lon": 79.09066,
+   "source": "nominatim",
+   "match": "Pardi, Parseoni, Nagpur, Maharashtra, 441113, India"
+  },
+  "Bhandewadi": {
+   "source": "not_found"
+  },
+  "Nandanvan": {
+   "lat": 21.13756,
+   "lon": 79.12268,
+   "source": "nominatim",
+   "match": "Nandanvan, Mahal, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440008, India"
+  },
+  "Vaishali Nagar": {
+   "lat": 21.16833,
+   "lon": 79.1097,
+   "source": "nominatim",
+   "match": "Vaishali Nagar Ground, Itwari, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, India"
+  },
+  "Hudkeshwar": {
+   "lat": 21.11022,
+   "lon": 79.11731,
+   "source": "nominatim",
+   "match": "Hudkeshwar Road, New Subhedar Layout, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440034, India"
+  },
+  "Narendra Nagar": {
+   "lat": 21.10668,
+   "lon": 79.07838,
+   "source": "nominatim",
+   "match": "NIT park Narendra nagar, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440015, India"
+  },
+  "Somalwada": {
+   "lat": 21.09994,
+   "lon": 79.06679,
+   "source": "nominatim",
+   "match": "somalwada marathi primary school, om shanti road, Jetwan, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440025, India"
+  },
+  "Ajni": {
+   "lat": 21.12692,
+   "lon": 79.08258,
+   "source": "nominatim",
+   "match": "Ajni, Humpyard Road/ Ajni Railway Station Road, Greenview Colony, Dhantoli, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 411010, India"
+  },
+  "Chhaoni": {
+   "source": "not_found"
+  },
+  "Lakadganj": {
+   "source": "not_found"
+  },
+  "Itwari": {
+   "lat": 21.15693,
+   "lon": 79.11026,
+   "source": "nominatim",
+   "match": "Itwari, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440017, India"
+  },
+  "Mahal": {
+   "lat": 21.143,
+   "lon": 79.11018,
+   "source": "nominatim",
+   "match": "Mahal, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440032, India"
+  },
+  "Sakkardara": {
+   "lat": 21.12194,
+   "lon": 79.11528,
+   "source": "nominatim",
+   "match": "Sakkardara Lake, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, India"
+  },
+  "Zingabai": {
+   "lat": 21.19139,
+   "lon": 79.07203,
+   "source": "nominatim",
+   "match": "Zingabai Takali Road, Nagpur, Nagpur Urban Taluka, Nagpur, Maharashtra, 440030, India"
+  }
+ },
+ "chennai": {
+  "Tondiarpet": {
+   "lat": 13.12752,
+   "lon": 80.28192,
+   "source": "nominatim",
+   "match": "Tondiarpet, Vaidhyanathan Bridge, Ward 38, Tondiarpet, Chennai, Tamil Nadu, 600081, India, CMWSSB Division 38"
+  },
+  "Manali": {
+   "lat": 13.18106,
+   "lon": 80.26942,
+   "source": "nominatim",
+   "match": "Zone 2 Manali, Chennai, Madhavaram, Thiruvallur, Tamil Nadu, 600068, India"
+  },
+  "Madhavaram": {
+   "lat": 13.14215,
+   "lon": 80.23238,
+   "source": "nominatim",
+   "match": "Zone 3 Madhavaram, Chennai, Madhavaram, Thiruvallur, Tamil Nadu, India"
+  },
+  "Thiru Vi Ka Nagar": {
+   "lat": 13.1209,
+   "lon": 80.22951,
+   "source": "nominatim",
+   "match": "Zone 6 Thiru. Vi. Ka. Nagar, Chennai, Tamil Nadu, India"
+  },
+  "Ambattur": {
+   "lat": 13.10557,
+   "lon": 80.16396,
+   "source": "nominatim",
+   "match": "Zone 7 Ambattur, Chennai, Ambattur, Thiruvallur, Tamil Nadu, India"
+  },
+  "Anna Nagar": {
+   "lat": 13.08825,
+   "lon": 80.20734,
+   "source": "nominatim",
+   "match": "Zone 8 Anna Nagar, Chennai, Tamil Nadu, India"
+  },
+  "Teynampet": {
+   "lat": 13.04432,
+   "lon": 80.24985,
+   "source": "nominatim",
+   "match": "Zone 9 Teynampet, Chennai, Tamil Nadu, India"
+  },
+  "Kodambakkam": {
+   "lat": 13.04921,
+   "lon": 80.22428,
+   "source": "nominatim",
+   "match": "Zone 10 Kodambakkam, Chennai, Tamil Nadu, India"
+  },
+  "Valasaravakkam": {
+   "lat": 13.04132,
+   "lon": 80.17243,
+   "source": "nominatim",
+   "match": "Zone 11 Valasaravakkam, Chennai, Ambattur, Thiruvallur, Tamil Nadu, India"
+  },
+  "Alandur": {
+   "lat": 13.00282,
+   "lon": 80.17192,
+   "source": "nominatim",
+   "match": "Alandur, Chennai, Tamil Nadu, India"
+  },
+  "Adyar": {
+   "lat": 13.00645,
+   "lon": 80.25778,
+   "source": "nominatim",
+   "match": "Zone 13 Adyar, Chennai, Tamil Nadu, India"
+  },
+  "Perungudi": {
+   "lat": 12.97102,
+   "lon": 80.24181,
+   "source": "nominatim",
+   "match": "Zone 14 Perungudi, Chennai, Sholinganallur, Chennai, Tamil Nadu, India"
+  },
+  "Sholinganallur": {
+   "lat": 12.91744,
+   "lon": 80.21649,
+   "source": "nominatim",
+   "match": "Sholinganallur, Chennai, Tamil Nadu, India"
+  },
+  "Royapuram": {
+   "lat": 13.10429,
+   "lon": 80.29361,
+   "source": "nominatim",
+   "match": "Royapuram, North Terminus Road, Ward 52, Zone 5 Royapuram, Chennai, Tamil Nadu, 600021, India, CMWSSB Division 50"
+  },
+  "Washermanpet": {
+   "lat": 13.10896,
+   "lon": 80.28201,
+   "source": "nominatim",
+   "match": "Washermanpet, Dhakshina Murthy Koil Street, Moolakothalam, Ward 52, Zone 5 Royapuram, Chennai, Tamil Nadu, 600021, India"
+  },
+  "Vyasarpadi": {
+   "lat": 13.11305,
+   "lon": 80.25872,
+   "source": "nominatim",
+   "match": "Vyasarpadi, Tondiarpet, Chennai, Tamil Nadu, 600039, India"
+  },
+  "Purasawalkam": {
+   "lat": 13.08933,
+   "lon": 80.25503,
+   "source": "nominatim",
+   "match": "Purasawalkam, Zone 6 Thiru. Vi. Ka. Nagar, Chennai, Tamil Nadu, 600084, India"
+  },
+  "Egmore": {
+   "lat": 13.07283,
+   "lon": 80.25769,
+   "source": "nominatim",
+   "match": "Egmore, Zone 5 Royapuram, Chennai, Tamil Nadu, 600008, India"
+  },
+  "Chetpet": {
+   "lat": 13.07174,
+   "lon": 80.2438,
+   "source": "nominatim",
+   "match": "Chetpet, Zone 8 Anna Nagar, Chennai, Tamil Nadu, 600006, India"
+  },
+  "Nungambakkam": {
+   "lat": 13.06206,
+   "lon": 80.24049,
+   "source": "nominatim",
+   "match": "Nungambakkam, Zone 9 Teynampet, Chennai, Tamil Nadu, 600034, India"
+  },
+  "Saidapet": {
+   "lat": 13.02082,
+   "lon": 80.22395,
+   "source": "nominatim",
+   "match": "Saidapet, Zone 10 Kodambakkam, Chennai, Tamil Nadu, 600015, India"
+  },
+  "Guindy": {
+   "lat": 13.00867,
+   "lon": 80.21261,
+   "source": "nominatim",
+   "match": "Guindy, Anna Salai (Mount Road), Ward 160, Zone 12 Alandur, Chennai, Alandur, Chennai, Tamil Nadu, 600032, India, CMWSSB Division 170"
+  },
+  "Velachery": {
+   "lat": 12.98017,
+   "lon": 80.22285,
+   "source": "nominatim",
+   "match": "Velachery, Chennai, Tamil Nadu, 600042, India"
+  },
+  "Thiruvanmiyur": {
+   "lat": 12.98589,
+   "lon": 80.26442,
+   "source": "nominatim",
+   "match": "Thiruvanmiyur, Zone 13 Adyar, Chennai, Tamil Nadu, 600041, India"
+  },
+  "Besant Nagar": {
+   "lat": 12.99969,
+   "lon": 80.26823,
+   "source": "nominatim",
+   "match": "Besant Nagar, Zone 13 Adyar, Chennai, Tamil Nadu, 600090, India"
+  },
+  "Mylapore": {
+   "lat": 13.03165,
+   "lon": 80.27002,
+   "source": "nominatim",
+   "match": "Mylapore, Zone 9 Teynampet, Chennai, Tamil Nadu, 600004, India"
+  },
+  "Triplicane": {
+   "lat": 13.06043,
+   "lon": 80.27507,
+   "source": "nominatim",
+   "match": "Triplicane, Zone 9 Teynampet, Chennai, Tamil Nadu, 600005, India"
+  },
+  "Chintadripet": {
+   "lat": 13.07613,
+   "lon": 80.27078,
+   "source": "nominatim",
+   "match": "Chintadripet, Zone 5 Royapuram, Chennai, Tamil Nadu, 600003, India"
+  },
+  "Choolai": {
+   "lat": 13.09063,
+   "lon": 80.26214,
+   "source": "nominatim",
+   "match": "Choolai, Zone 6 Thiru. Vi. Ka. Nagar, Chennai, Tamil Nadu, 600001, India"
+  },
+  "Perambur": {
+   "lat": 13.11212,
+   "lon": 80.24502,
+   "source": "nominatim",
+   "match": "Perambur, Zone 6 Thiru. Vi. Ka. Nagar, Chennai, Tamil Nadu, 600011, India"
+  },
+  "Villivakkam": {
+   "lat": 13.11259,
+   "lon": 80.20814,
+   "source": "nominatim",
+   "match": "Villivakkam, Zone 6 Thiru. Vi. Ka. Nagar, Chennai, Tamil Nadu, 600049, India"
+  },
+  "Korattur": {
+   "lat": 13.11155,
+   "lon": 80.18463,
+   "source": "nominatim",
+   "match": "Korattur, Ward 83, Zone 7 Ambattur, Chennai, Ambattur, Thiruvallur, Tamil Nadu, 600080, India"
+  },
+  "Mogappair": {
+   "lat": 13.08351,
+   "lon": 80.18408,
+   "source": "nominatim",
+   "match": "Mogappair East, Ward 93, Zone 7 Ambattur, Chennai, Ambattur, Thiruvallur, Tamil Nadu, 600101, India"
+  },
+  "Porur": {
+   "lat": 13.03201,
+   "lon": 80.1583,
+   "source": "nominatim",
+   "match": "Porur, Ward 153, Zone 11 Valasaravakkam, Chennai, Ambattur, Thiruvallur, Tamil Nadu, 600116, India"
+  },
+  "Ramapuram": {
+   "lat": 13.02986,
+   "lon": 80.17803,
+   "source": "nominatim",
+   "match": "Ramapuram, Ward 154, Zone 11 Valasaravakkam, Chennai, Ambattur, Thiruvallur, Tamil Nadu, 600089, India"
+  },
+  "Pallikaranai": {
+   "lat": 12.93047,
+   "lon": 80.20777,
+   "source": "nominatim",
+   "match": "Pallikaranai, Zone 14 Perungudi, Chennai, Sholinganallur, Chennai, Tamil Nadu, 600100, India"
+  },
+  "Injambakkam": {
+   "lat": 12.91894,
+   "lon": 80.25129,
+   "source": "nominatim",
+   "match": "Injambakkam, Zone 15 Sholinganallur, Chennai, Sholinganallur, Chennai, Tamil Nadu, 600041, India"
+  }
+ },
+ "lucknow": {
+  "Hazratganj": {
+   "lat": 26.84753,
+   "lon": 80.9432,
+   "source": "nominatim",
+   "match": "Hazratganj, Lucknow, Uttar Pradesh, India"
+  },
+  "Aminabad": {
+   "lat": 26.8487,
+   "lon": 80.927,
+   "source": "nominatim",
+   "match": "Aminabad, Lucknow, Uttar Pradesh, 226018, India"
+  },
+  "Chowk": {
+   "lat": 26.86771,
+   "lon": 80.90421,
+   "source": "nominatim",
+   "match": "Chowk, Lucknow, Uttar Pradesh, 266003, India"
+  },
+  "Aliganj": {
+   "lat": 26.90515,
+   "lon": 80.94799,
+   "source": "nominatim",
+   "match": "Aliganj, Lucknow, Uttar Pradesh, 226024, India"
+  },
+  "Gomti Nagar": {
+   "lat": 26.86117,
+   "lon": 81.00392,
+   "source": "nominatim",
+   "match": "Gomti Nagar, Shaheed Path Flyover, Vineet Khand, Gomti Nagar, Lucknow, Uttar Pradesh, 226010, India"
+  },
+  "Indira Nagar": {
+   "lat": 26.88232,
+   "lon": 80.99003,
+   "source": "nominatim",
+   "match": "Indira Nagar, Lucknow, Uttar Pradesh, 255001, India"
+  },
+  "Mahanagar": {
+   "lat": 26.87445,
+   "lon": 80.95818,
+   "source": "nominatim",
+   "match": "Mahanagar Colony, Lucknow, Uttar Pradesh, 226006, India"
+  },
+  "Rajajipuram": {
+   "lat": 26.84105,
+   "lon": 80.85259,
+   "source": "nominatim",
+   "match": "38 2 Mohan Road Geeta Sukhdev Park, 38/2, Mohan Rd, near Shiv Mandir, Budheshwar, Alamnagar, Rajajipuram, Lucknow, Uttar Pradesh 226017, Luc"
+  },
+  "Alambagh": {
+   "lat": 26.81401,
+   "lon": 80.90251,
+   "source": "nominatim",
+   "match": "Alambagh, Kanpur-Lucknow Road, Alambagh, Lucknow, Uttar Pradesh, 226005, India"
+  },
+  "Charbagh": {
+   "lat": 26.8335,
+   "lon": 80.92641,
+   "source": "nominatim",
+   "match": "Charbagh, Lucknow, Uttar Pradesh, 226018, India"
+  },
+  "Aishbagh": {
+   "lat": 26.83736,
+   "lon": 80.9098,
+   "source": "nominatim",
+   "match": "Aishbagh, Aishbagh Road Flyover, Moti Nagar, Lucknow, Uttar Pradesh, 226004, India"
+  },
+  "Thakurganj": {
+   "lat": 26.87939,
+   "lon": 80.89051,
+   "source": "nominatim",
+   "match": "Thakurganj, Lucknow, Uttar Pradesh, India"
+  },
+  "Balaganj": {
+   "source": "not_found"
+  },
+  "Daliganj": {
+   "source": "not_found"
+  },
+  "Nishatganj": {
+   "source": "not_found"
+  },
+  "Jankipuram": {
+   "source": "not_found"
+  },
+  "Vikas Nagar": {
+   "source": "not_found"
+  },
+  "Chinhat": {
+   "source": "not_found"
+  },
+  "Faizabad Rd": {
+   "source": "not_found"
+  },
+  "Sitapur Rd": {
+   "source": "not_found"
+  },
+  "Kanpur Rd": {
+   "source": "not_found"
+  },
+  "Sarojini Nagar": {
+   "source": "not_found"
+  },
+  "Bangla Bazar": {
+   "source": "not_found"
+  },
+  "Telibagh": {
+   "source": "not_found"
+  },
+  "Ashiyana": {
+   "source": "not_found"
+  },
+  "Krishna Nagar": {
+   "source": "not_found"
+  },
+  "Naka": {
+   "source": "not_found"
+  },
+  "Yahiyaganj": {
+   "source": "not_found"
+  },
+  "Nakhas": {
+   "source": "not_found"
+  },
+  "Saadatganj": {
+   "source": "not_found"
+  },
+  "Hussainabad": {
+   "source": "not_found"
+  },
+  "Dubagga": {
+   "source": "not_found"
+  },
+  "Kursi Rd": {
+   "source": "not_found"
+  },
+  "Kalyanpur": {
+   "source": "not_found"
+  },
+  "Triveni Nagar": {
+   "source": "not_found"
+  },
+  "Madiyaon": {
+   "source": "not_found"
+  },
+  "Malihabad": {
+   "source": "not_found"
+  }
+ }
+}
