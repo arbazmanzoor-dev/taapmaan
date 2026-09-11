@@ -405,7 +405,7 @@ select.pick{appearance:none;background:var(--surface-2);border:1px solid var(--l
         <div class="p-head">
           <div class="p-title"><h2>5-day thermal outlook</h2>
             <p class="p-sub">City heat-stress index per day, with projected excess deaths and emergency presentations</p></div>
-          <span class="lbl">HTSI · deaths · ED</span>
+          <span class="chip" id="fcBasis"></span><span class="lbl">HTSI · deaths · ED</span>
         </div>
         <div class="days" id="days"></div>
         <div class="mlstrip" id="mlStrip"></div>
@@ -2003,6 +2003,12 @@ function renderHap(){
 
 /* ---------- 13. Five-day outlook ----------------------------------------- */
 function renderDays(){
+  // These cards get screenshotted on their own, so they must say what they are:
+  // scenario numbers are never a warning, whatever the status strip says.
+  const live=isLiveSource(sourceMode()), fb=document.getElementById("fcBasis");
+  fb.textContent=live?"live forecast":"scenario — not a warning";
+  fb.style.cssText=live?"background:var(--r1-wash);color:var(--r1)"
+                       :"background:var(--r2-wash);color:var(--r2-ink)";
   document.getElementById("days").innerHTML=FC.map(f=>{
     const b=band(f.htsi);
     return `<button class="day${f.day===S.day?" on":""}" data-d="${f.day}" style="--dc:${cssv(b.v)};--dw:${cssv(b.w)}">
