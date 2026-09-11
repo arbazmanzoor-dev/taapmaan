@@ -220,16 +220,6 @@ select.pick{appearance:none;background:var(--surface-2);border:1px solid var(--l
 .src-i:last-child{border-bottom:0}
 .src-i b{font-size:12.5px;font-weight:600;display:block}
 .src-i p{margin:1px 0 0;font-size:11px;color:var(--ink-3)}
-.tabs{display:flex;gap:4px;padding:10px 16px 0;flex-wrap:wrap}
-.tab{background:none;border:1px solid transparent;border-radius:7px;padding:5px 10px;font-family:var(--mono);font-size:11px;
-  cursor:pointer;color:var(--ink-3);font-weight:500}
-.tab.on{background:var(--sunken);border-color:var(--line);color:var(--ink)}
-pre.code{margin:10px 16px 16px;background:var(--sunken);border:1px solid var(--line);border-radius:9px;padding:13px 15px;
-  font-family:var(--mono);font-size:11.5px;line-height:1.6;overflow-x:auto;color:var(--ink-2)}
-pre.code .k{color:var(--brand-ink)}
-pre.code .s{color:var(--r3)}
-pre.code .n{color:var(--r1)}
-pre.code .c{color:var(--ink-3);font-style:italic}
 
 /* ---------- modal ---------- */
 .scrim{position:fixed;inset:0;background:rgba(8,9,14,.62);backdrop-filter:blur(3px);z-index:100;
@@ -462,11 +452,6 @@ pre.code .c{color:var(--ink-3);font-style:italic}
         <span class="lbl" id="srcStamp">—</span>
       </div>
       <div class="src" id="srcList"></div>
-    </div>
-    <div class="panel">
-      <div class="p-head"><h2>Alert API contract</h2><span class="lbl">for backend integration</span></div>
-      <div class="tabs" id="apiTabs"></div>
-      <pre class="code" id="apiCode"></pre>
     </div>
   </section>
 
@@ -1278,7 +1263,7 @@ const LAYERS=[
   {id:"green",   label:"Canopy cover",         unit:"%",   lo:1,  hi:35,  get:w=>w.green,    fmt:v=>v.toFixed(0), invert:true}
 ];
 
-const S={ city:"ahmedabad", day:3, layer:"htsi", ward:null, hap:{}, api:"forecast",
+const S={ city:"ahmedabad", day:3, layer:"htsi", ward:null, hap:{},
           aud:"All residents", chan:"WhatsApp", lang:"EN",
           mode:"live", net:{state:"idle", msg:"", at:null}, server:null };
 
@@ -1659,7 +1644,7 @@ function renderMap(){
   document.getElementById("mapStamp").textContent=L.label+" · "+DAYNAMES[S.day].toLowerCase();
   document.getElementById("mapTitle").textContent=`${CITIES[S.city].corp} ${W.length} wards · thermal severity grid`;
   svg.querySelectorAll(".hex").forEach(g=>{
-    g.addEventListener("click",()=>{ S.ward=g.dataset.w; renderMap(); renderWard(); renderHourly(); renderRank(); renderApi(); });
+    g.addEventListener("click",()=>{ S.ward=g.dataset.w; renderMap(); renderWard(); renderHourly(); renderRank(); });
     g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();g.click();} });
     g.addEventListener("mousemove",e=>showTip(e,g.dataset.w));
     g.addEventListener("mouseleave",hideTip);
@@ -1809,7 +1794,7 @@ function renderStreet(){
   }
   mapNote();
 }
-function pickWard(name){ S.ward=name; renderMap(); renderWard(); renderRank(); renderHourly(); renderApi(); }
+function pickWard(name){ S.ward=name; renderMap(); renderWard(); renderRank(); renderHourly(); }
 async function setMapView(v){
   S.mapView=v;
   document.querySelectorAll(".mv-b").forEach(b=>b.classList.toggle("on",b.dataset.mv===v));
@@ -2144,7 +2129,7 @@ function renderRank(){
     </button>`;
   }).join("");
   document.querySelectorAll(".rk").forEach(b=>b.addEventListener("click",()=>{
-    S.ward=b.dataset.w; renderMap(); renderWard(); renderRank(); renderHourly(); renderApi();
+    S.ward=b.dataset.w; renderMap(); renderWard(); renderRank(); renderHourly();
   }));
 }
 
@@ -2228,105 +2213,6 @@ function renderSources(){
         <span class="chip" style="background:${s.ok?cssv("--r1-wash"):cssv("--r2-wash")};color:${s.ok?cssv("--r1"):cssv("--r2")}">${s.ok?"live":"degraded"}</span>
       </div>
     </div>`).join("");
-}
-
-/* ---------- 16. API contract --------------------------------------------- */
-const API_TABS=[
-  {id:"forecast", label:"GET /v1/forecast"},
-  {id:"ward",     label:"GET /v1/ward/{code}"},
-  {id:"broadcast",label:"POST /v1/broadcast"},
-  {id:"webhook",  label:"webhook payload"}
-];
-function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function hl(json){
-  return esc(json)
-    .replace(/"([^"]+)":/g,'"<span class="k">$1</span>":')
-    .replace(/: "([^"]*)"/g,': "<span class="s">$1</span>"')
-    .replace(/: (-?\d+\.?\d*)/g,': <span class="n">$1</span>')
-    .replace(/: (true|false)/g,': <span class="n">$1</span>')
-    .replace(/(\/\/[^\n]*)/g,'<span class="c">$1</span>');
-}
-function renderApi(){
-  document.getElementById("apiTabs").innerHTML=API_TABS.map(t=>
-    `<button class="tab${t.id===S.api?" on":""}" data-t="${t.id}">${t.label}</button>`).join("");
-  document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{S.api=b.dataset.t;renderApi();}));
-
-  const w=W.find(x=>x.name===S.ward), b=band(w.htsi), C=CITIES[S.city];
-  const body={
-    forecast:
-`GET /v1/forecast?city=${S.city}&horizon=${S.day}&res=ward
-Authorization: Bearer <service-token>
-
-{
-  "city": "${C.name}", "issued_at": "${new Date().toISOString().slice(0,19)}Z",
-  "source": "${(S.server&&S.server.provenance&&S.server.provenance.source)||(sourceMode()==="live"?"open-meteo:hourly":"scenario:may-peak")}",
-  "valid_for": "${dateFor(S.day)}",\n  "model": "open-meteo + h3-downscale + htsi-v2.4",\n  "mortality_model": "parametric exposure-response, not fitted",
-  "city_index": { "htsi": ${cityHTSI().toFixed(1)}, "band": "${b.label}", "code": "${band(cityHTSI()).code}" },
-  "projection": {
-    "excess_deaths": ${FC[S.day].deaths.toFixed(1)},
-    "ed_presentations": ${Math.round(FC[S.day].ed)},
-    "wards_over_threshold": ${W.filter(x=>x.htsi>=65).length}
-  },
-  "wards": [ /* ${W.length} objects, see /v1/ward/{code} */ ]
-}`,
-    ward:
-`GET /v1/ward/${w.code}
-
-{
-  "code": "${w.code}", "name": "${w.name}", "population": ${w.pop},
-  "weather": { "tmax_c": ${w.tmax.toFixed(1)}, "tmin_c": ${w.tmin.toFixed(1)},
-               "rh_pct": ${w.rh.toFixed(0)}, "wind_ms": ${w.wind.toFixed(1)},
-               "solar_wm2": ${w.solar.toFixed(0)}, "uhi_delta_c": ${w.uhi.toFixed(1)} },
-  "indices": { "wbgt_c": ${w.wbgt.toFixed(1)}, "utci_c": ${w.utci.toFixed(1)},
-               "heat_index_c": ${w.hi.toFixed(1)}, "wet_bulb_c": ${w.tw.toFixed(1)},
-               "htsi": ${w.htsi.toFixed(1)}, "band": "${b.label}" },
-  "risk": { "mortality_index": ${w.mri.toFixed(0)}, "relative_risk": ${w.RR.toFixed(3)},
-            "vulnerability": ${w.vuln.toFixed(3)}, "excess_deaths": ${w.deaths.toFixed(2)},
-            "ed_presentations": ${Math.round(w.ed)} },
-  "capacity": { "cooling_centres": ${w.coolingCentres}, "hospital_beds": ${w.beds}, "asha_workers": ${w.asha} }
-}`,
-    broadcast:
-`POST /v1/broadcast
-Content-Type: application/json
-
-{
-  "city": "${S.city}",
-  "horizon": ${S.day},
-  "audience": "outdoor_workers",
-  "channels": ["sms", "whatsapp"],
-  "language": "${S.lang}",
-  "ward_codes": [${targetWards().slice(0,3).map(x=>'"'+x.code+'"').join(", ")}],
-  "mode": "${cmdMode()}",
-  "actor": "Control room",
-  "dry_run": true
-}
-
-// 202 Accepted — recorded as a dry run; nothing is sent
-{ "job_id": "bc_3f9a0c41d2e7", "status": "simulated", "severity": "${band(cityHTSI()).code}",
-  "data_basis": "${S.mode==="scenario"?"drill scenario":isLiveSource(sourceMode())?"live forecast":"scenario — no live forecast"}",
-  "recipients": ${Math.round((targetWards().length?targetWards().slice(0,3).reduce((s,x)=>s+x.pop,0):C.pop)*0.09)},
-  "audience_basis": "census share estimate",
-  "encoding": "${smsParts(compose()).encoding}", "segments": ${smsParts(compose()).segments} }
-
-// "dry_run": false → 501: delivery is not built yet. It must first pass an
-// X-Taapmaan-Token (401), live data (409) and a configured provider (503).`,
-    webhook:
-`// Registered city-administration webhook. Fires the moment a ward
-// crosses a Heat Action Plan trigger threshold.
-
-POST https://${S.city}.gov.in/hooks/heat
-X-Taapmaan-Signature: sha256=<hmac>
-
-{
-  "event": "hap.trigger.crossed",
-  "trigger": "shift_outdoor_work_hours",
-  "threshold_htsi": 65,
-  "ward": { "code": "${w.code}", "name": "${w.name}", "htsi": ${w.htsi.toFixed(1)} },
-  "actions": ["open_cooling_centres", "notify_labour_inspectors", "grid_priority_feeders"],
-  "expires_at": "${new Date(Date.now()+864e5).toISOString().slice(0,19)}Z"
-}`
-  }[S.api];
-  document.getElementById("apiCode").innerHTML=hl(body);
 }
 
 /* ---------- 17. Broadcast composer --------------------------------------- */
@@ -2798,7 +2684,7 @@ function renderGaps(){
       ${as.slice(0,5).map(w=>`<button class="gap-r" ${go(w.name)}><span>${h(w.name)}</span><span>${w.days_to_reach_all==null?"—":w.days_to_reach_all.toFixed(1)+" days"} · ${w.asha_workers} ASHAs</span></button>`).join("")}
       <p>Days for the ward's ASHA workers to visit every resident aged 60+, assuming ${h(g.asha_reach.assumption)}. Beds, cooling centres and ASHA counts are modelled until the municipal register is joined.</p></div>`;
   document.querySelectorAll("#gapList .gap-r").forEach(b=>b.addEventListener("click",()=>{
-    S.ward=b.dataset.ward; setView("monitor"); renderMap(); renderWard(); renderRank(); renderHourly(); renderApi();
+    S.ward=b.dataset.ward; setView("monitor"); renderMap(); renderWard(); renderRank(); renderHourly();
     document.getElementById("wardPanel").scrollIntoView({behavior:"smooth",block:"center"});
   }));
 }
@@ -2849,7 +2735,7 @@ function refresh(){
   recompute(); renderSource();
   renderRibbon(); renderTiles(); renderRail(); renderMap(); renderWard();
   renderAlerts(); renderHap(); renderDays(); renderForecast(); renderRank();
-  renderHourly(); renderSources(); renderApi(); renderClim(); renderMl();
+  renderHourly(); renderSources(); renderClim(); renderMl();
   scheduleCommand();
   const stamp=S.net.at?S.net.at.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",hour12:false}):"—";
   const src=sourceMode();
@@ -3146,8 +3032,6 @@ select.pick:focus,.op input:focus{border-color:var(--brand);box-shadow:0 0 0 3px
 .rk{padding:9px 18px}
 .rk:hover,.gap-r:hover{background:var(--brand-wash)}
 .src-i{padding:12px 18px}
-pre.code{border-radius:10px}
-.tab.on{background:var(--brand-wash);border-color:color-mix(in srgb,var(--brand) 35%,transparent);color:var(--brand-ink)}
 
 /* command centre */
 .drill{border:1px solid var(--r2-line);background:var(--r2-wash);color:var(--r2-ink);border-radius:10px;padding:11px 16px;font-size:13px}
